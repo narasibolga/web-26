@@ -1,0 +1,16 @@
+{
+  "brand": "NaraSibolga",
+  "menu": "Menu",
+  "logoAlt": "Logo Narasibolga",
+  "pathfinder": "Pathfinder",
+  "languages": {
+    "english": "Inggris",
+    "indonesian": "Bahasa Indonesia"
+  },
+  "links": {
+    "map": "Peta",
+    "about": "Tentang",
+    "footer": "Footer",
+    "stories": "Kisah"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "heading": "Adventure Awaits",
+  "cta": "View Resort Activities",
+  "explore": "Explore",
+  "cards": {
+    "0": {
+      "title": "Hiking & Adventure",
+      "alt": "Hiking and outdoor adventure"
+    },
+    "1": { "title": "On The Lake", "alt": "Activities on the lake" },
+    "2": { "title": "Outdoor Sports", "alt": "Outdoor sports" },
+    "3": {
+      "title": "Family & Leisure",
+      "alt": "Family and leisure activities"
+    },
+    "4": { "title": "Wellness", "alt": "Wellness and relaxation" }
+  }
+}

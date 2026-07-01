@@ -1,0 +1,18 @@
+{
+  "heading": "Petualangan Menanti",
+  "cta": "Lihat Aktivitas Resor",
+  "explore": "Jelajahi",
+  "cards": {
+    "0": {
+      "title": "Mendaki & Petualangan",
+      "alt": "Mendaki dan petualangan luar"
+    },
+    "1": { "title": "Di Danau", "alt": "Aktivitas di danau" },
+    "2": { "title": "Olahraga Luar", "alt": "Olahraga luar" },
+    "3": {
+      "title": "Keluarga & Rekreasi",
+      "alt": "Aktivitas keluarga dan rekreasi"
+    },
+    "4": { "title": "Kesejahteraan", "alt": "Kesejahteraan dan relaksasi" }
+  }
+}

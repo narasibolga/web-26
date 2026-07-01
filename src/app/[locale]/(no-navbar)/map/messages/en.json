@@ -1,0 +1,16 @@
+{
+  "title": "Sibolga Map",
+  "subtitle": "Explore key locations around Sibolga",
+  "hint": "Select a location to see details",
+  "backHome": "Back to Home",
+  "noLocations": "No locations added yet.",
+  "mapLoading": "Loading map...",
+  "mapError": "The map could not be loaded. Check your internet connection.",
+  "kategori": {
+    "wisata": "Sightseeing",
+    "kuliner": "Culinary",
+    "penginapan": "Stay",
+    "sejarah": "History",
+    "alam": "Nature"
+  }
+}
