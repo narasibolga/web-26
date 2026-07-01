@@ -18,6 +18,7 @@ import {
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import {
   categoryColor,
+  categoryIcon,
   categoryOrder,
   type LocationCategory,
   locations,
@@ -118,7 +119,7 @@ export function MapPageClient() {
                               />
                             }
                             className={cn(
-                              "uppercase",
+                              "h-6 uppercase",
                               isActive
                                 ? "border-secondary-foreground bg-secondary-foreground/15 text-secondary-foreground"
                                 : "border-secondary-foreground/30 text-secondary-foreground/70 hover:bg-secondary-foreground/10 hover:text-secondary-foreground",
@@ -126,9 +127,14 @@ export function MapPageClient() {
                           >
                             <span
                               aria-hidden="true"
-                              className="h-1.5 w-1.5 rounded-[1px]"
+                              className="flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-full text-background"
                               style={{ backgroundColor: categoryColor[cat] }}
-                            />
+                            >
+                              <HugeiconsIcon
+                                icon={categoryIcon[cat]}
+                                size={12}
+                              />
+                            </span>
                             {t(`kategori.${cat}`)}
                           </Badge>
                         );

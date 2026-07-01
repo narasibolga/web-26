@@ -1,6 +1,7 @@
 "use client";
 
 import "maplibre-gl/dist/maplibre-gl.css";
+import { HugeiconsIcon } from "@hugeicons/react";
 import { LngLat } from "maplibre-gl";
 import { useTranslations } from "next-intl";
 import { useEffect, useRef } from "react";
@@ -14,7 +15,12 @@ import {
   Source,
   TerrainControl,
 } from "react-map-gl/maplibre";
-import { BAY_CENTER, categoryColor, type Location } from "@/lib/locations";
+import {
+  BAY_CENTER,
+  categoryColor,
+  categoryIcon,
+  type Location,
+} from "@/lib/locations";
 
 const OPENFREEMAP_STYLE = "https://tiles.openfreemap.org/styles/positron";
 const TERRAIN_SOURCE_ID = "terrarium-dem";
@@ -207,13 +213,17 @@ export function MapView({
             <button
               type="button"
               style={{ backgroundColor: color }}
-              className={`flex cursor-pointer items-center justify-center rounded-full ring-1 ring-background transition-all duration-200 ease-out motion-reduce:transition-none ${
+              className={`flex cursor-pointer items-center justify-center rounded-full text-background ring-1 ring-background transition-all duration-200 ease-out motion-reduce:transition-none ${
                 isActive
-                  ? "h-5 w-5 ring-2 ring-background"
-                  : "h-3 w-3 hover:h-4 hover:ring-2"
+                  ? "h-8 w-8 ring-2 ring-background"
+                  : "h-6 w-6 hover:h-7 hover:ring-2"
               }`}
               aria-label={location.name[locale]}
             >
+              <HugeiconsIcon
+                icon={categoryIcon[location.category]}
+                size={isActive ? 18 : 14}
+              />
               <span
                 aria-hidden="true"
                 style={{ borderColor: color }}

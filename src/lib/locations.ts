@@ -1,3 +1,12 @@
+import {
+  BedIcon,
+  Building04Icon,
+  Camera01Icon,
+  Tree01Icon,
+  Utensils,
+} from "@hugeicons/core-free-icons";
+import type { IconSvgElement } from "@hugeicons/react";
+
 export const BAY_CENTER = { lat: 1.7431, lng: 98.7833 };
 
 function toDMS(value: number, isLat: boolean): string {
@@ -25,6 +34,14 @@ export const categoryColor: Record<LocationCategory, string> = {
   kuliner: "oklch(0.65 0.13 50)",
   penginapan: "oklch(0.5 0.1 260)",
   sejarah: "oklch(0.6 0.08 85)",
+};
+
+export const categoryIcon: Record<LocationCategory, IconSvgElement> = {
+  alam: Tree01Icon,
+  wisata: Camera01Icon,
+  kuliner: Utensils,
+  penginapan: BedIcon,
+  sejarah: Building04Icon,
 };
 
 export const categoryOrder: LocationCategory[] = [

@@ -68,6 +68,7 @@ export async function Footer({ locale }: Props) {
                   <Button
                     variant="link"
                     size="xs"
+                    nativeButton={false}
                     className="h-auto w-fit p-0 text-muted-foreground text-xs"
                     render={<Link href={link.href} target="_blank" />}
                   >

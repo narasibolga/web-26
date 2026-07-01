@@ -1,7 +1,8 @@
 "use client";
 
+import { HugeiconsIcon } from "@hugeicons/react";
 import { useTranslations } from "next-intl";
-import { categoryColor, type Location } from "@/lib/locations";
+import { categoryColor, categoryIcon, type Location } from "@/lib/locations";
 
 type LocationCardProps = {
   location: Location;
@@ -38,17 +39,21 @@ export function LocationCard({
             : "bg-transparent group-hover:bg-secondary-foreground/30"
         }`}
       />
-      <span className="flex flex-col gap-1">
-        <span className="font-serif text-base text-secondary-foreground leading-snug">
-          {location.name[locale]}
+      <span className="flex flex-row items-center gap-3">
+        <span
+          aria-hidden="true"
+          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-background"
+          style={{ backgroundColor: categoryColor[location.category] }}
+        >
+          <HugeiconsIcon icon={categoryIcon[location.category]} size={22} />
         </span>
-        <span className="flex items-center gap-1.5 font-sans text-secondary-foreground/70 text-xs uppercase">
-          <span
-            aria-hidden="true"
-            className="h-1.5 w-1.5 rounded-[1px]"
-            style={{ backgroundColor: categoryColor[location.category] }}
-          />
-          {t(`kategori.${location.category}`)}
+        <span className="flex flex-col gap-1">
+          <span className="font-serif text-base text-secondary-foreground leading-snug">
+            {location.name[locale]}
+          </span>
+          <span className="font-sans text-secondary-foreground/70 text-xs uppercase">
+            {t(`kategori.${location.category}`)}
+          </span>
         </span>
       </span>
     </button>

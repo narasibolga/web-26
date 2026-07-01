@@ -1,0 +1,17 @@
+{
+  "heading": "One destination, two journeys",
+  "description": "Discover the magic of our Victorian castle resort whichever way you choose. Join us on the mountain for a day of relaxation and adventure, or stay overnight to fully immerse yourself in everything Mohonk has to offer. Whatever your choice, our Hudson Valley resort provides a warm, welcoming escape, full of opportunities to connect — with loved ones, with nature, and with yourself.",
+  "imageAlt": "Boats on the water",
+  "cards": {
+    "0": {
+      "title": "Stay Experience",
+      "description": "Indulge in the full resort experience with charming accommodations, gourmet meals, countless activities, and additional exclusive amenities.",
+      "cta": "Learn More"
+    },
+    "1": {
+      "title": "Day Experience",
+      "description": "Enjoy access to our beautiful grounds for the day, including outdoor activities, dining options, and evening entertainment. Choose from a variety of packages.",
+      "cta": "Learn More"
+    }
+  }
+}
