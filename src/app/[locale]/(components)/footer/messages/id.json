@@ -1,11 +1,16 @@
 {
-  "tagline": "Berakar Lokal, Diakui Global",
   "copyright": "© 2026 Narasibolga",
   "logoLabel": "Lambang Narasibolga",
+  "headings": {
+    "pages": "Halaman",
+    "socialMedia": "Media Sosial"
+  },
   "links": {
     "map": "Peta",
     "about": "Tentang",
     "stories": "Kisah",
-    "pathfinder": "Pathfinder"
+    "pathfinder": "Pathfinder",
+    "instagram": "Instagram",
+    "tiktok": "TikTok"
   }
 }

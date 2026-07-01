@@ -1,11 +1,14 @@
 {
-  "title": "Peta Sibolga",
-  "subtitle": "Jelajahi lokasi penting di sekitar Sibolga",
-  "hint": "Pilih lokasi untuk melihat detail",
+  "title": "Jelajahi Sibolga",
   "backHome": "Kembali ke Beranda",
-  "noLocations": "Belum ada lokasi yang ditambahkan.",
+  "noLocations": "Belum ada titik lain.",
+  "noMatchesTitle": "Tidak ada hasil",
+  "noMatchesDescription": "Hapus filter untuk melihat semua lokasi.",
+  "resetFilter": "Atur ulang filter",
   "mapLoading": "Memuat peta...",
   "mapError": "Peta tidak dapat dimuat. Periksa koneksi internet Anda.",
+  "backToList": "Kembali ke daftar",
+  "viewInGoogleMaps": "Lihat di Google Maps",
   "kategori": {
     "wisata": "Wisata",
     "kuliner": "Kuliner",

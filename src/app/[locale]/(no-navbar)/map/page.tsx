@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { Suspense } from "react";
 import { routing } from "@/i18n/routing";
 import { locations } from "@/lib/locations";
 import { MapPageClient } from "./components/map-page-client";
@@ -18,14 +19,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: t("title"),
-    description: t("subtitle"),
+    description: t("title"),
     alternates: {
       canonical: url,
       languages: Object.fromEntries(
         routing.locales.map((l) => [l, `https://narasibolga.id/${l}/map`]),
       ),
     },
-    openGraph: { title: t("title"), description: t("subtitle"), url },
+    openGraph: { title: t("title"), description: t("title"), url },
   };
 }
 
@@ -57,7 +58,9 @@ export default async function MapPage({ params }: Props) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       )}
-      <MapPageClient />
+      <Suspense fallback={null}>
+        <MapPageClient />
+      </Suspense>
     </div>
   );
 }

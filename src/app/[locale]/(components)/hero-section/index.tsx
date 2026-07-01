@@ -15,12 +15,13 @@ export async function Hero({ locale }: Props) {
       >
         <div className="absolute inset-0 z-0">
           <video
+            aria-label={t("videoLabel")}
             autoPlay
             muted
             loop
             playsInline
             preload="auto"
-            className="h-full w-full object-cover"
+            className="pointer-events-none h-full w-full select-none object-cover"
           >
             <source src="/hero.mp4" type="video/mp4" />
           </video>

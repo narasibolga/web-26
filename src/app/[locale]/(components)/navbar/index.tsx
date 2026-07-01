@@ -80,7 +80,7 @@ export const Navbar = () => {
             <Button variant="transparent" className="max-sm:hidden">
               <Link href="/map">{t("links.map")}</Link>
             </Button>
-            <Button variant="secondary" className="px-6">
+            <Button variant="tertiary" className="px-6">
               <Link href="/pathfinder">{t("pathfinder")}</Link>
             </Button>
           </div>

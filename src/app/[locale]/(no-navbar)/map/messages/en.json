@@ -1,11 +1,14 @@
 {
-  "title": "Sibolga Map",
-  "subtitle": "Explore key locations around Sibolga",
-  "hint": "Select a location to see details",
+  "title": "Discover Sibolga",
   "backHome": "Back to Home",
-  "noLocations": "No locations added yet.",
+  "noLocations": "No other points yet.",
+  "noMatchesTitle": "No matches",
+  "noMatchesDescription": "Clear the filters to see all locations.",
+  "resetFilter": "Reset filter",
   "mapLoading": "Loading map...",
   "mapError": "The map could not be loaded. Check your internet connection.",
+  "backToList": "Back to list",
+  "viewInGoogleMaps": "View in Google Maps",
   "kategori": {
     "wisata": "Sightseeing",
     "kuliner": "Culinary",

@@ -1,11 +1,16 @@
 {
-  "tagline": "Locally Rooted, Globally Respected",
   "copyright": "© 2026 Narasibolga",
   "logoLabel": "Narasibolga emblem",
+  "headings": {
+    "pages": "Pages",
+    "socialMedia": "Social Media"
+  },
   "links": {
     "map": "Map",
     "about": "About",
     "stories": "Stories",
-    "pathfinder": "Pathfinder"
+    "pathfinder": "Pathfinder",
+    "instagram": "Instagram",
+    "tiktok": "TikTok"
   }
 }
