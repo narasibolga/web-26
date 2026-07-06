@@ -11,7 +11,7 @@ export async function CheckboardSection({ locale }: Props) {
   const t = await getTranslations({ locale, namespace: "checkboard-section" });
 
   return (
-    <section className="grid grid-cols-1 md:grid-cols-2">
+    <section className="grid min-h-screen grid-cols-1 md:grid-cols-2">
       <div className="relative min-h-100">
         <Image
           src="/images/island-edge.webp"

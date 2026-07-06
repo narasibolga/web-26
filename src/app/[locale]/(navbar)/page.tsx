@@ -1,11 +1,11 @@
 import { setRequestLocale } from "next-intl/server";
 import { AdventureSection } from "../(components)/adventure-section";
+import { CheckboardSection } from "../(components)/checkboard-section";
+import { ExperienceSection } from "../(components)/experience-section";
 import { Footer } from "../(components)/footer";
 import { Hero } from "../(components)/hero-section";
 import { HistorySection } from "../(components)/history-section";
 import { InstagramSection } from "../(components)/instagram-section";
-import { ExperienceSection } from "../(components)/experience-section";
-import { CheckboardSection } from "../(components)/checkboard-section";
 
 type Props = { params: Promise<{ locale: string }> };
 

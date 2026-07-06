@@ -1,0 +1,14 @@
+{
+  "title": "Pathfinder",
+  "progress": "{n} of {total} Questions",
+  "next": "Next",
+  "previous": "Previous",
+  "submitConfirmTitle": "Submit your answers?",
+  "submitConfirmDescription": "We'll match your mood to places around Sibolga.",
+  "submit": "Submit",
+  "back": "Back",
+  "resultsTitle": "Where your mood takes you",
+  "resultsDescription": "Here are the places in Sibolga that fit you best.",
+  "openInMap": "Open in map",
+  "retake": "Retake the quiz"
+}

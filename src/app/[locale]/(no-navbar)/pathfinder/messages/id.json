@@ -1,0 +1,14 @@
+{
+  "title": "Pathfinder",
+  "progress": "{n} dari {total} Pertanyaan",
+  "next": "Lanjut",
+  "previous": "Sebelumnya",
+  "submitConfirmTitle": "Kirim jawabanmu?",
+  "submitConfirmDescription": "Kami akan mencocokkan suasana hatimu dengan tempat-tempat di Sibolga.",
+  "submit": "Kirim",
+  "back": "Kembali",
+  "resultsTitle": "Ke mana suasana hatimu membawamu",
+  "resultsDescription": "Ini tempat-tempat di Sibolga yang paling cocok untukmu.",
+  "openInMap": "Buka di peta",
+  "retake": "Ulangi kuis"
+}

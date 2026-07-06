@@ -75,13 +75,23 @@ export const Navbar = () => {
               onClick={() => setIsMenuOpen((prev) => !prev)}
             >
               <MenuIcon isOpen={isMenuOpen} />
-              {t("menu")}
+              <span className="max-sm:hidden">{t("menu")}</span>
             </Button>
-            <Button variant="transparent" className="max-sm:hidden">
-              <Link href="/map">{t("links.map")}</Link>
+            <Button
+              variant="transparent"
+              nativeButton={false}
+              render={<Link href="/map" />}
+              className="max-sm:hidden"
+            >
+              {t("links.map")}
             </Button>
-            <Button variant="tertiary" className="px-6">
-              <Link href="/pathfinder">{t("pathfinder")}</Link>
+            <Button
+              variant="tertiary"
+              nativeButton={false}
+              className="px-6 max-sm:hidden"
+              render={<Link href="/pathfinder" />}
+            >
+              {t("pathfinder")}
             </Button>
           </div>
         </div>
@@ -100,7 +110,7 @@ export const Navbar = () => {
               damping: 38,
               mass: 0.9,
             }}
-            className="fixed inset-0 z-40 flex flex-col items-center justify-center overflow-hidden bg-primary px-6 pt-50 pb-8"
+            className="fixed inset-0 z-40 flex flex-col items-center justify-center overflow-hidden bg-primary px-6 pb-8 sm:pt-50"
           >
             <button
               type="button"
@@ -123,7 +133,7 @@ export const Navbar = () => {
               </span>
             </button>
 
-            <div className="group mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
+            <div className="group mt-10 flex max-w-lg flex-wrap items-center justify-center gap-x-8 gap-y-4">
               {menuLinks.map((link) => (
                 <Link
                   key={link.href}
@@ -145,7 +155,7 @@ export const Navbar = () => {
             <Container className="hidden gap-4 py-0 md:mt-auto md:flex md:w-full md:flex-col md:items-center">
               <div className="flex flex-col items-center gap-2">
                 <span className="text-background/70 text-xs uppercase tracking-[0.2em]">
-                  © 2026 Narasibolga
+                  © 2026 KKN PPM UGM NaraSibolga
                 </span>
 
                 <p className="font-extralight font-serif text-background/70 text-xl italic">
