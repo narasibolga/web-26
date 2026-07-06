@@ -8,9 +8,8 @@
     "indonesian": "Indonesian"
   },
   "links": {
+    "home": "Home",
     "map": "Map",
-    "about": "About",
-    "footer": "Footer",
-    "stories": "Stories"
+    "history": "History"
   }
 }

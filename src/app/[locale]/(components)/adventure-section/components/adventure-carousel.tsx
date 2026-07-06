@@ -9,42 +9,17 @@ import {
   useCarousel,
 } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
-import { AdventureCard } from "./adventure-card";
+import { AdventureCard, type AdventureCardProps } from "./adventure-card";
 
-const items = [
-  {
-    title: "Pelabuhan Lama",
-    imageSrc:
-      "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=800&q=80",
-    imageAlt: "Hiking adventure",
-  },
-  {
-    title: "Pulau Poncan",
-    imageSrc:
-      "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80",
-    imageAlt: "Lake activities",
-  },
-  {
-    title: "Kalimantung",
-    imageSrc:
-      "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=800&q=80",
-    imageAlt: "Outdoor sports",
-  },
-  {
-    title: "Porambongan",
-    imageSrc:
-      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80",
-    imageAlt: "Family leisure",
-  },
-  {
-    title: "Kontrakan Narasibolga",
-    imageSrc:
-      "https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=800&q=80",
-    imageAlt: "Wellness",
-  },
-];
+type AdventureCarouselProps = {
+  items: Pick<AdventureCardProps, "title" | "imageSrc" | "imageAlt" | "href">[];
+  exploreLabel: string;
+};
 
-export function AdventureCarousel() {
+export function AdventureCarousel({
+  items,
+  exploreLabel,
+}: AdventureCarouselProps) {
   return (
     <Carousel
       opts={{
@@ -67,8 +42,8 @@ export function AdventureCarousel() {
               title={item.title}
               imageSrc={item.imageSrc}
               imageAlt={item.imageAlt}
-              href="/activities"
-              exploreLabel="Explore"
+              href={item.href}
+              exploreLabel={exploreLabel}
             />
           </CarouselItem>
         ))}

@@ -28,7 +28,7 @@ export async function ExperienceSection({ locale }: Props) {
         <SectionHeading className="max-w-sm text-white">
           {t("heading")}
         </SectionHeading>
-        <p className="max-w-lg">{t("description")}</p>
+        <p className="max-w-lg font-heading">{t("description")}</p>
 
         <div className="mt-8 grid w-full max-w-xl grid-cols-1 gap-4 md:grid-cols-2">
           <div className="flex flex-col items-center gap-6 rounded-2xl bg-secondary p-8 text-primary-foreground">

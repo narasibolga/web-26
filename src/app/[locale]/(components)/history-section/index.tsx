@@ -33,7 +33,7 @@ export async function HistorySection({ locale }: Props) {
           variant="secondary"
           nativeButton={false}
           className="mt-8 border-white bg-transparent px-8 text-white uppercase hover:bg-white/10"
-          render={<Link href="/pathfinder" />}
+          render={<Link href="/history" />}
         >
           {t("button")}
           <HugeiconsIcon icon={ArrowRight01Icon} className="ml-2 size-4" />

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Suspense } from "react";
 import { routing } from "@/i18n/routing";
 import { locations } from "@/lib/locations";
 import { MapPageClient } from "./components/map-page-client";
@@ -58,9 +57,7 @@ export default async function MapPage({ params }: Props) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       )}
-      <Suspense fallback={null}>
-        <MapPageClient />
-      </Suspense>
+      <MapPageClient />
     </div>
   );
 }

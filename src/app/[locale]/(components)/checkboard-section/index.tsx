@@ -14,7 +14,7 @@ export async function CheckboardSection({ locale }: Props) {
     <section className="grid min-h-screen grid-cols-1 md:grid-cols-2">
       <div className="relative min-h-100">
         <Image
-          src="/images/island-edge.webp"
+          src="/images/port.webp"
           alt={t("imageAlt")}
           fill
           className="object-cover"
@@ -23,26 +23,26 @@ export async function CheckboardSection({ locale }: Props) {
       </div>
 
       <div className="flex flex-col items-center justify-center gap-6 bg-primary px-4 py-20 text-center text-primary-foreground md:py-24">
-        <SectionHeading>{t("heading")}</SectionHeading>
-        <p className="max-w-md">{t("description")}</p>
+        <SectionHeading>{t("panels.0.heading")}</SectionHeading>
+        <p className="max-w-md">{t("panels.0.description")}</p>
         <Button
           variant="outline"
           nativeButton={false}
-          render={<Link href="/" />}
+          render={<Link href="/map" />}
         >
-          {t("cta")}
+          {t("panels.0.cta")}
         </Button>
       </div>
 
       <div className="flex flex-col items-center justify-center gap-6 bg-background px-4 py-20 text-center text-foreground md:py-24">
-        <SectionHeading>{t("heading")}</SectionHeading>
-        <p className="max-w-md">{t("description")}</p>
+        <SectionHeading>{t("panels.1.heading")}</SectionHeading>
+        <p className="max-w-md">{t("panels.1.description")}</p>
         <Button
           variant="default"
           nativeButton={false}
-          render={<Link href="/" />}
+          render={<Link href="/pathfinder" />}
         >
-          {t("cta")}
+          {t("panels.1.cta")}
         </Button>
       </div>
 

@@ -6,7 +6,7 @@ export type AdventureCardProps = {
   title: string;
   imageSrc: string;
   imageAlt: string;
-  href: string;
+  href: React.ComponentProps<typeof Link>["href"];
   exploreLabel: string;
 };
 

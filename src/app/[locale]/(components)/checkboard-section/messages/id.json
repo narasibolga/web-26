@@ -1,6 +1,15 @@
 {
-  "heading": "Area Pilot",
-  "description": "Beroperasi di La Caminera sederhana secara definisi. Landasan pribadi dengan hanggar, bahan bakar Jet A-1 di lokasi, bantuan darat untuk memastikan kedatangan dan keberangkatan yang gesit, aman, dan tertutup. Efisiensi dan ketenangan menjadi bagian dari lingkungan.",
-  "cta": "Dokumentasi",
-  "imageAlt": "Jet pribadi"
+  "imageAlt": "Pelabuhan Sibolga",
+  "panels": [
+    {
+      "heading": "Dari Pulau ke Daratan",
+      "description": "Telusuri rute tepi air yang pernah dilalui Belanda saat memindahkan perdagangan dari Poncan Ketek ke Bandar Baru.",
+      "cta": "Jelajahi Peta"
+    },
+    {
+      "heading": "Temukan Jalurmu",
+      "description": "Biarkan suasana pantai membawamu ke tempat-tempat di Sibolga yang cocok dengan perasaan yang ingin kamu rasakan.",
+      "cta": "Ikuti Pathfinder"
+    }
+  ]
 }

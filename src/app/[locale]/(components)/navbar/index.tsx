@@ -10,10 +10,9 @@ import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 
 const menuLinks = [
+  { key: "home", href: "/" },
   { key: "map", href: "/map" },
-  { key: "about", href: "/about" },
-  { key: "footer", href: "#footer" },
-  { key: "stories", href: "/stories" },
+  { key: "history", href: "/history" },
 ] as const;
 
 export const Navbar = () => {
@@ -138,6 +137,7 @@ export const Navbar = () => {
                 <Link
                   key={link.href}
                   href={link.href}
+                  onClick={() => setIsMenuOpen(false)}
                   className="font-serif text-4xl text-background transition-opacity hover:opacity-100 group-hover:opacity-50 md:text-5xl"
                 >
                   {t(`links.${link.key}`)}
@@ -149,7 +149,9 @@ export const Navbar = () => {
               variant="secondary"
               className="mt-12 rounded-full border-0 px-6 font-medium text-sm tracking-wide"
             >
-              <Link href="/pathfinder">{t("pathfinder")}</Link>
+              <Link href="/pathfinder" onClick={() => setIsMenuOpen(false)}>
+                {t("pathfinder")}
+              </Link>
             </Button>
 
             <Container className="hidden gap-4 py-0 md:mt-auto md:flex md:w-full md:flex-col md:items-center">

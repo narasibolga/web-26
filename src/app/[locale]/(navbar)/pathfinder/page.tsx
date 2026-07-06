@@ -36,7 +36,7 @@ export default async function PathfinderPage({ params }: Props) {
   setRequestLocale(locale);
 
   return (
-    <main className="min-h-screen bg-secondary">
+    <main className="min-h-[calc(100vh-88px)] bg-secondary md:min-h-[calc(100vh-168px)]">
       <PathfinderClient />
     </main>
   );

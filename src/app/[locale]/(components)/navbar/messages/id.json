@@ -8,9 +8,8 @@
     "indonesian": "Bahasa Indonesia"
   },
   "links": {
+    "home": "Beranda",
     "map": "Peta",
-    "about": "Tentang",
-    "footer": "Footer",
-    "stories": "Kisah"
+    "history": "Sejarah"
   }
 }

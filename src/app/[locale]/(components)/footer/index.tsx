@@ -8,8 +8,7 @@ type Props = { locale: string };
 
 const pageLinks = [
   { key: "map", href: "/map" },
-  { key: "about", href: "/about" },
-  { key: "stories", href: "/stories" },
+  { key: "history", href: "/history" },
   { key: "pathfinder", href: "/pathfinder" },
 ] as const;
 

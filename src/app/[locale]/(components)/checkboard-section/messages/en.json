@@ -1,6 +1,15 @@
 {
-  "heading": "Pilots Area",
-  "description": "Operating at La Caminera is simple by definition. A private runway, with a hangar, Jet A-1 fuel on site, ground assistance to ensure agile, safe, and discreet arrivals and departures. Efficiency and calm are part of the environment.",
-  "cta": "Documentation",
-  "imageAlt": "Private jet"
+  "imageAlt": "Sibolga harbor",
+  "panels": [
+    {
+      "heading": "From Island to Mainland",
+      "description": "Walk the same waterfront route the Dutch once took when they moved trade from Poncan Ketek to Bandar Baru.",
+      "cta": "Explore the Map"
+    },
+    {
+      "heading": "Find Your Own Path",
+      "description": "Let the mood of the coast guide you to the places in Sibolga that match how you want to feel.",
+      "cta": "Take the Pathfinder"
+    }
+  ]
 }

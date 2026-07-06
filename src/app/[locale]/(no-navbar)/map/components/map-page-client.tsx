@@ -26,6 +26,7 @@ import {
 import { cn } from "@/lib/utils";
 import { LocationCard } from "./location-card";
 import { LocationDetail } from "./location-detail";
+import { MapNavPanel } from "./map-nav-panel";
 
 const MapView = dynamic(() => import("./map-view").then((m) => m.MapView), {
   ssr: false,
@@ -71,8 +72,8 @@ export function MapPageClient() {
   const selectedLocation = locations.find((l) => l.id === selectedId) ?? null;
 
   return (
-    <main className="flex min-h-0 flex-1 flex-col overflow-hidden lg:flex-row">
-      <aside className="relative z-10 h-[45%] shrink-0 overflow-hidden border-secondary-foreground/15 border-b bg-secondary text-secondary-foreground lg:h-full lg:w-85 lg:border-r lg:border-b-0">
+    <main className="relative flex min-h-0 flex-1 flex-col overflow-hidden lg:flex-row">
+      <MapNavPanel>
         <div className="flex h-full min-w-0 flex-col">
           {selectedLocation ? (
             <LocationDetail
@@ -179,7 +180,7 @@ export function MapPageClient() {
             </>
           )}
         </div>
-      </aside>
+      </MapNavPanel>
       <div className="relative min-h-0 flex-1">
         <MapView
           locations={filteredLocations}
