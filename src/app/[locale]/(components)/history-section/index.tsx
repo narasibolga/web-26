@@ -13,7 +13,7 @@ export async function HistorySection({ locale }: Props) {
   const t = await getTranslations({ locale, namespace: "history-section" });
 
   return (
-    <Container className="relative items-center justify-center overflow-hidden">
+    <Container className="relative min-h-[50vh] items-center justify-center overflow-hidden">
       <Image
         src="/mohonk-history.jpg"
         alt={t("imageAlt")}

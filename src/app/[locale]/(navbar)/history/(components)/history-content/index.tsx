@@ -93,10 +93,10 @@ export async function HistoryContent({ locale }: Props) {
       </section>
 
       <section className="bg-background">
-        <Container className="relative gap-16">
-          <div className="relative z-10 mx-auto w-fit bg-background px-6 py-2 text-center md:px-10">
-            <SectionHeading>{t("timeline.heading")}</SectionHeading>
-          </div>
+        <Container className="relative">
+          <SectionHeading className="mb-8 text-center">
+            {t("timeline.heading")}
+          </SectionHeading>
           {/* Desktop center line */}
           <div className="-translate-x-1/2 absolute top-40 bottom-0 left-1/2 hidden w-px bg-border md:block" />
 
@@ -112,7 +112,7 @@ export async function HistoryContent({ locale }: Props) {
                   {/* Mobile timeline */}
                   <div className="absolute top-0 bottom-0 left-8 w-px bg-border md:hidden" />
                   <div className="-translate-x-1/2 -translate-y-1/2 absolute top-1/2 left-8 z-10 h-3 w-3 rounded-full bg-primary md:hidden" />
-                  <div className="-translate-y-1/2 absolute top-1/2 left-10 z-10 rounded-full border border-border bg-white px-2.5 py-1 text-foreground text-xs shadow-sm md:hidden">
+                  <div className="-translate-y-1/2 absolute top-1/2 z-10 rounded-full border border-border bg-white px-2 py-1 text-foreground text-sm md:hidden">
                     {era.year}
                   </div>
 
@@ -129,7 +129,7 @@ export async function HistoryContent({ locale }: Props) {
                       className={`absolute top-1/2 h-px bg-border ${isLeft ? "right-1/2 left-0" : "right-0 left-1/2"}`}
                     />
                     <div className="-translate-x-1/2 -translate-y-1/2 absolute top-1/2 left-1/2 h-3 w-3 rounded-full bg-primary" />
-                    <div className="-translate-x-1/2 -translate-y-1/2 absolute top-1/2 left-1/2 z-10 text-nowrap rounded-full border border-border bg-white px-3 py-1 text-foreground text-xs shadow-sm">
+                    <div className="-translate-x-1/2 -translate-y-1/2 absolute top-1/2 left-1/2 z-10 text-nowrap rounded-full border-2 border-border bg-white px-5 py-3 text-foreground text-sm ring-6 ring-background">
                       {era.year}
                     </div>
                   </div>

@@ -22,10 +22,12 @@ export function HistoryTimelineCard({ era }: Props) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="rounded-xl bg-white p-6 shadow-sm md:p-8"
+      className="rounded-xl border border-border bg-background bg-white p-6 md:p-8"
     >
       <div className="flex items-end justify-between gap-4 border-border border-b pb-4">
-        <h3 className="max-w-1/2 text-pretty font-serif text-2xl text-primary">{era.title}</h3>
+        <h3 className="max-w-1/2 text-pretty font-serif text-2xl text-primary">
+          {era.title}
+        </h3>
         <span className="font-serif text-4xl text-primary md:text-5xl">
           {era.year}
         </span>

@@ -1,15 +1,27 @@
 {
   "copyright": "© 2026 Narasibolga",
   "logoLabel": "Narasibolga emblem",
+  "partnerLogoLabel": "KKN UGM logo",
   "headings": {
-    "pages": "Pages",
-    "socialMedia": "Social Media"
+    "navigation": "Navigation",
+    "contact": "Contact"
   },
   "links": {
     "map": "Map",
     "history": "History",
-    "pathfinder": "Pathfinder",
-    "instagram": "Instagram",
-    "tiktok": "TikTok"
+    "pathfinder": "Pathfinder"
+  },
+  "contact": {
+    "address": "Universitas Gadjah Mada\nBulaksumur, Caturtunggal, Kapanewon Depok, Kabupaten Sleman\nDaerah Istimewa Yogyakarta 55281, Indonesia",
+    "instagram": "@narasibolga",
+    "email": "narasi.sibolga@gmail.com"
+  },
+  "partnerCard": {
+    "label": "Universitas Gadjah Mada"
+  },
+  "legalLinks": {
+    "legalNotice": "Legal Notice",
+    "cookiePolicy": "Cookie Policy",
+    "privacyPolicy": "Privacy Policy"
   }
 }
