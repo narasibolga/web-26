@@ -1,90 +1,180 @@
 "use client";
 
-import { ArrowRight01Icon } from "@hugeicons/core-free-icons";
+import { RefreshIcon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
-import Image from "next/image";
-import { useLocale, useTranslations } from "next-intl";
-import { Container } from "@/components/layout/container";
+import type { Variants } from "motion/react";
+import { useReducedMotion } from "motion/react";
+import * as m from "motion/react-m";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
-import { Link } from "@/i18n/navigation";
-import { categoryColor, type Location, locations } from "@/lib/locations";
-import type { ScoredLocation } from "@/lib/pathfinder";
+import {
+  type ArchetypeCode,
+  archetypes,
+  type ResolvedArchetype,
+  type ScoredLocation,
+} from "@/lib/pathfinder";
+import { DimensionBars } from "./dimension-bars";
+import { LocationCard } from "./location-card";
 
 type ResultScreenProps = {
+  resolved: ResolvedArchetype;
   results: ScoredLocation[];
   onRetake: () => void;
 };
 
-export function ResultScreen({ results, onRetake }: ResultScreenProps) {
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 8 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.35, ease: "easeOut" },
+  },
+};
+
+const blockVariants = (stagger: number): Variants => ({
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: stagger },
+  },
+});
+
+const rootVariants: Variants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.12 },
+  },
+};
+
+const sectionVariants: Variants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.45, ease: "easeOut", staggerChildren: 0.08 },
+  },
+};
+
+const asideVariants: Variants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.45, ease: "easeOut", staggerChildren: 0.06 },
+  },
+};
+
+const retakeVariants: Variants = {
+  hidden: { opacity: 0, y: -8 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4, ease: "easeOut" },
+  },
+};
+
+export function ResultScreen({
+  resolved,
+  results,
+  onRetake,
+}: ResultScreenProps) {
   const t = useTranslations("pathfinder");
-  const tMap = useTranslations("map");
-  const locale = useLocale() as "en" | "id";
+  const reducedMotion = useReducedMotion();
+  const initial = reducedMotion ? "visible" : "hidden";
+
+  const archetype = archetypes[resolved.code as ArchetypeCode];
+  const name = t(`archetypes.${resolved.code}.name` as const);
+  const blurb = t(`archetypes.${resolved.code}.blurb` as const);
+
+  const traits = [
+    t(`traits.pace.${archetype.pace}` as const),
+    t(`traits.orientation.${archetype.orientation}` as const),
+    t(`traits.range.${archetype.range}` as const),
+  ];
 
   return (
-    <Container className="items-center gap-4">
-      <h2 className="text-center font-heading text-3xl text-foreground italic md:text-4xl">
-        {t("resultsTitle")}
-      </h2>
-      <p className="text-center font-sans text-base text-foreground/70">
-        {t("resultsDescription")}
-      </p>
+    <m.div
+      initial={initial}
+      animate="visible"
+      variants={rootVariants}
+      className="mx-auto grid w-full max-w-5xl gap-10 lg:grid-cols-3 lg:gap-12"
+    >
+      <m.header
+        variants={retakeVariants}
+        className="flex justify-center lg:col-span-3"
+      >
+        <Button
+          variant="outline-foreground"
+          size="lg"
+          onClick={onRetake}
+          className="rounded-full"
+        >
+          <HugeiconsIcon icon={RefreshIcon} />
+          {t("retake")}
+        </Button>
+      </m.header>
 
-      <ol className="flex w-full flex-col gap-4">
-        {results.map((result) => {
-          const location: Location | undefined = locations.find(
-            (l) => l.id === result.locationId,
-          );
-          if (!location) return null;
-          return (
-            <li
-              key={result.locationId}
-              className="flex gap-4 rounded-4xl border border-border p-4"
+      <m.section
+        initial={initial}
+        animate="visible"
+        variants={sectionVariants}
+        className="flex flex-col gap-6 lg:col-span-2"
+      >
+        <m.div variants={blockVariants(0.04)} className="flex flex-col gap-4">
+          <m.p
+            variants={itemVariants}
+            className="text-muted-foreground text-xl md:text-2xl"
+          >
+            {resolved.code}
+          </m.p>
+          <m.h2
+            variants={itemVariants}
+            className="font-heading text-4xl text-foreground"
+          >
+            {name}
+          </m.h2>
+          <m.p
+            variants={itemVariants}
+            className="max-w-xl font-sans text-base text-foreground/70 leading-relaxed md:text-lg"
+          >
+            {blurb}
+          </m.p>
+        </m.div>
+
+        <m.div variants={blockVariants(0.05)} className="flex flex-wrap gap-2">
+          {traits.map((trait) => (
+            <m.span
+              key={trait}
+              variants={itemVariants}
+              className="rounded-full border border-border bg-background px-4 py-1.5 font-sans text-foreground/70 text-sm lowercase"
             >
-              <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-2xl">
-                <Image
-                  src={location.images[0]}
-                  alt={location.name[locale]}
-                  fill
-                  sizes="96px"
-                  className="object-cover"
-                />
-              </div>
-              <div className="flex min-w-0 flex-col gap-1">
-                <span className="flex items-center gap-1.5 font-sans text-foreground/70 text-xs uppercase tracking-tight">
-                  <span
-                    aria-hidden="true"
-                    className="h-1.5 w-1.5 rounded-[1px]"
-                    style={{
-                      backgroundColor: categoryColor[location.category],
-                    }}
-                  />
-                  {tMap(`kategori.${location.category}`)}
-                </span>
-                <h3 className="font-serif text-foreground text-lg leading-snug">
-                  {location.name[locale]}
-                </h3>
-                <p className="font-sans text-foreground/70 text-sm leading-relaxed">
-                  {location.description[locale]}
-                </p>
-                <Button
-                  variant="outline-foreground"
-                  size="sm"
-                  className="mt-2 w-fit"
-                  render={<Link href={`/map?location=${result.locationId}`} />}
-                  nativeButton={false}
-                >
-                  {t("openInMap")}
-                  <HugeiconsIcon icon={ArrowRight01Icon} size={14} />
-                </Button>
-              </div>
-            </li>
-          );
-        })}
-      </ol>
+              {trait}
+            </m.span>
+          ))}
+        </m.div>
 
-      <Button variant="outline-foreground" onClick={onRetake}>
-        {t("retake")}
-      </Button>
-    </Container>
+        <DimensionBars resolved={resolved} />
+      </m.section>
+
+      <m.aside
+        initial={initial}
+        animate="visible"
+        variants={asideVariants}
+        className="flex flex-col gap-4 lg:col-span-1"
+      >
+        <m.h3
+          variants={itemVariants}
+          className="font-sans text-foreground/60 text-sm"
+        >
+          {t("yourPlaces", { name })}
+        </m.h3>
+        <m.ul variants={blockVariants(0.06)} className="flex flex-col gap-4">
+          {results.map((result) => (
+            <m.li key={result.locationId} variants={itemVariants}>
+              <LocationCard result={result} />
+            </m.li>
+          ))}
+        </m.ul>
+      </m.aside>
+    </m.div>
   );
 }

@@ -1,5 +1,8 @@
 {
   "title": "Pathfinder",
+  "introTitle": "Temukan tempatmu di Sibolga",
+  "introDescription": "Jawab beberapa pertanyaan tentang suasana hatimu dan kami akan mencocokkannya dengan tempat yang pas.",
+  "introStart": "Mulai",
   "progress": "{n} dari {total} Pertanyaan",
   "next": "Lanjut",
   "previous": "Sebelumnya",
@@ -7,8 +10,62 @@
   "submitConfirmDescription": "Kami akan mencocokkan suasana hatimu dengan tempat-tempat di Sibolga.",
   "submit": "Kirim",
   "back": "Kembali",
-  "resultsTitle": "Ke mana suasana hatimu membawamu",
-  "resultsDescription": "Ini tempat-tempat di Sibolga yang paling cocok untukmu.",
+  "resultsTitle": "Tipe pathfinder-mu",
+  "resultsDescription": "Berdasarkan jawabanmu, inilah tipe pelancong yang kamu punya.",
+  "yourPlaces": "Tempat untuk {name}",
   "openInMap": "Buka di peta",
-  "retake": "Ulangi kuis"
+  "retake": "Ulangi kuis",
+  "dimensions": {
+    "pace": "Kecepatan",
+    "orientation": "Orientasi",
+    "range": "Jarak"
+  },
+  "traits": {
+    "pace": {
+      "adventurous": "Petualang",
+      "relaxed": "Santai"
+    },
+    "orientation": {
+      "curious": "Ingin tahu",
+      "social": "Sosial"
+    },
+    "range": {
+      "near": "Dekat",
+      "far": "Jauh"
+    }
+  },
+  "archetypes": {
+    "ACN": {
+      "name": "Sang Penjelajah",
+      "blurb": "Kamu mencari yang tak biasa, meski itu dekat. Dermaga tua, terumbu tersembunyi, kisah yang tak terungkap — kamu ingin jadi orang yang menemukannya."
+    },
+    "ACF": {
+      "name": "Sang Pengarah",
+      "blurb": "Jarak adalah bagian dari perjalanan, bukan hambatan. Kamu menuju ke tepi terjauh untuk menemukan yang terlewat orang lain, dan perjalanannya itu sendiri yang penting."
+    },
+    "ASN": {
+      "name": "Sang Pejalan",
+      "blurb": "Kamu bergerak di tengah keramaian — pasar, pelabuhan, pedagang ikan saat fajar — dan harimu dibentuk oleh siapa pun yang kau temui."
+    },
+    "ASF": {
+      "name": "Sang Konvoi",
+      "blurb": "Kamu mengumpulkan rombongan dan menuju pulau. Semakin jauh semakin baik, asal teman seperjalanan menyenangkan."
+    },
+    "RCN": {
+      "name": "Sang Pengembara",
+      "blurb": "Langkah pelan menyusuri jalan tua, membiarkan setiap batu dan pintu berbicara. Lebih baik memahami satu tempat dalam-dalam daripada mengecap sepuluh."
+    },
+    "RCF": {
+      "name": "Sang Penyusur",
+      "blurb": "Kamu membiarkan arus membawamu ke tempat yang jauh dan sunyi, dan tak meminta apa-apa dari hari selain berlalu dengan lembut."
+    },
+    "RSN": {
+      "name": "Sang Pelabuhan",
+      "blurb": "Kamu menemukan kehangatan dalam hiruk-pikuk lokal — kopi, obrolan, tepi laut saat senja. Teman dan kenyamanan, bukan penaklukan."
+    },
+    "RSF": {
+      "name": "Sang Pengasingan",
+      "blurb": "Kamu melarikan diri bersama beberapa orang terdekat ke tempat yang jauh dan tenang, di mana suara paling keras hanyalah angin di antara pohon."
+    }
+  }
 }

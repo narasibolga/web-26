@@ -1,5 +1,8 @@
 {
   "title": "Pathfinder",
+  "introTitle": "Find your spot in Sibolga",
+  "introDescription": "Answer a few questions about your mood and we'll match you with places that fit.",
+  "introStart": "Start",
   "progress": "{n} of {total} Questions",
   "next": "Next",
   "previous": "Previous",
@@ -7,8 +10,62 @@
   "submitConfirmDescription": "We'll match your mood to places around Sibolga.",
   "submit": "Submit",
   "back": "Back",
-  "resultsTitle": "Where your mood takes you",
-  "resultsDescription": "Here are the places in Sibolga that fit you best.",
+  "resultsTitle": "Your pathfinder archetype",
+  "resultsDescription": "Based on your answers, this is the traveler you are.",
+  "yourPlaces": "Places for the {name}",
   "openInMap": "Open in map",
-  "retake": "Retake the quiz"
+  "retake": "Retake the quiz",
+  "dimensions": {
+    "pace": "Pace",
+    "orientation": "Orientation",
+    "range": "Distance"
+  },
+  "traits": {
+    "pace": {
+      "adventurous": "Adventurous",
+      "relaxed": "Relaxed"
+    },
+    "orientation": {
+      "curious": "Curious",
+      "social": "Social"
+    },
+    "range": {
+      "near": "Near",
+      "far": "Far"
+    }
+  },
+  "archetypes": {
+    "ACN": {
+      "name": "The Explorer",
+      "blurb": "You go looking for the unfamiliar, even when it's close at hand. Old quays, hidden reefs, untold stories — you want to be the one who found them."
+    },
+    "ACF": {
+      "name": "The Voyager",
+      "blurb": "Distance is a feature, not a cost. You set out for the far edge to find what others miss, and the journey is the point."
+    },
+    "ASN": {
+      "name": "The Wayfarer",
+      "blurb": "You move through the bustle — markets, harbors, fish-sellers at dawn — and the day is shaped by whoever you meet along the way."
+    },
+    "ASF": {
+      "name": "The Convoy",
+      "blurb": "You round up the crew and set out for the islands. The further the better, as long as the company is good."
+    },
+    "RCN": {
+      "name": "The Wanderer",
+      "blurb": "Slow steps through old streets, letting every stone and doorway speak. You'd rather understand one place deeply than skim ten."
+    },
+    "RCF": {
+      "name": "The Drifter",
+      "blurb": "You let the tide carry you somewhere quiet and far, and ask nothing of the day but to pass gently."
+    },
+    "RSN": {
+      "name": "The Harbor",
+      "blurb": "You find warmth in the local hum — a coffee, a conversation, the waterfront at dusk. Company and comfort, not conquest."
+    },
+    "RSF": {
+      "name": "The Retreat",
+      "blurb": "You escape with a few close people to somewhere far and still, where the loudest thing is the wind through the trees."
+    }
+  }
 }

@@ -80,6 +80,7 @@ export const Navbar = () => {
               variant="transparent"
               nativeButton={false}
               render={<Link href="/map" />}
+              onClick={() => setIsMenuOpen(false)}
               className="max-sm:hidden"
             >
               {t("links.map")}
@@ -89,6 +90,7 @@ export const Navbar = () => {
               nativeButton={false}
               className="px-6 max-sm:hidden"
               render={<Link href="/pathfinder" />}
+              onClick={() => setIsMenuOpen(false)}
             >
               {t("pathfinder")}
             </Button>

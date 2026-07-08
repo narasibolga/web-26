@@ -1,20 +1,23 @@
-export type Mood = "adventurous" | "relaxed" | "curious" | "social";
+export type Pace = "adventurous" | "relaxed";
+export type Orientation = "curious" | "social";
+export type Range = "near" | "far";
 
-export const moods: Mood[] = ["adventurous", "relaxed", "curious", "social"];
+export type AxisTotals = {
+  pace: Record<Pace, number>;
+  orientation: Record<Orientation, number>;
+  range: Record<Range, number>;
+};
 
-export type MoodScore = Partial<Record<Mood, number>>;
-
-export const locationMoodScores: Record<string, MoodScore> = {
-  "sibolga-kota": { social: 2, curious: 1 },
-  "pulau-poncan": { adventurous: 2, relaxed: 1 },
-  "pulau-kalimantung": { adventurous: 2, relaxed: 2 },
-  "pelabuhan-lama": { curious: 2, social: 1 },
+export type AnswerScores = {
+  pace?: Partial<Record<Pace, number>>;
+  orientation?: Partial<Record<Orientation, number>>;
+  range?: Partial<Record<Range, number>>;
 };
 
 export type QuizAnswer = {
   id: string;
   label: { en: string; id: string };
-  moods: MoodScore;
+  scores: AnswerScores;
 };
 
 export type QuizQuestion = {
@@ -37,7 +40,7 @@ export const quizQuestions: QuizQuestion[] = [
           en: "A quiet escape to the water",
           id: "Pelarian tenang ke air",
         },
-        moods: { relaxed: 2 },
+        scores: { pace: { relaxed: 2 } },
       },
       {
         id: "active-islands",
@@ -45,7 +48,7 @@ export const quizQuestions: QuizQuestion[] = [
           en: "An active day on islands and reefs",
           id: "Hari aktif di pulau dan terumbu",
         },
-        moods: { adventurous: 2 },
+        scores: { pace: { adventurous: 2 }, range: { far: 1 } },
       },
       {
         id: "old-streets",
@@ -53,7 +56,7 @@ export const quizQuestions: QuizQuestion[] = [
           en: "Wandering old streets and quays",
           id: "Menyusuri jalan dan dermaga tua",
         },
-        moods: { curious: 2 },
+        scores: { orientation: { curious: 2 }, range: { near: 1 } },
       },
       {
         id: "bustling-market",
@@ -61,7 +64,7 @@ export const quizQuestions: QuizQuestion[] = [
           en: "A bustling market and waterfront",
           id: "Pasar yang ramai dan tepi pantai",
         },
-        moods: { social: 2 },
+        scores: { orientation: { social: 2 }, range: { near: 1 } },
       },
     ],
   },
@@ -72,7 +75,7 @@ export const quizQuestions: QuizQuestion[] = [
       {
         id: "solo",
         label: { en: "Just me, solo", id: "Sendirian" },
-        moods: { adventurous: 1, relaxed: 1 },
+        scores: { pace: { adventurous: 1 }, range: { far: 1 } },
       },
       {
         id: "partner",
@@ -80,7 +83,7 @@ export const quizQuestions: QuizQuestion[] = [
           en: "A partner, quiet together",
           id: "Seorang teman, tenang bersama",
         },
-        moods: { relaxed: 2 },
+        scores: { pace: { relaxed: 2 } },
       },
       {
         id: "friends",
@@ -88,7 +91,7 @@ export const quizQuestions: QuizQuestion[] = [
           en: "Friends, lots of talking",
           id: "Teman-teman, banyak bicara",
         },
-        moods: { social: 2 },
+        scores: { orientation: { social: 2 } },
       },
       {
         id: "history-buff",
@@ -96,7 +99,7 @@ export const quizQuestions: QuizQuestion[] = [
           en: "Anyone curious about history",
           id: "Siapa pun yang ingin tahu sejarah",
         },
-        moods: { curious: 2 },
+        scores: { orientation: { curious: 2 } },
       },
     ],
   },
@@ -107,12 +110,12 @@ export const quizQuestions: QuizQuestion[] = [
       {
         id: "waves-reef",
         label: { en: "Waves over a reef", id: "Ombak di atas terumbu" },
-        moods: { relaxed: 1, adventurous: 1 },
+        scores: { pace: { relaxed: 1 }, range: { far: 2 } },
       },
       {
         id: "fish-dawn",
         label: { en: "Fish sellers at dawn", id: "Pedagang ikan saat fajar" },
-        moods: { social: 2 },
+        scores: { orientation: { social: 2 }, range: { near: 1 } },
       },
       {
         id: "stone-quays",
@@ -120,7 +123,7 @@ export const quizQuestions: QuizQuestion[] = [
           en: "Footsteps on old stone quays",
           id: "Langkah di dermaga batu tua",
         },
-        moods: { curious: 2 },
+        scores: { orientation: { curious: 2 }, range: { near: 1 } },
       },
       {
         id: "wind-trees",
@@ -128,7 +131,7 @@ export const quizQuestions: QuizQuestion[] = [
           en: "Wind through island trees",
           id: "Angin melalui pohon pulau",
         },
-        moods: { relaxed: 2 },
+        scores: { pace: { relaxed: 1 }, range: { far: 2 } },
       },
     ],
   },
@@ -142,7 +145,7 @@ export const quizQuestions: QuizQuestion[] = [
       {
         id: "in-town",
         label: { en: "Stay in town", id: "Tetap di kota" },
-        moods: { social: 1, curious: 1 },
+        scores: { range: { near: 2 }, orientation: { social: 1 } },
       },
       {
         id: "short-boat",
@@ -150,7 +153,7 @@ export const quizQuestions: QuizQuestion[] = [
           en: "A short boat ride is fine",
           id: "Perahu singkat tak masalah",
         },
-        moods: { adventurous: 2 },
+        scores: { range: { far: 1 }, pace: { adventurous: 1 } },
       },
       {
         id: "further-better",
@@ -158,7 +161,7 @@ export const quizQuestions: QuizQuestion[] = [
           en: "The further the better",
           id: "Semakin jauh semakin baik",
         },
-        moods: { adventurous: 2 },
+        scores: { range: { far: 2 }, pace: { adventurous: 1 } },
       },
       {
         id: "sit-still",
@@ -166,7 +169,7 @@ export const quizQuestions: QuizQuestion[] = [
           en: "Somewhere I can sit still",
           id: "Tempat aku bisa duduk diam",
         },
-        moods: { relaxed: 2 },
+        scores: { pace: { relaxed: 2 }, range: { near: 1 } },
       },
     ],
   },
@@ -180,12 +183,12 @@ export const quizQuestions: QuizQuestion[] = [
       {
         id: "past-story",
         label: { en: "A story about the past", id: "Kisah tentang masa lalu" },
-        moods: { curious: 2 },
+        scores: { orientation: { curious: 2 }, range: { near: 1 } },
       },
       {
         id: "salt-skin",
         label: { en: "Salt on my skin", id: "Garam di kulitku" },
-        moods: { adventurous: 2 },
+        scores: { pace: { adventurous: 2 }, range: { far: 1 } },
       },
       {
         id: "harbor-photos",
@@ -193,51 +196,142 @@ export const quizQuestions: QuizQuestion[] = [
           en: "Photos of a busy harbor",
           id: "Foto pelabuhan yang ramai",
         },
-        moods: { social: 2 },
+        scores: { orientation: { social: 2 }, range: { near: 1 } },
       },
       {
         id: "quiet-memory",
         label: { en: "A quiet memory", id: "Kenangan yang tenang" },
-        moods: { relaxed: 2 },
+        scores: { pace: { relaxed: 2 } },
       },
     ],
   },
 ];
+
+export type ArchetypeCode =
+  | "ACN"
+  | "ACF"
+  | "ASN"
+  | "ASF"
+  | "RCN"
+  | "RCF"
+  | "RSN"
+  | "RSF";
+
+export const archetypes: Record<
+  ArchetypeCode,
+  { pace: Pace; orientation: Orientation; range: Range }
+> = {
+  ACN: { pace: "adventurous", orientation: "curious", range: "near" },
+  ACF: { pace: "adventurous", orientation: "curious", range: "far" },
+  ASN: { pace: "adventurous", orientation: "social", range: "near" },
+  ASF: { pace: "adventurous", orientation: "social", range: "far" },
+  RCN: { pace: "relaxed", orientation: "curious", range: "near" },
+  RCF: { pace: "relaxed", orientation: "curious", range: "far" },
+  RSN: { pace: "relaxed", orientation: "social", range: "near" },
+  RSF: { pace: "relaxed", orientation: "social", range: "far" },
+};
+
+export const archetypeCodes = Object.keys(archetypes) as ArchetypeCode[];
+
+export type LocationScores = {
+  range: Range;
+  pace?: Partial<Record<Pace, number>>;
+  orientation?: Partial<Record<Orientation, number>>;
+};
+
+export const locationAxisScores: Record<string, LocationScores> = {
+  "sibolga-kota": { range: "near", orientation: { social: 2, curious: 1 } },
+  "pulau-poncan": { range: "far", pace: { adventurous: 2, relaxed: 1 } },
+  "pulau-kalimantung": { range: "far", pace: { adventurous: 2, relaxed: 2 } },
+  "pelabuhan-lama": { range: "near", orientation: { curious: 2, social: 1 } },
+};
 
 export type ScoredLocation = {
   locationId: string;
   score: number;
 };
 
-export function scoreAnswers(
-  selections: Record<string, string>,
-): ScoredLocation[] {
-  const moodTotals: Record<Mood, number> = {
-    adventurous: 0,
-    relaxed: 0,
-    curious: 0,
-    social: 0,
+export type ResolvedArchetype = {
+  code: ArchetypeCode;
+  totals: AxisTotals;
+};
+
+function emptyTotals(): AxisTotals {
+  return {
+    pace: { adventurous: 0, relaxed: 0 },
+    orientation: { curious: 0, social: 0 },
+    range: { near: 0, far: 0 },
   };
+}
+
+function majority<A extends string>(counts: Record<A, number>, order: A[]): A {
+  let best = order[0];
+  let bestScore = counts[order[0]];
+  for (const key of order.slice(1)) {
+    if (counts[key] > bestScore) {
+      best = key;
+      bestScore = counts[key];
+    }
+  }
+  return best;
+}
+
+export function resolveArchetype(
+  selections: Record<string, string>,
+): ResolvedArchetype {
+  const totals = emptyTotals();
 
   for (const question of quizQuestions) {
     const answerId = selections[question.id];
     if (!answerId) continue;
     const answer = question.answers.find((a) => a.id === answerId);
     if (!answer) continue;
-    for (const mood of moods) {
-      moodTotals[mood] += answer.moods[mood] ?? 0;
+    for (const pace of ["adventurous", "relaxed"] as Pace[]) {
+      totals.pace[pace] += answer.scores.pace?.[pace] ?? 0;
+    }
+    for (const o of ["curious", "social"] as Orientation[]) {
+      totals.orientation[o] += answer.scores.orientation?.[o] ?? 0;
+    }
+    for (const r of ["near", "far"] as Range[]) {
+      totals.range[r] += answer.scores.range?.[r] ?? 0;
     }
   }
 
-  const scored: ScoredLocation[] = Object.entries(locationMoodScores).map(
-    ([locationId, scores]) => {
+  const pace = majority(totals.pace, ["adventurous", "relaxed"]);
+  const orientation = majority(totals.orientation, ["curious", "social"]);
+  const range = majority(totals.range, ["far", "near"]);
+
+  const code = archetypeCodes.find(
+    (c) =>
+      archetypes[c].pace === pace &&
+      archetypes[c].orientation === orientation &&
+      archetypes[c].range === range,
+  );
+  if (!code) {
+    throw new Error(
+      `pathfinder: no archetype for pace=${pace} orientation=${orientation} range=${range}`,
+    );
+  }
+
+  return { code, totals };
+}
+
+export function rankLocationsByRange(
+  range: Range,
+  totals: AxisTotals,
+): ScoredLocation[] {
+  const scored: ScoredLocation[] = Object.entries(locationAxisScores)
+    .filter(([, scores]) => scores.range === range)
+    .map(([locationId, scores]) => {
       let score = 0;
-      for (const mood of moods) {
-        score += (scores[mood] ?? 0) * moodTotals[mood];
+      for (const pace of ["adventurous", "relaxed"] as Pace[]) {
+        score += (scores.pace?.[pace] ?? 0) * totals.pace[pace];
+      }
+      for (const o of ["curious", "social"] as Orientation[]) {
+        score += (scores.orientation?.[o] ?? 0) * totals.orientation[o];
       }
       return { locationId, score };
-    },
-  );
+    });
 
   scored.sort((a, b) => b.score - a.score);
   return scored;

@@ -1,31 +1,41 @@
 "use client";
 
-import dynamic from "next/dynamic";
-import { useCallback, useMemo, useState } from "react";
-import { Container } from "@/components/layout/container";
-import { Skeleton } from "@/components/ui/skeleton";
-import { quizQuestions, scoreAnswers } from "@/lib/pathfinder";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { useLocalStorage } from "@/hooks/use-local-storage";
+import {
+  archetypes,
+  quizQuestions,
+  rankLocationsByRange,
+  resolveArchetype,
+} from "@/lib/pathfinder";
+import { ConfirmScreen } from "./confirm-screen";
+import { IntroScreen } from "./intro-screen";
+import { QuizScreen } from "./quiz-screen";
+import { ResultScreen } from "./result-screen";
 
-const QuizScreen = dynamic(
-  () => import("./quiz-screen").then((m) => m.QuizScreen),
-  { loading: () => <QuizSkeleton /> },
-);
-const ConfirmScreen = dynamic(
-  () => import("./confirm-screen").then((m) => m.ConfirmScreen),
-  { loading: () => <ConfirmSkeleton /> },
-);
-const ResultScreen = dynamic(
-  () => import("./result-screen").then((m) => m.ResultScreen),
-  { loading: () => <ResultSkeleton /> },
-);
+type Stage = "intro" | "quiz" | "confirm" | "results";
 
-type Stage = "quiz" | "confirm" | "results";
+const STORAGE_KEY = "pathfinder:result";
+
+type StoredResult = {
+  selections: Record<string, string>;
+};
 
 export function PathfinderClient() {
-  const [stage, setStage] = useState<Stage>("quiz");
+  const [storedResult, setStoredResult, hydrated] =
+    useLocalStorage<StoredResult | null>(STORAGE_KEY, null);
+
+  const [stage, setStage] = useState<Stage>("intro");
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1);
   const [selections, setSelections] = useState<Record<string, string>>({});
+
+  useEffect(() => {
+    if (hydrated && storedResult) {
+      setSelections(storedResult.selections);
+      setStage("results");
+    }
+  }, [hydrated, storedResult]);
 
   const question = quizQuestions[current];
   const total = quizQuestions.length;
@@ -56,23 +66,40 @@ export function PathfinderClient() {
   }, [current]);
 
   const submit = useCallback(() => {
+    setStoredResult({ selections });
     setStage("results");
-  }, []);
+  }, [selections, setStoredResult]);
 
   const retake = useCallback(() => {
+    setStoredResult(null);
     setSelections({});
     setCurrent(0);
     setStage("quiz");
-  }, []);
+  }, [setStoredResult]);
 
-  const results = useMemo(() => {
-    if (stage !== "results") return [];
-    const all = scoreAnswers(selections);
-    return all.slice(0, 3);
+  const resolved = useMemo(() => {
+    if (stage !== "results") return null;
+    return resolveArchetype(selections);
   }, [stage, selections]);
 
+  const results = useMemo(() => {
+    if (!resolved) return [];
+    const archetype = archetypes[resolved.code];
+    return rankLocationsByRange(archetype.range, resolved.totals);
+  }, [resolved]);
+
+  if (!hydrated) {
+    return (
+      <div className="flex flex-col items-center justify-center text-foreground">
+        <div className="h-8 w-8 animate-pulse rounded-full bg-foreground/20" />
+      </div>
+    );
+  }
+
   let screen: React.ReactNode;
-  if (stage === "quiz" && question) {
+  if (stage === "intro") {
+    screen = <IntroScreen onStart={() => setStage("quiz")} />;
+  } else if (stage === "quiz" && question) {
     screen = (
       <QuizScreen
         question={question}
@@ -96,66 +123,15 @@ export function PathfinderClient() {
         onSubmit={submit}
       />
     );
-  } else {
-    screen = <ResultScreen results={results} onRetake={retake} />;
+  } else if (stage === "results" && resolved) {
+    screen = (
+      <ResultScreen resolved={resolved} results={results} onRetake={retake} />
+    );
   }
 
   return (
-    <div className="flex min-h-svh flex-col items-center justify-center bg-background text-foreground">
+    <div className="flex flex-col items-center justify-center text-foreground">
       {screen}
-    </div>
-  );
-}
-
-function QuizSkeleton() {
-  return (
-    <Container className="items-center gap-8">
-      <Skeleton className="h-4 w-24" />
-      <Skeleton className="h-10 w-2/3 max-w-md" />
-      <div className="flex flex-wrap justify-center gap-4 md:gap-6">
-        <Skeleton className="size-44 rounded-4xl md:size-48" />
-        <Skeleton className="size-44 rounded-4xl md:size-48" />
-      </div>
-    </Container>
-  );
-}
-
-function ConfirmSkeleton() {
-  return (
-    <Container className="items-center gap-4">
-      <Skeleton className="h-10 w-2/3 max-w-md" />
-      <Skeleton className="h-4 w-80" />
-      <div className="flex gap-3">
-        <Skeleton className="size-12 rounded-full" />
-        <Skeleton className="size-12 rounded-full" />
-      </div>
-    </Container>
-  );
-}
-
-function ResultSkeleton() {
-  return (
-    <Container className="items-center gap-4">
-      <Skeleton className="h-10 w-2/3 max-w-md" />
-      <Skeleton className="h-4 w-80" />
-      <div className="flex w-full flex-col gap-4">
-        <ResultCardSkeleton />
-        <ResultCardSkeleton />
-        <ResultCardSkeleton />
-      </div>
-    </Container>
-  );
-}
-
-function ResultCardSkeleton() {
-  return (
-    <div className="flex gap-4 rounded-4xl border border-border p-4">
-      <Skeleton className="size-24 shrink-0 rounded-2xl" />
-      <div className="flex flex-1 flex-col gap-2">
-        <Skeleton className="h-3 w-20" />
-        <Skeleton className="h-5 w-3/4" />
-        <Skeleton className="h-4 w-full" />
-      </div>
     </div>
   );
 }
