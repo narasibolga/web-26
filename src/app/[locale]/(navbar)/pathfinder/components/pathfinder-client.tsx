@@ -11,7 +11,7 @@ import {
 import { ConfirmScreen } from "./confirm-screen";
 import { IntroScreen } from "./intro-screen";
 import { QuizScreen } from "./quiz-screen";
-import { ResultScreen } from "./result-screen";
+import { ResultIntro } from "./result-intro";
 
 type Stage = "intro" | "quiz" | "confirm" | "results";
 
@@ -125,7 +125,7 @@ export function PathfinderClient() {
     );
   } else if (stage === "results" && resolved) {
     screen = (
-      <ResultScreen resolved={resolved} results={results} onRetake={retake} />
+      <ResultIntro resolved={resolved} results={results} onRetake={retake} />
     );
   }
 
