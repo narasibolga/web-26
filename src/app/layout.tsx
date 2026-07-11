@@ -1,7 +1,15 @@
+import type { Metadata } from "next";
 import { getLocale } from "next-intl/server";
 import "./globals.css";
 import { brandon, notoSerif } from "@/lib/fonts";
+import { SITE_URL } from "@/lib/site";
 import { cn } from "@/lib/utils";
+
+export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+  title: "NaraSibolga",
+  twitter: { card: "summary_large_image" },
+};
 
 export default async function RootLayout({
   children,

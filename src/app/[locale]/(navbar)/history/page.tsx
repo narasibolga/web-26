@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
+import { SITE_URL } from "@/lib/site";
 import { Footer } from "../../(components)/footer";
 import { HistoryContent } from "./(components)/history-content";
 
@@ -14,7 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "history" });
 
-  const url = `https://narasibolga.id/${locale}/history`;
+  const url = `${SITE_URL}/${locale}/history`;
 
   return {
     title: t("meta.title"),
@@ -22,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: {
       canonical: url,
       languages: Object.fromEntries(
-        routing.locales.map((l) => [l, `https://narasibolga.id/${l}/history`]),
+        routing.locales.map((l) => [l, `${SITE_URL}/${l}/history`]),
       ),
     },
     openGraph: {

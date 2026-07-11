@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { locations } from "@/lib/locations";
+import { SITE_URL } from "@/lib/site";
 import { MapPageClient } from "./components/map-page-client";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -14,7 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "map" });
 
-  const url = `https://narasibolga.id/${locale}/map`;
+  const url = `${SITE_URL}/${locale}/map`;
 
   return {
     title: t("title"),
@@ -22,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: {
       canonical: url,
       languages: Object.fromEntries(
-        routing.locales.map((l) => [l, `https://narasibolga.id/${l}/map`]),
+        routing.locales.map((l) => [l, `${SITE_URL}/${l}/map`]),
       ),
     },
     openGraph: { title: t("title"), description: t("title"), url },
@@ -44,7 +45,7 @@ export default async function MapPage({ params }: Props) {
           latitude: primary.lat,
           longitude: primary.lng,
         },
-        url: `https://narasibolga.id/${locale}/map`,
+        url: `${SITE_URL}/${locale}/map`,
       }
     : null;
 
