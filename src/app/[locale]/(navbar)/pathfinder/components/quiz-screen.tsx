@@ -56,7 +56,7 @@ export function QuizScreen({
             {question.prompt[locale]}
           </h2>
 
-          <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+          <div className="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6">
             {question.answers.map((answer) => {
               const isSelected = selected === answer.id;
               return (
@@ -79,7 +79,7 @@ export function QuizScreen({
                     damping: 20,
                   }}
                   className={cn(
-                    "flex h-44 w-44 items-center justify-center rounded-4xl border p-4 text-center font-sans text-base leading-snug outline-none transition-colors focus-visible:ring-2 focus-visible:ring-ring/30 md:h-48 md:w-48 md:text-lg",
+                    "flex aspect-square h-full w-full max-w-44 items-center justify-center rounded-4xl border p-4 text-center font-sans text-base leading-snug outline-none transition-colors focus-visible:ring-2 focus-visible:ring-ring/30 md:h-48 md:w-48 md:text-lg",
                     isSelected
                       ? "border-secondary bg-secondary text-secondary-foreground"
                       : "border-foreground/30 bg-transparent hover:bg-secondary/10",

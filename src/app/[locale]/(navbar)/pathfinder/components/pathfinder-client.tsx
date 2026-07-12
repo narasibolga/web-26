@@ -12,6 +12,8 @@ import { ConfirmScreen } from "./confirm-screen";
 import { IntroScreen } from "./intro-screen";
 import { QuizScreen } from "./quiz-screen";
 import { ResultIntro } from "./result-intro";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { Loading01Icon } from "@hugeicons/core-free-icons";
 
 type Stage = "intro" | "quiz" | "confirm" | "results";
 
@@ -90,8 +92,8 @@ export function PathfinderClient() {
 
   if (!hydrated) {
     return (
-      <div className="flex flex-col items-center justify-center text-foreground">
-        <div className="h-8 w-8 animate-pulse rounded-full bg-foreground/20" />
+      <div className="flex h-full w-full flex-col items-center justify-center gap-2 text-muted-foreground">
+        <HugeiconsIcon icon={Loading01Icon} className="animate-spin" />
       </div>
     );
   }

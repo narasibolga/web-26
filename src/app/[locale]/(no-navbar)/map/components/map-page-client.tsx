@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowLeft01Icon } from "@hugeicons/core-free-icons";
+import { ArrowLeft01Icon, Loading01Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import dynamic from "next/dynamic";
 import { useSearchParams } from "next/navigation";
@@ -196,8 +196,9 @@ export function MapPageClient() {
 function MapLoading() {
   const t = useTranslations("map");
   return (
-    <div className="flex h-full w-full items-center justify-center bg-muted">
-      <p className="font-sans text-muted-foreground text-sm">
+    <div className="flex h-full w-full flex-col items-center justify-center gap-2 bg-muted text-muted-foreground">
+      <HugeiconsIcon icon={Loading01Icon} className="animate-spin" />
+      <p className="font-sans text-muted-foreground text-sm uppercase">
         {t("mapLoading")}
       </p>
     </div>
