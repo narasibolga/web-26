@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { SITE_URL } from "@/lib/site";
-import { Footer } from "../../(components)/footer";
 import { HistoryContent } from "./(components)/history-content";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -41,7 +40,6 @@ export default async function HistoryPage({ params }: Props) {
   return (
     <main>
       <HistoryContent locale={locale} />
-      <Footer locale={locale} />
     </main>
   );
 }

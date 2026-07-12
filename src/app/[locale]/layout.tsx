@@ -8,7 +8,9 @@ import {
 } from "next-intl/server";
 import { Providers } from "@/components/providers";
 import { routing } from "@/i18n/routing";
+import { brandon, notoSerif } from "@/lib/fonts";
 import { OG_LOCALE_MAP, SITE_URL } from "@/lib/site";
+import { cn } from "@/lib/utils";
 
 type LocaleParams = { params: Promise<{ locale: string }> };
 
@@ -70,15 +72,28 @@ export default async function LocaleLayout({
   };
 
   return (
-    <NextIntlClientProvider locale={locale} messages={messages}>
-      <Providers>
-        <script
-          type="application/ld+json"
-          // biome-ignore lint/security/noDangerouslySetInnerHtml: serialised JSON-LD, no user input
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-        {children}
-      </Providers>
-    </NextIntlClientProvider>
+    <html
+      lang={locale}
+      className={cn(
+        "h-full",
+        "antialiased",
+        "font-sans",
+        brandon.variable,
+        notoSerif.variable,
+      )}
+    >
+      <body className="flex min-h-full flex-col">
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <Providers>
+            <script
+              type="application/ld+json"
+              // biome-ignore lint/security/noDangerouslySetInnerHtml: serialised JSON-LD, no user input
+              dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
+            {children}
+          </Providers>
+        </NextIntlClientProvider>
+      </body>
+    </html>
   );
 }

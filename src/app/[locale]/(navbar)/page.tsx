@@ -5,7 +5,6 @@ import { OG_LOCALE_MAP, SITE_URL } from "@/lib/site";
 import { AdventureSection } from "../(components)/adventure-section";
 import { CheckboardSection } from "../(components)/checkboard-section";
 import { ExperienceSection } from "../(components)/experience-section";
-import { Footer } from "../(components)/footer";
 import { Hero } from "../(components)/hero-section";
 import { HistorySection } from "../(components)/history-section";
 import { InstagramSection } from "../(components)/instagram-section";
@@ -58,7 +57,6 @@ export default async function Home({ params }: Props) {
       <AdventureSection locale={locale} />
       <HistorySection locale={locale} />
       <InstagramSection locale={locale} />
-      <Footer locale={locale} />
     </>
   );
 }

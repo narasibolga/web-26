@@ -1,0 +1,18 @@
+{
+  "meta": {
+    "title": "Articles",
+    "description": "Stories, updates, and notes from the Narasibolga team."
+  },
+  "hero": {
+    "heading": "Tales of Our Visit",
+    "imageAlt": "Sibolga harbor"
+  },
+  "tags": {
+    "label": "Tags",
+    "all": "All",
+    "empty": "No articles with this tag yet"
+  },
+  "back": "Back",
+  "by": "By {author}",
+  "readingTime": "{minutes} min read"
+}

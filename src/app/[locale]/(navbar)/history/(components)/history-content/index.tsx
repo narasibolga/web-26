@@ -3,6 +3,8 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Container } from "@/components/layout/container";
 import { SectionHeading } from "../../../../(components)/_primitives";
 import { HistoryTimelineCard } from "./history-timeline-card";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { ArrowRight02Icon, ArrowRightIcon } from "@hugeicons/core-free-icons";
 
 type Props = { locale: string };
 
@@ -77,7 +79,12 @@ export async function HistoryContent({ locale }: Props) {
       </section>
 
       <section className="bg-[#f2f5f3]">
-        <Container className="items-center gap-6 text-center">
+        <Container className="items-center gap-6 pt-8 text-center">
+          <div className="mb-8 flex items-center justify-center gap-2 text-muted-foreground text-sm uppercase">
+            <span>Home</span>
+            <HugeiconsIcon icon={ArrowRight02Icon} size={16} />
+            <span className="text-foreground">History</span>
+          </div>
           <SectionHeading className="max-w-2xl">
             {t("intro.heading")}
           </SectionHeading>

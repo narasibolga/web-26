@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import { getLocale } from "next-intl/server";
+import type { ReactNode } from "react";
 import "./globals.css";
-import { brandon, notoSerif } from "@/lib/fonts";
 import { SITE_URL } from "@/lib/site";
-import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -11,25 +9,8 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image" },
 };
 
-export default async function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  const locale = await getLocale();
-
-  return (
-    <html
-      lang={locale}
-      className={cn(
-        "h-full",
-        "antialiased",
-        "font-sans",
-        brandon.variable,
-        notoSerif.variable,
-      )}
-    >
-      <body className="flex min-h-full flex-col">{children}</body>
-    </html>
-  );
+// Since we have a `not-found.tsx` page on the root, a layout file
+// is required, even if it's just passing children through.
+export default function RootLayout({ children }: { children: ReactNode }) {
+  return children;
 }

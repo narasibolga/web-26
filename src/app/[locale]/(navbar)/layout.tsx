@@ -1,12 +1,24 @@
+import { setRequestLocale } from "next-intl/server";
+import { Footer } from "../(components)/footer";
 import { Navbar } from "../(components)/navbar";
 
-type NavbarLayoutProps = { children: React.ReactNode };
+type NavbarLayoutProps = {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+};
 
-export default function NavbarLayout({ children }: NavbarLayoutProps) {
+export default async function NavbarLayout({
+  children,
+  params,
+}: NavbarLayoutProps) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   return (
     <>
       <Navbar />
       {children}
+      <Footer locale={locale} />
     </>
   );
 }

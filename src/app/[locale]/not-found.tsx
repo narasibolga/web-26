@@ -1,9 +1,10 @@
-import { getLocale, getTranslations, setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
+import { routing } from "@/i18n/routing";
 
 export default async function NotFound() {
-  const locale = await getLocale();
+  const locale = routing.defaultLocale;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "not-found" });
 

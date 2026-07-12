@@ -1,0 +1,18 @@
+{
+  "meta": {
+    "title": "Artikel",
+    "description": "Kisah, pembaruan, dan catatan dari tim Narasibolga."
+  },
+  "hero": {
+    "heading": "Cerita Kunjungan Kami",
+    "imageAlt": "Pelabuhan Sibolga"
+  },
+  "tags": {
+    "label": "Tag",
+    "all": "Semua",
+    "empty": "Belum ada artikel dengan tag ini"
+  },
+  "back": "Kembali",
+  "by": "Oleh {author}",
+  "readingTime": "{minutes} menit baca"
+}

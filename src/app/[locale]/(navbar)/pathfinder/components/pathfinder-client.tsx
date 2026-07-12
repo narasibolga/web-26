@@ -1,5 +1,7 @@
 "use client";
 
+import { Loading01Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useLocalStorage } from "@/hooks/use-local-storage";
 import {
@@ -12,8 +14,6 @@ import { ConfirmScreen } from "./confirm-screen";
 import { IntroScreen } from "./intro-screen";
 import { QuizScreen } from "./quiz-screen";
 import { ResultIntro } from "./result-intro";
-import { HugeiconsIcon } from "@hugeicons/react";
-import { Loading01Icon } from "@hugeicons/core-free-icons";
 
 type Stage = "intro" | "quiz" | "confirm" | "results";
 
