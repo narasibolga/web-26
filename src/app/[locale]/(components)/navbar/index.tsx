@@ -13,7 +13,7 @@ const menuLinks = [
   { key: "home", href: "/" },
   { key: "map", href: "/map" },
   { key: "history", href: "/history" },
-  { key: "articles", href: "/articles" },
+  { key: "programs", href: "/programs" },
 ] as const;
 
 export const Navbar = () => {

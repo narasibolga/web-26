@@ -1,10 +1,10 @@
+import { ArrowRight02Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Container } from "@/components/layout/container";
 import { SectionHeading } from "../../../../(components)/_primitives";
 import { HistoryTimelineCard } from "./history-timeline-card";
-import { HugeiconsIcon } from "@hugeicons/react";
-import { ArrowRight02Icon, ArrowRightIcon } from "@hugeicons/core-free-icons";
 
 type Props = { locale: string };
 

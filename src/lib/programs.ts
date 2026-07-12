@@ -6,11 +6,11 @@ import { remark } from "remark";
 import remarkGfm from "remark-gfm";
 import remarkHtml from "remark-html";
 
-const ARTICLES_DIR = join(process.cwd(), "content", "articles");
+const PROGRAMS_DIR = join(process.cwd(), "content", "programs");
 
 const FALLBACK_AUTHOR = "NaraSibolga Team";
 
-export type ArticleFrontmatter = {
+export type ProgramFrontmatter = {
   title: string;
   date: string;
   summary: string;
@@ -19,40 +19,40 @@ export type ArticleFrontmatter = {
   tags?: string[];
 };
 
-export type ArticleMeta = Omit<ArticleFrontmatter, "tags"> & {
+export type ProgramMeta = Omit<ProgramFrontmatter, "tags"> & {
   slug: string;
   tags: string[];
 };
 
-export type Article = ArticleMeta & { content: string };
+export type Program = ProgramMeta & { content: string };
 
 function isDraftEnabled(): boolean {
   return process.env.NODE_ENV === "development";
 }
 
-export function getArticleSlugs(): string[] {
-  if (!existsSync(ARTICLES_DIR)) return [];
-  return readdirSync(ARTICLES_DIR)
+export function getProgramSlugs(): string[] {
+  if (!existsSync(PROGRAMS_DIR)) return [];
+  return readdirSync(PROGRAMS_DIR)
     .filter((name) => name.endsWith(".md"))
     .map((name) => name.replace(/\.md$/, ""));
 }
 
-function readArticleFile(slug: string): Article {
-  const fullPath = join(ARTICLES_DIR, `${slug}.md`);
+function readProgramFile(slug: string): Program {
+  const fullPath = join(PROGRAMS_DIR, `${slug}.md`);
   const raw = readFileSync(fullPath, "utf8");
   const { data, content } = matter(raw);
 
-  const frontmatter = data as ArticleFrontmatter;
+  const frontmatter = data as ProgramFrontmatter;
 
   if (typeof frontmatter.title !== "string") {
-    throw new Error(`Article "${slug}" is missing required frontmatter: title`);
+    throw new Error(`Program "${slug}" is missing required frontmatter: title`);
   }
   if (typeof frontmatter.date !== "string") {
-    throw new Error(`Article "${slug}" is missing required frontmatter: date`);
+    throw new Error(`Program "${slug}" is missing required frontmatter: date`);
   }
   if (typeof frontmatter.summary !== "string") {
     throw new Error(
-      `Article "${slug}" is missing required frontmatter: summary`,
+      `Program "${slug}" is missing required frontmatter: summary`,
     );
   }
 
@@ -60,7 +60,7 @@ function readArticleFile(slug: string): Article {
   if (frontmatter.tags !== undefined) {
     if (!Array.isArray(frontmatter.tags)) {
       throw new Error(
-        `Article "${slug}" has invalid frontmatter: tags must be an array`,
+        `Program "${slug}" has invalid frontmatter: tags must be an array`,
       );
     }
     tags = Array.from(
@@ -84,18 +84,18 @@ function readArticleFile(slug: string): Article {
   };
 }
 
-export function getArticle(slug: string): Article | null {
-  if (!existsSync(join(ARTICLES_DIR, `${slug}.md`))) return null;
-  return readArticleFile(slug);
+export function getProgram(slug: string): Program | null {
+  if (!existsSync(join(PROGRAMS_DIR, `${slug}.md`))) return null;
+  return readProgramFile(slug);
 }
 
-export async function getArticleHTML(slug: string): Promise<string> {
-  const article = getArticle(slug);
-  if (!article) return "";
+export async function getProgramHTML(slug: string): Promise<string> {
+  const program = getProgram(slug);
+  if (!program) return "";
   const file = await remark()
     .use(remarkGfm)
     .use(remarkHtml, { sanitize: false })
-    .process(article.content);
+    .process(program.content);
   return String(file);
 }
 
@@ -104,16 +104,16 @@ export function getReadingTimeMinutes(content: string): number {
   return Math.max(1, Math.round(words / 200));
 }
 
-export function getArticleAuthor(article: Article): string {
-  return article.author ?? FALLBACK_AUTHOR;
+export function getProgramAuthor(program: Program): string {
+  return program.author ?? FALLBACK_AUTHOR;
 }
 
-export function getAllArticles(): ArticleMeta[] {
-  const slugs = getArticleSlugs();
-  const articles = slugs.map((slug) => readArticleFile(slug));
+export function getAllPrograms(): ProgramMeta[] {
+  const slugs = getProgramSlugs();
+  const programs = slugs.map((slug) => readProgramFile(slug));
   const filtered = isDraftEnabled()
-    ? articles
-    : articles.filter((a) => !a.draft);
+    ? programs
+    : programs.filter((a) => !a.draft);
   return filtered
     .sort((a, b) => (a.date < b.date ? 1 : -1))
     .map(({ content: _content, ...meta }) => meta);

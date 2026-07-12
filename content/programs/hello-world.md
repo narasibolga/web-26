@@ -1,7 +1,7 @@
 ---
 title: "Hello World"
 date: "2025-07-12"
-summary: "A first article to verify the markdown-to-static-HTML pipeline."
+summary: "A first program to verify the markdown-to-static-HTML pipeline."
 author: "NaraSibolga Team"
 draft: false
 tags: ["meta"]
@@ -9,7 +9,7 @@ tags: ["meta"]
 
 # Hello World
 
-This is the **first article** in the kkn project, rendered from a markdown file
+This is the **first program** in the kkn project, rendered from a markdown file
 at build time into a static HTML page.
 
 ## Why markdown?
@@ -40,4 +40,4 @@ export function generateStaticParams() {
 }
 ```
 
-That's it. Edit this file at `content/articles/hello-world.md`.
+That's it. Edit this file at `content/programs/hello-world.md`.

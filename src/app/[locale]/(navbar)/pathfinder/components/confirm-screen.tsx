@@ -18,7 +18,7 @@ export function ConfirmScreen({ onBack, onSubmit }: ConfirmScreenProps) {
   const t = useTranslations("pathfinder");
 
   return (
-    <Container className="items-center gap-4">
+    <Container className="min-h-[80vh] items-center gap-4">
       <h2 className="text-center font-heading text-3xl text-foreground italic md:text-4xl">
         {t("submitConfirmTitle")}
       </h2>

@@ -1,13 +1,13 @@
+import { ArrowRight02Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Container } from "@/components/layout/container";
 import { routing } from "@/i18n/routing";
-import { getAllArticles } from "@/lib/articles";
+import { getAllPrograms } from "@/lib/programs";
 import { SITE_URL } from "@/lib/site";
-import { ArticleList } from "./(components)/article-list";
-import { HugeiconsIcon } from "@hugeicons/react";
-import { ArrowRight02Icon } from "@hugeicons/core-free-icons";
+import { ProgramList } from "./(components)/program-list";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -17,9 +17,9 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "articles" });
+  const t = await getTranslations({ locale, namespace: "programs" });
 
-  const url = `${SITE_URL}/${locale}/articles`;
+  const url = `${SITE_URL}/${locale}/programs`;
 
   return {
     title: t("meta.title"),
@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: {
       canonical: url,
       languages: Object.fromEntries(
-        routing.locales.map((l) => [l, `${SITE_URL}/${l}/articles`]),
+        routing.locales.map((l) => [l, `${SITE_URL}/${l}/programs`]),
       ),
     },
     openGraph: {
@@ -38,17 +38,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function ArticlesPage({ params }: Props) {
+export default async function ProgramsPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations({ locale, namespace: "articles" });
-  const articles = getAllArticles();
+  const t = await getTranslations({ locale, namespace: "programs" });
+  const programs = getAllPrograms();
 
   return (
     <main>
       <section className="relative">
         <Container
-          className="flex min-h-[80vh] flex-col justify-end"
+          className="flex min-h-[80vh] flex-col justify-end pb-6"
           render={<div />}
         >
           <div className="absolute inset-0 z-0">
@@ -64,9 +64,12 @@ export default async function ArticlesPage({ params }: Props) {
             <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-black/40" />
           </div>
 
-          <h1 className="z-10 mt-auto text-center font-serif text-5xl text-shadow-2xs text-white tracking-tighter">
+          <h1 className="z-10 mt-auto mb-4 text-center font-serif text-5xl text-shadow-2xs text-white tracking-tighter">
             {t("hero.heading")}
           </h1>
+          <p className="z-10 text-center text-white text-xs uppercase">
+            {t("hero.subheading")}
+          </p>
         </Container>
       </section>
 
@@ -75,9 +78,9 @@ export default async function ArticlesPage({ params }: Props) {
           <div className="mb-8 flex items-center justify-center gap-2 text-muted-foreground text-sm uppercase">
             <span>Home</span>
             <HugeiconsIcon icon={ArrowRight02Icon} size={16} />
-            <span className="text-foreground">Articles</span>
+            <span className="text-foreground">Programs</span>
           </div>
-          <ArticleList articles={articles} />
+          <ProgramList programs={programs} />
         </Container>
       </section>
     </main>

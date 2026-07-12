@@ -68,15 +68,15 @@ export async function Footer({ locale }: Props) {
                 href="https://instagram.com/narasibolga"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-fit text-muted-foreground transition-opacity hover:opacity-70"
+                className="w-fit opacity-50 transition-opacity hover:opacity-70"
               >
-                {t("contact.instagram")}
+                @narasibolga
               </a>
               <a
                 href="mailto:narasi.sibolga@gmail.com"
-                className="w-fit text-muted-foreground transition-opacity hover:opacity-70"
+                className="w-fit opacity-50 transition-opacity hover:opacity-70"
               >
-                {t("contact.email")}
+                narasi.sibolga@gmail.com
               </a>
             </div>
           </address>

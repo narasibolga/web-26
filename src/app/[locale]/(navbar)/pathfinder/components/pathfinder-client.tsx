@@ -92,7 +92,7 @@ export function PathfinderClient() {
 
   if (!hydrated) {
     return (
-      <div className="flex h-full w-full flex-col items-center justify-center gap-2 text-muted-foreground">
+      <div className="flex min-h-[80vh] w-full flex-col items-center justify-center gap-2 text-muted-foreground">
         <HugeiconsIcon icon={Loading01Icon} className="animate-spin" />
       </div>
     );

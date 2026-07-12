@@ -38,7 +38,7 @@ export function QuizScreen({
   const reducedMotion = useReducedMotion();
 
   return (
-    <Container className="items-center gap-8">
+    <Container className="min-h-[80vh] items-center gap-8">
       <AnimatePresence mode="popLayout">
         <m.div
           key={question.id}

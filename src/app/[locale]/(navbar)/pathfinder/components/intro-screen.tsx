@@ -17,7 +17,7 @@ export function IntroScreen({ onStart }: IntroScreenProps) {
   const reducedMotion = useReducedMotion();
 
   return (
-    <Container className="items-center gap-4">
+    <Container className="min-h-[80vh] items-center gap-4">
       <m.div
         initial={reducedMotion ? undefined : { y: 24, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}

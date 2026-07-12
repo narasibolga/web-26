@@ -1,16 +1,17 @@
 {
   "meta": {
-    "title": "Artikel",
+    "title": "Program",
     "description": "Kisah, pembaruan, dan catatan dari tim Narasibolga."
   },
   "hero": {
     "heading": "Cerita Kunjungan Kami",
-    "imageAlt": "Pelabuhan Sibolga"
+    "imageAlt": "Pelabuhan Sibolga",
+    "subheading": "Program Kerja Kami — kisah, sejarah, dan budaya dari mulut warga lokal, untuk telinga yang mau mendengar."
   },
   "tags": {
     "label": "Tag",
     "all": "Semua",
-    "empty": "Belum ada artikel dengan tag ini"
+    "empty": "Belum ada program dengan tag ini"
   },
   "back": "Kembali",
   "by": "Oleh {author}",

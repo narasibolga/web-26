@@ -1,16 +1,17 @@
 {
   "meta": {
-    "title": "Articles",
+    "title": "Programs",
     "description": "Stories, updates, and notes from the Narasibolga team."
   },
   "hero": {
     "heading": "Tales of Our Visit",
-    "imageAlt": "Sibolga harbor"
+    "imageAlt": "Sibolga harbor",
+    "subheading": "Our Programs — stories, history, and culture from the mouths of locals, for ears willing to listen."
   },
   "tags": {
     "label": "Tags",
     "all": "All",
-    "empty": "No articles with this tag yet"
+    "empty": "No programs with this tag yet"
   },
   "back": "Back",
   "by": "By {author}",

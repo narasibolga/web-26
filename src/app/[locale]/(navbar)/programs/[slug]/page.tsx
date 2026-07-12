@@ -15,12 +15,12 @@ import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import {
-  getAllArticles,
-  getArticle,
-  getArticleAuthor,
-  getArticleHTML,
+  getAllPrograms,
+  getProgram,
+  getProgramAuthor,
+  getProgramHTML,
   getReadingTimeMinutes,
-} from "@/lib/articles";
+} from "@/lib/programs";
 import { SITE_URL } from "@/lib/site";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
@@ -28,48 +28,48 @@ type Props = { params: Promise<{ locale: string; slug: string }> };
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  const articles = getAllArticles();
+  const programs = getAllPrograms();
   return routing.locales.flatMap((locale) =>
-    articles.map((article) => ({ locale, slug: article.slug })),
+    programs.map((program) => ({ locale, slug: program.slug })),
   );
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
-  const article = getArticle(slug);
-  if (!article) return {};
+  const program = getProgram(slug);
+  if (!program) return {};
 
-  const url = `${SITE_URL}/${locale}/articles/${slug}`;
+  const url = `${SITE_URL}/${locale}/programs/${slug}`;
 
   return {
-    title: article.title,
-    description: article.summary,
+    title: program.title,
+    description: program.summary,
     alternates: {
       canonical: url,
       languages: Object.fromEntries(
-        routing.locales.map((l) => [l, `${SITE_URL}/${l}/articles/${slug}`]),
+        routing.locales.map((l) => [l, `${SITE_URL}/${l}/programs/${slug}`]),
       ),
     },
     openGraph: {
       type: "article",
-      title: article.title,
-      description: article.summary,
+      title: program.title,
+      description: program.summary,
       url,
-      publishedTime: article.date,
+      publishedTime: program.date,
     },
   };
 }
 
-export default async function ArticlePage({ params }: Props) {
+export default async function ProgramPage({ params }: Props) {
   const { locale, slug } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations({ locale, namespace: "articles" });
+  const t = await getTranslations({ locale, namespace: "programs" });
 
-  const article = getArticle(slug);
-  if (!article) notFound();
-  const html = await getArticleHTML(slug);
-  const readingTime = getReadingTimeMinutes(article.content);
-  const author = getArticleAuthor(article);
+  const program = getProgram(slug);
+  if (!program) notFound();
+  const html = await getProgramHTML(slug);
+  const readingTime = getReadingTimeMinutes(program.content);
+  const author = getProgramAuthor(program);
 
   return (
     <main>
@@ -92,7 +92,7 @@ export default async function ArticlePage({ params }: Props) {
         <header className="flex flex-col gap-4">
           <Button
             variant="outline-foreground"
-            render={<Link href="/articles" />}
+            render={<Link href="/programs" />}
             nativeButton={false}
             className="mb-4 w-fit"
           >
@@ -104,19 +104,19 @@ export default async function ArticlePage({ params }: Props) {
             />
             {t("back")}
           </Button>
-          {article.tags.length > 0 && (
+          {program.tags.length > 0 && (
             <div className="flex flex-wrap gap-2">
-              {article.tags.map((tag) => (
-                <Badge key={tag} variant="secondary">
+              {program.tags.map((tag) => (
+                <Badge key={tag} variant="outline">
                   {tag}
                 </Badge>
               ))}
             </div>
           )}
           <h1 className="font-serif text-3xl text-foreground md:text-5xl">
-            {article.title}
+            {program.title}
           </h1>
-          <p className="text-muted-foreground">{article.summary}</p>
+          <p className="text-muted-foreground">{program.summary}</p>
 
           <div className="flex items-center gap-3">
             <Avatar>
@@ -138,7 +138,7 @@ export default async function ArticlePage({ params }: Props) {
                 size={14}
                 aria-hidden="true"
               />
-              <time dateTime={article.date}>{article.date}</time>
+              <time dateTime={program.date}>{program.date}</time>
             </div>
             <div className="inline-flex items-center gap-1.5">
               <HugeiconsIcon
