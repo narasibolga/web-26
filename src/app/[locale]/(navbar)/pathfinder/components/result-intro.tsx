@@ -40,14 +40,14 @@ export function ResultIntro({ resolved, results, onRetake }: ResultIntroProps) {
             animate={{ y: 0 }}
             exit={{ y: "-100%" }}
             transition={{ duration: 0.6, ease: "easeInOut" }}
-            className="fixed inset-0 z-100 flex items-center justify-center bg-background"
+            className="fixed inset-0 z-40 flex items-center justify-center bg-primary"
           >
             <div className="flex flex-col items-center gap-5">
               <m.span
                 initial={reducedMotion ? undefined : { opacity: 0, y: -16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, ease: "easeOut", delay: 1.0 }}
-                className="inline-flex items-center justify-center rounded-2xl border border-secondary bg-background px-4 py-2 text-2xl text-secondary"
+                className="inline-flex items-center justify-center bg-background px-4 py-2 text-2xl text-primary"
               >
                 {resolved.code}
               </m.span>
@@ -55,7 +55,7 @@ export function ResultIntro({ resolved, results, onRetake }: ResultIntroProps) {
                 initial={reducedMotion ? undefined : { opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, ease: "easeOut", delay: 2.2 }}
-                className="font-heading text-4xl text-foreground italic"
+                className="font-heading text-4xl text-primary-foreground"
               >
                 {name}
               </m.h2>

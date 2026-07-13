@@ -4,6 +4,15 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Container } from "@/components/layout/container";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import { Link } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { getAllPrograms } from "@/lib/programs";
 import { SITE_URL } from "@/lib/site";
@@ -53,7 +62,7 @@ export default async function ProgramsPage({ params }: Props) {
         >
           <div className="absolute inset-0 z-0">
             <Image
-              src="/images/port.webp"
+              src="/images/programs/cover.webp"
               alt={t("hero.imageAlt")}
               fill
               priority
@@ -75,11 +84,19 @@ export default async function ProgramsPage({ params }: Props) {
 
       <section className="bg-background">
         <Container className="pt-8">
-          <div className="mb-8 flex items-center justify-center gap-2 text-muted-foreground text-sm uppercase">
-            <span>Home</span>
-            <HugeiconsIcon icon={ArrowRight02Icon} size={16} />
-            <span className="text-foreground">Programs</span>
-          </div>
+          <Breadcrumb className="mb-8 flex justify-center uppercase">
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink render={<Link href="/" />}>Home</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator>
+                <HugeiconsIcon icon={ArrowRight02Icon} size={16} />
+              </BreadcrumbSeparator>
+              <BreadcrumbItem>
+                <BreadcrumbPage>Programs</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
           <ProgramList programs={programs} />
         </Container>
       </section>

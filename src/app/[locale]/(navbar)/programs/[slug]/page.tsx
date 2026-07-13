@@ -152,7 +152,7 @@ export default async function ProgramPage({ params }: Props) {
         </header>
 
         <article
-          className="prose prose-primary dark:prose-invert max-w-none"
+          className="typeset typeset-docs max-w-none"
           // biome-ignore lint/security/noDangerouslySetInnerHtml: built-time markdown from local files
           dangerouslySetInnerHTML={{ __html: html }}
         />

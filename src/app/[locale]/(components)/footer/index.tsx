@@ -111,7 +111,7 @@ export async function Footer({ locale }: Props) {
 
         <div className="flex flex-col items-start justify-between gap-6 border-background/10 border-t pt-8 md:flex-row md:items-center">
           <span className="text-background/60 text-xs uppercase tracking-wider">
-            {t("copyright")}
+            © 2026 KKN PPM UGM Narasibolga
           </span>
         </div>
       </Container>

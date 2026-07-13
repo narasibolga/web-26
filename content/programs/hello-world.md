@@ -3,8 +3,9 @@ title: "Hello World"
 date: "2025-07-12"
 summary: "A first program to verify the markdown-to-static-HTML pipeline."
 author: "NaraSibolga Team"
+image: "/images/sibolga-panorama-1928.jpg"
 draft: false
-tags: ["meta"]
+tags: ["soshum"]
 ---
 
 # Hello World

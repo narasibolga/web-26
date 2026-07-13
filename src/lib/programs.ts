@@ -15,6 +15,7 @@ export type ProgramFrontmatter = {
   date: string;
   summary: string;
   author?: string;
+  image?: string;
   draft?: boolean;
   tags?: string[];
 };
@@ -56,6 +57,15 @@ function readProgramFile(slug: string): Program {
     );
   }
 
+  if (
+    frontmatter.image !== undefined &&
+    typeof frontmatter.image !== "string"
+  ) {
+    throw new Error(
+      `Program "${slug}" has invalid frontmatter: image must be a string`,
+    );
+  }
+
   let tags: string[] = [];
   if (frontmatter.tags !== undefined) {
     if (!Array.isArray(frontmatter.tags)) {
@@ -78,6 +88,7 @@ function readProgramFile(slug: string): Program {
     date: frontmatter.date,
     summary: frontmatter.summary,
     author: frontmatter.author,
+    image: frontmatter.image,
     draft: frontmatter.draft === true,
     tags,
     content,

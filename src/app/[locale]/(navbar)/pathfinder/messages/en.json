@@ -15,11 +15,6 @@
   "yourPlaces": "Places for the {name}",
   "openInMap": "Open in map",
   "retake": "Retake the quiz",
-  "dimensions": {
-    "pace": "Pace",
-    "orientation": "Orientation",
-    "range": "Distance"
-  },
   "traits": {
     "pace": {
       "adventurous": "Adventurous",

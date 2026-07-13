@@ -6,6 +6,7 @@ import type { Variants } from "motion/react";
 import { useReducedMotion } from "motion/react";
 import * as m from "motion/react-m";
 import { useTranslations } from "next-intl";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   type ArchetypeCode,
@@ -13,7 +14,6 @@ import {
   type ResolvedArchetype,
   type ScoredLocation,
 } from "@/lib/pathfinder";
-import { DimensionBars } from "./dimension-bars";
 import { LocationCard } from "./location-card";
 
 type ResultScreenProps = {
@@ -96,12 +96,9 @@ export function ResultScreen({
       initial={initial}
       animate="visible"
       variants={rootVariants}
-      className="mx-auto grid w-full max-w-5xl gap-10 lg:grid-cols-3 lg:gap-12"
+      className="mx-auto flex w-full max-w-5xl flex-col gap-10 lg:gap-12"
     >
-      <m.header
-        variants={retakeVariants}
-        className="flex justify-center lg:col-span-3"
-      >
+      <m.header variants={retakeVariants} className="flex justify-center">
         <Button
           variant="outline-foreground"
           size="lg"
@@ -117,12 +114,12 @@ export function ResultScreen({
         initial={initial}
         animate="visible"
         variants={sectionVariants}
-        className="flex flex-col gap-6 lg:col-span-2"
+        className="flex flex-col gap-6"
       >
         <m.div variants={blockVariants(0.04)} className="flex flex-col gap-4">
           <m.p
             variants={itemVariants}
-            className="text-muted-foreground text-xl md:text-2xl"
+            className="inline-flex w-fit items-center justify-center bg-primary px-4 py-2 text-primary-foreground text-xl md:text-2xl"
           >
             {resolved.code}
           </m.p>
@@ -142,24 +139,20 @@ export function ResultScreen({
 
         <m.div variants={blockVariants(0.05)} className="flex flex-wrap gap-2">
           {traits.map((trait) => (
-            <m.span
-              key={trait}
-              variants={itemVariants}
-              className="rounded-full border border-border bg-background px-4 py-1.5 font-sans text-foreground/70 text-sm lowercase"
-            >
-              {trait}
+            <m.span key={trait} variants={itemVariants}>
+              <Badge variant="outline" className="lowercase">
+                {trait}
+              </Badge>
             </m.span>
           ))}
         </m.div>
-
-        <DimensionBars resolved={resolved} />
       </m.section>
 
-      <m.aside
+      <m.section
         initial={initial}
         animate="visible"
         variants={asideVariants}
-        className="flex flex-col gap-4 lg:col-span-1"
+        className="flex flex-col gap-4"
       >
         <m.h3
           variants={itemVariants}
@@ -167,14 +160,17 @@ export function ResultScreen({
         >
           {t("yourPlaces", { name })}
         </m.h3>
-        <m.ul variants={blockVariants(0.06)} className="flex flex-col gap-4">
+        <m.ul
+          variants={blockVariants(0.06)}
+          className="grid grid-cols-1 gap-4 md:grid-cols-4"
+        >
           {results.map((result) => (
             <m.li key={result.locationId} variants={itemVariants}>
               <LocationCard result={result} />
             </m.li>
           ))}
         </m.ul>
-      </m.aside>
+      </m.section>
     </m.div>
   );
 }

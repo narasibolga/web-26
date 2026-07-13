@@ -15,11 +15,6 @@
   "yourPlaces": "Tempat untuk {name}",
   "openInMap": "Buka di peta",
   "retake": "Ulangi kuis",
-  "dimensions": {
-    "pace": "Kecepatan",
-    "orientation": "Orientasi",
-    "range": "Jarak"
-  },
   "traits": {
     "pace": {
       "adventurous": "Petualang",

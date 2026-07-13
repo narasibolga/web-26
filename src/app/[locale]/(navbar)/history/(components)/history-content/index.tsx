@@ -3,6 +3,15 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Container } from "@/components/layout/container";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import { Link } from "@/i18n/navigation";
 import { SectionHeading } from "../../../../(components)/_primitives";
 import { HistoryTimelineCard } from "./history-timeline-card";
 
@@ -80,11 +89,19 @@ export async function HistoryContent({ locale }: Props) {
 
       <section className="bg-[#f2f5f3]">
         <Container className="items-center gap-6 pt-8 text-center">
-          <div className="mb-8 flex items-center justify-center gap-2 text-muted-foreground text-sm uppercase">
-            <span>Home</span>
-            <HugeiconsIcon icon={ArrowRight02Icon} size={16} />
-            <span className="text-foreground">History</span>
-          </div>
+          <Breadcrumb className="mb-8 flex justify-center uppercase">
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink render={<Link href="/" />}>Home</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator>
+                <HugeiconsIcon icon={ArrowRight02Icon} size={16} />
+              </BreadcrumbSeparator>
+              <BreadcrumbItem>
+                <BreadcrumbPage>History</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
           <SectionHeading className="max-w-2xl">
             {t("intro.heading")}
           </SectionHeading>
