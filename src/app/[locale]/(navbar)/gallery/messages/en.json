@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "title": "Gallery",
+    "description": "Weekly photo recaps from the Narasibolga team's time in Sibolga."
+  },
+  "hero": {
+    "heading": "Photo Gallery",
+    "imageAlt": "Sibolga harbor"
+  },
+  "week": "Week {n}",
+  "empty": {
+    "title": "No photos yet",
+    "description": "Watch this space—each week holds its own story and moments."
+  },
+  "lightbox": {
+    "previous": "Previous photo",
+    "next": "Next photo",
+    "close": "Close"
+  }
+}

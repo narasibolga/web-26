@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "title": "Galeri",
+    "description": "Rekap foto mingguan dari tim Narasibolga di Sibolga."
+  },
+  "hero": {
+    "heading": "Galeri Foto",
+    "imageAlt": "Pelabuhan Sibolga"
+  },
+  "week": "Minggu {n}",
+  "empty": {
+    "title": "Belum ada foto",
+    "description": "Nantikan eksplorasi kami di sini—setiap minggu menyimpan cerita dan momen tersendiri."
+  },
+  "lightbox": {
+    "previous": "Foto sebelumnya",
+    "next": "Foto berikutnya",
+    "close": "Tutup"
+  }
+}

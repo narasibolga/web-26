@@ -12,6 +12,7 @@ const pageLinks = [
   { key: "map", href: "/map" },
   { key: "history", href: "/history" },
   { key: "pathfinder", href: "/pathfinder" },
+  { key: "gallery", href: "/gallery" },
 ] as const;
 
 export async function Footer({ locale }: Props) {

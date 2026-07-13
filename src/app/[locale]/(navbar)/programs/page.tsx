@@ -51,6 +51,7 @@ export default async function ProgramsPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "programs" });
+  const tNav = await getTranslations({ locale, namespace: "navbar" });
   const programs = getAllPrograms();
 
   return (
@@ -66,10 +67,9 @@ export default async function ProgramsPage({ params }: Props) {
               alt={t("hero.imageAlt")}
               fill
               priority
-              className="pointer-events-none h-full w-full select-none object-cover sepia-[.55]"
+              className="pointer-events-none h-full w-full select-none object-cover"
               sizes="100vw"
             />
-            <div className="absolute inset-0 bg-[#a67c4d]/55 mix-blend-multiply" />
             <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-black/40" />
           </div>
 
@@ -87,13 +87,15 @@ export default async function ProgramsPage({ params }: Props) {
           <Breadcrumb className="mb-8 flex justify-center uppercase">
             <BreadcrumbList>
               <BreadcrumbItem>
-                <BreadcrumbLink render={<Link href="/" />}>Home</BreadcrumbLink>
+                <BreadcrumbLink render={<Link href="/" />}>
+                  {tNav("links.home")}
+                </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator>
                 <HugeiconsIcon icon={ArrowRight02Icon} size={16} />
               </BreadcrumbSeparator>
               <BreadcrumbItem>
-                <BreadcrumbPage>Programs</BreadcrumbPage>
+                <BreadcrumbPage>{tNav("links.programs")}</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>

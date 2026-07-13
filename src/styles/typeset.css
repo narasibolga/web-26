@@ -444,6 +444,7 @@
 
     /* Forced colors strips the code background, so give it a border. */
     @media (forced-colors: active) {
+      /* biome-ignore lint/style/noDescendingSpecificity: forced-colors override needs to win over inline code styles above */
       &:where(:not(pre) > code) {
         border: 1px solid;
       }
