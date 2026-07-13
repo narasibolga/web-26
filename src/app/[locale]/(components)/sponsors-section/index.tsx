@@ -6,10 +6,17 @@ import { SectionHeading } from "../_primitives";
 
 type Props = { locale: string };
 
-const sponsors = Array.from({ length: 6 }, (_, i) => ({
+const sponsorImages = [
+  { src: "/images/sponsors/gik.webp", alt: "GIK" },
+  { src: "/images/sponsors/pacific-paint.webp", alt: "Pacific Paint" },
+  { src: "/images/sponsors/pepsodent.webp", alt: "Pepsodent" },
+  { src: "/images/sponsors/pertamina.webp", alt: "Pertamina" },
+  { src: "/images/sponsors/rexona.webp", alt: "Rexona" },
+];
+
+const sponsors = sponsorImages.map((sponsor, i) => ({
   id: `sponsor-${i + 1}`,
-  src: "/images/ugm.jpeg",
-  alt: "UGM",
+  ...sponsor,
 }));
 
 export async function SponsorsSection({ locale }: Props) {
@@ -37,7 +44,7 @@ export async function SponsorsSection({ locale }: Props) {
             {sponsors.map((sponsor) => (
               <div
                 key={sponsor.id}
-                className="relative flex h-40 w-72 shrink-0 items-center justify-center rounded-2xl bg-muted px-8 md:h-48 md:w-80 md:rounded-3xl"
+                className="relative flex h-40 w-72 shrink-0 items-center justify-center bg-white px-8 md:h-48 md:w-80 border border-border"
               >
                 <Image
                   src={sponsor.src}
