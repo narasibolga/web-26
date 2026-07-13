@@ -128,10 +128,11 @@ export function Lightbox({
           >
             <m.div
               key={currentSrc}
+              onContextMenu={(e) => e.preventDefault()}
               initial={reducedMotion ? undefined : { opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
-              className="relative h-full w-full max-w-5xl"
+              className="relative h-full w-full max-w-5xl select-none"
               style={{ aspectRatio: currentPhoto.aspect }}
             >
               <Image
@@ -139,7 +140,8 @@ export function Lightbox({
                 alt={currentPhoto.alt}
                 fill
                 sizes="100vw"
-                className="object-contain"
+                draggable={false}
+                className="pointer-events-none select-none object-contain"
                 priority
               />
             </m.div>

@@ -118,11 +118,12 @@ export function GalleryClient() {
                   animate={{ opacity: 1 }}
                   exit={reducedMotion ? undefined : { opacity: 0 }}
                   transition={{ duration: 0.2 }}
+                  className="mx-auto max-w-md border-2 border-foreground/70 border-dashed"
                 >
                   <Empty>
                     <EmptyHeader>
-                      <EmptyMedia variant="icon">
-                        <HugeiconsIcon icon={Image02Icon} />
+                      <EmptyMedia>
+                        <HugeiconsIcon icon={Image02Icon} size={34} />
                       </EmptyMedia>
                       <EmptyTitle>{t("empty.title")}</EmptyTitle>
                       <EmptyDescription>
@@ -134,7 +135,7 @@ export function GalleryClient() {
               ) : (
                 <m.div
                   key={activeWeek}
-                  className="columns-1 gap-4 sm:columns-2 lg:columns-3 [&>*]:mb-4"
+                  className="columns-1 gap-4 sm:columns-2 lg:columns-4 [&>*]:mb-4"
                   initial={reducedMotion ? undefined : { opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={reducedMotion ? undefined : { opacity: 0 }}
@@ -145,6 +146,7 @@ export function GalleryClient() {
                       key={`${activeWeek}-${photo.id}`}
                       type="button"
                       onClick={() => setLightboxIndex(i)}
+                      onContextMenu={(e) => e.preventDefault()}
                       initial={
                         reducedMotion ? undefined : { opacity: 0, y: 12 }
                       }
@@ -154,17 +156,18 @@ export function GalleryClient() {
                         delay: reducedMotion ? 0 : i * 0.04,
                         ease: "easeOut",
                       }}
-                      className="group relative block w-full overflow-hidden rounded-2xl bg-muted"
+                      className="group relative block w-full select-none overflow-hidden rounded-2xl bg-muted"
                       style={{ aspectRatio: photo.aspect }}
                     >
                       <Image
                         src={galleryImagePath(activeWeek, photo.id)}
                         alt={photo.alt}
                         fill
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                        draggable={false}
+                        className="pointer-events-none select-none object-cover transition-transform duration-500 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/20" />
+                      <div className="absolute inset-0 bg-black/0 transition-colors duration-300" />
                     </m.button>
                   ))}
                 </m.div>
