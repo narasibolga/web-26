@@ -6,24 +6,24 @@ import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import { Section, SectionHeading } from "../_primitives";
 
-const INSTAGRAM_POST_URL = "https://www.instagram.com/p/DZAQIFdkrhk";
+const INSTAGRAM_POST_URL = "https://www.instagram.com/narasibolga";
 
 const posts = [
   {
     id: "1",
-    src: "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=800&q=80",
+    src: "/images/instagram/1.webp",
   },
   {
     id: "2",
-    src: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80",
+    src: "/images/instagram/2.webp",
   },
   {
     id: "3",
-    src: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=800&q=80",
+    src: "/images/instagram/3.webp",
   },
   {
     id: "4",
-    src: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80",
+    src: "/images/instagram/4.webp",
   },
 ];
 
