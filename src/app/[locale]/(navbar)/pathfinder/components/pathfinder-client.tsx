@@ -5,10 +5,10 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useLocalStorage } from "@/hooks/use-local-storage";
 import {
-  archetypes,
+  matchArchetype,
   quizQuestions,
-  rankLocationsByRange,
-  resolveArchetype,
+  rankLocations,
+  tallyScores,
 } from "@/lib/pathfinder";
 import { ConfirmScreen } from "./confirm-screen";
 import { IntroScreen } from "./intro-screen";
@@ -81,13 +81,12 @@ export function PathfinderClient() {
 
   const resolved = useMemo(() => {
     if (stage !== "results") return null;
-    return resolveArchetype(selections);
+    return matchArchetype(tallyScores(selections));
   }, [stage, selections]);
 
   const results = useMemo(() => {
     if (!resolved) return [];
-    const archetype = archetypes[resolved.code];
-    return rankLocationsByRange(archetype.range, resolved.totals);
+    return rankLocations(resolved.totals, 6);
   }, [resolved]);
 
   if (!hydrated) {

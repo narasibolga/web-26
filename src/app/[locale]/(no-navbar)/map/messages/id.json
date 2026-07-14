@@ -10,10 +10,10 @@
   "backToList": "Kembali ke daftar",
   "viewInGoogleMaps": "Lihat di Google Maps",
   "kategori": {
-    "wisata": "Wisata",
-    "kuliner": "Kuliner",
-    "penginapan": "Penginapan",
-    "sejarah": "Sejarah",
-    "alam": "Alam"
+    "pantai": "Pantai",
+    "pulau": "Pulau",
+    "bukit": "Bukit & Panorama",
+    "air-terjun": "Air Terjun",
+    "landmark": "Benteng Sejarah"
   }
 }

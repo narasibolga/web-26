@@ -8,12 +8,7 @@ import * as m from "motion/react-m";
 import { useTranslations } from "next-intl";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-  type ArchetypeCode,
-  archetypes,
-  type ResolvedArchetype,
-  type ScoredLocation,
-} from "@/lib/pathfinder";
+import type { ResolvedArchetype, ScoredLocation } from "@/lib/pathfinder";
 import { LocationCard } from "./location-card";
 
 type ResultScreenProps = {
@@ -81,15 +76,10 @@ export function ResultScreen({
   const reducedMotion = useReducedMotion();
   const initial = reducedMotion ? "visible" : "hidden";
 
-  const archetype = archetypes[resolved.code as ArchetypeCode];
   const name = t(`archetypes.${resolved.code}.name` as const);
   const blurb = t(`archetypes.${resolved.code}.blurb` as const);
 
-  const traits = [
-    t(`traits.pace.${archetype.pace}` as const),
-    t(`traits.orientation.${archetype.orientation}` as const),
-    t(`traits.range.${archetype.range}` as const),
-  ];
+  const traits = resolved.traits.map((dim) => t(`traits.${dim}` as const));
 
   return (
     <m.div
@@ -158,7 +148,7 @@ export function ResultScreen({
           variants={itemVariants}
           className="font-sans text-foreground/60 text-sm"
         >
-          {t("yourPlaces", { name })}
+          {t("yourPicks")}
         </m.h3>
         <m.ul
           variants={blockVariants(0.06)}

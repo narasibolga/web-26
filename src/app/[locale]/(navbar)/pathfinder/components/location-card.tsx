@@ -30,7 +30,9 @@ export function LocationCard({ result }: { result: ScoredLocation }) {
         />
       </div>
       <div className="flex items-center justify-between gap-2 p-3">
-        <h4 className="text-foreground uppercase">{location.name[locale]}</h4>
+        <h4 className="line-clamp-1 text-foreground uppercase">
+          {location.name[locale]}
+        </h4>
         <HugeiconsIcon
           icon={ExternalLinkIcon}
           size={16}

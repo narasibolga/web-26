@@ -39,9 +39,9 @@ export const Navbar = () => {
 
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-50 w-full bg-linear-to-b from-black/30 to-transparent px-6 py-6 md:px-12 md:py-16 lg:px-20">
+      <header className="pointer-events-none fixed inset-x-0 top-0 z-50 w-full bg-linear-to-b from-black/30 to-transparent px-6 py-6 md:px-12 md:py-16 lg:px-20">
         <div className="mask-[linear-gradient(to_bottom,black_0%,transparent_100%)] absolute inset-x-0 top-0 h-1/2 backdrop-blur-md [-webkit-mask-image:linear-gradient(to_bottom,black_0%,transparent_100%)]" />
-        <div className="relative z-1 flex w-full items-center justify-between">
+        <div className="pointer-events-auto relative z-1 flex w-full items-center justify-between">
           <Link href="/" className="flex items-center">
             <Image
               src="/logo-white.svg"

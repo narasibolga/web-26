@@ -10,57 +10,54 @@
   "submitConfirmDescription": "We'll match your mood to places around Sibolga.",
   "submit": "Submit",
   "back": "Back",
-  "resultsTitle": "Your pathfinder archetype",
-  "resultsDescription": "Based on your answers, this is the traveler you are.",
-  "yourPlaces": "Places for the {name}",
-  "openInMap": "Open in map",
+  "yourPicks": "Your top picks",
+  "yourPicksDescription": "Based on your answers, here are the places in Sibolga that suit you best.",
   "retake": "Retake the quiz",
   "traits": {
-    "pace": {
-      "adventurous": "Adventurous",
-      "relaxed": "Relaxed"
-    },
-    "orientation": {
-      "curious": "Curious",
-      "social": "Social"
-    },
-    "range": {
-      "near": "Near",
-      "far": "Far"
-    }
+    "bahari": "Sea-loving",
+    "alam": "Nature-drawn",
+    "aktif": "Active",
+    "santai": "Easygoing",
+    "foto": "Shutterbug",
+    "sejarah": "History-curious",
+    "sunyi": "Quiet-seeker",
+    "ramai": "Crowd-lover",
+    "dekat": "Stay-near",
+    "sedang": "Mid-range",
+    "jauh": "Far-roamer"
   },
   "archetypes": {
-    "ACN": {
-      "name": "The Explorer",
-      "blurb": "You go looking for the unfamiliar, even when it's close at hand. Old quays, hidden reefs, untold stories — you want to be the one who found them."
+    "MRN": {
+      "name": "The Tidewatcher",
+      "blurb": "You drift toward the sea and stay for the sunset. Easy days, soft sand, and a camera within reach — the coast is where you exhale."
     },
-    "ACF": {
+    "VYG": {
       "name": "The Voyager",
-      "blurb": "Distance is a feature, not a cost. You set out for the far edge to find what others miss, and the journey is the point."
+      "blurb": "Distance is a feature. You board the boat to the far edge of the bay and ask nothing but clear water and an island with your name on it."
     },
-    "ASN": {
-      "name": "The Wayfarer",
-      "blurb": "You move through the bustle — markets, harbors, fish-sellers at dawn — and the day is shaped by whoever you meet along the way."
+    "TRK": {
+      "name": "The Trailblazer",
+      "blurb": "If there's a hill, you climb it. The sweat is the souvenir, and the panorama from the top is the receipt."
     },
-    "ASF": {
-      "name": "The Convoy",
-      "blurb": "You round up the crew and set out for the islands. The further the better, as long as the company is good."
+    "SKR": {
+      "name": "The Seeker",
+      "blurb": "Old tunnels, colonial quays, wartime forts — you go looking for the story a place is quietly keeping, preferably away from the crowd."
     },
-    "RCN": {
-      "name": "The Wanderer",
-      "blurb": "Slow steps through old streets, letting every stone and doorway speak. You'd rather understand one place deeply than skim ten."
+    "ANC": {
+      "name": "The Anchorite",
+      "blurb": "You came to disappear a little. A hidden beach, a waterfall no one's at, the wind through the trees — silence is the whole point."
     },
-    "RCF": {
+    "SOC": {
+      "name": "The Socialite",
+      "blurb": "You find warmth in the bustle — the market, the waterfront, the family day out. Company and comfort, not conquest."
+    },
+    "CRO": {
+      "name": "The Chronicler",
+      "blurb": "You see Sibolga through a lens. Old buildings, harbour light, staircases with a past — every frame is a small act of remembering."
+    },
+    "DRF": {
       "name": "The Drifter",
-      "blurb": "You let the tide carry you somewhere quiet and far, and ask nothing of the day but to pass gently."
-    },
-    "RSN": {
-      "name": "The Harbor",
-      "blurb": "You find warmth in the local hum — a coffee, a conversation, the waterfront at dusk. Company and comfort, not conquest."
-    },
-    "RSF": {
-      "name": "The Retreat",
-      "blurb": "You escape with a few close people to somewhere far and still, where the loudest thing is the wind through the trees."
+      "blurb": "You let the current take you somewhere far and unhurried, where the reef is alive and the island asks nothing of you."
     }
   }
 }

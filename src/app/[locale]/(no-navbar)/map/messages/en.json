@@ -10,10 +10,10 @@
   "backToList": "Back to list",
   "viewInGoogleMaps": "View in Google Maps",
   "kategori": {
-    "wisata": "Sightseeing",
-    "kuliner": "Culinary",
-    "penginapan": "Stay",
-    "sejarah": "History",
-    "alam": "Nature"
+    "pantai": "Beach",
+    "pulau": "Island",
+    "bukit": "Hill & Panorama",
+    "air-terjun": "Waterfall",
+    "landmark": "Landmark"
   }
 }

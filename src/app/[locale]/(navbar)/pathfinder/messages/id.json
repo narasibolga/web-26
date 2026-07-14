@@ -10,57 +10,54 @@
   "submitConfirmDescription": "Kami akan mencocokkan suasana hatimu dengan tempat-tempat di Sibolga.",
   "submit": "Kirim",
   "back": "Kembali",
-  "resultsTitle": "Tipe pathfinder-mu",
-  "resultsDescription": "Berdasarkan jawabanmu, inilah tipe pelancong yang kamu punya.",
-  "yourPlaces": "Tempat untuk {name}",
-  "openInMap": "Buka di peta",
+  "yourPicks": "Pilihan teratas untukmu",
+  "yourPicksDescription": "Berdasarkan jawabanmu, ini tempat-tempat di Sibolga yang paling cocok buatmu.",
   "retake": "Ulangi kuis",
   "traits": {
-    "pace": {
-      "adventurous": "Petualang",
-      "relaxed": "Santai"
-    },
-    "orientation": {
-      "curious": "Ingin tahu",
-      "social": "Sosial"
-    },
-    "range": {
-      "near": "Dekat",
-      "far": "Jauh"
-    }
+    "bahari": "Pecinta laut",
+    "alam": "Pencinta alam",
+    "aktif": "Aktif",
+    "santai": "Santai",
+    "foto": "Pemburu foto",
+    "sejarah": "Pecinta sejarah",
+    "sunyi": "Pencari sunyi",
+    "ramai": "Suka ramai",
+    "dekat": "Tetap dekat",
+    "sedang": "Jarak sedang",
+    "jauh": "Pelancong jauh"
   },
   "archetypes": {
-    "ACN": {
-      "name": "Sang Penjelajah",
-      "blurb": "Kamu mencari yang tak biasa, meski itu dekat. Dermaga tua, terumbu tersembunyi, kisah yang tak terungkap — kamu ingin jadi orang yang menemukannya."
+    "MRN": {
+      "name": "Sang Pengamat Pasang",
+      "blurb": "Kamu terhanyut ke laut dan diam untuk sunset. Hari yang ringan, pasir lembut, dan kamera selalu siap — pantai adalah tempat kamu bernapas lega."
     },
-    "ACF": {
-      "name": "Sang Pengarah",
-      "blurb": "Jarak adalah bagian dari perjalanan, bukan hambatan. Kamu menuju ke tepi terjauh untuk menemukan yang terlewat orang lain, dan perjalanannya itu sendiri yang penting."
+    "VYG": {
+      "name": "Sang Pelayar",
+      "blurb": "Jarak adalah bagian dari pesona. Kamu naik perahu ke tepi teluk yang paling jauh dan cuma minta air jernih plus pulau dengan namamu tertera."
     },
-    "ASN": {
-      "name": "Sang Pejalan",
-      "blurb": "Kamu bergerak di tengah keramaian — pasar, pelabuhan, pedagang ikan saat fajar — dan harimu dibentuk oleh siapa pun yang kau temui."
+    "TRK": {
+      "name": "Sang Pendaki",
+      "blurb": "Kalau ada bukit, kamu naik. Keringat adalah cinderamata, dan panorama dari puncak adalah tanda terimanya."
     },
-    "ASF": {
-      "name": "Sang Konvoi",
-      "blurb": "Kamu mengumpulkan rombongan dan menuju pulau. Semakin jauh semakin baik, asal teman seperjalanan menyenangkan."
+    "SKR": {
+      "name": "Sang Pencari",
+      "blurb": "Terowongan tua, dermaga kolonial, benteng perang — kamu mencari cerita yang disimpan diam-diam oleh sebuah tempat, sejauh mungkin dari keramaian."
     },
-    "RCN": {
-      "name": "Sang Pengembara",
-      "blurb": "Langkah pelan menyusuri jalan tua, membiarkan setiap batu dan pintu berbicara. Lebih baik memahami satu tempat dalam-dalam daripada mengecap sepuluh."
+    "ANC": {
+      "name": "Sang Pertapa",
+      "blurb": "Kamu datang untuk menghilang sedikit. Pantai tersembunyi, air terjun yang sepi, angin di antara pohon — keheningan adalah intinya."
     },
-    "RCF": {
+    "SOC": {
+      "name": "Sang Sosialita",
+      "blurb": "Kamu menemukan kehangatan di tengah hiruk-pikuk — pasar, tepi laut, jalan-jalan bareng keluarga. Teman dan kenyamanan, bukan penaklukan."
+    },
+    "CRO": {
+      "name": "Sang Pencatat",
+      "blurb": "Kamu melihat Sibolga lewat lensa. Bangunan tua, cahaya pelabuhan, tangga dengan masa lalu — setiap bidik adalah cara kecil untuk mengingat."
+    },
+    "DRF": {
       "name": "Sang Penyusur",
-      "blurb": "Kamu membiarkan arus membawamu ke tempat yang jauh dan sunyi, dan tak meminta apa-apa dari hari selain berlalu dengan lembut."
-    },
-    "RSN": {
-      "name": "Sang Pelabuhan",
-      "blurb": "Kamu menemukan kehangatan dalam hiruk-pikuk lokal — kopi, obrolan, tepi laut saat senja. Teman dan kenyamanan, bukan penaklukan."
-    },
-    "RSF": {
-      "name": "Sang Pengasingan",
-      "blurb": "Kamu melarikan diri bersama beberapa orang terdekat ke tempat yang jauh dan tenang, di mana suara paling keras hanyalah angin di antara pohon."
+      "blurb": "Kamu membiarkan arus membawamu ke tempat yang jauh dan tak terburu, tempat terumbu masih hidup dan pulau tak menuntut apa-apa darimu."
     }
   }
 }
