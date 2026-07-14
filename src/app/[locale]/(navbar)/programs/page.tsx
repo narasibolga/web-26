@@ -3,6 +3,7 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { Suspense } from "react";
 import { Container } from "@/components/layout/container";
 import {
   Breadcrumb,
@@ -16,6 +17,7 @@ import { Link } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { getAllPrograms } from "@/lib/programs";
 import { SITE_URL } from "@/lib/site";
+import { Skeleton } from "@/components/ui/skeleton";
 import { ProgramList, ProgramTagFilter } from "./(components)/program-list";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -77,7 +79,17 @@ export default async function ProgramsPage({ params }: Props) {
             {t("hero.heading")}
           </h1>
 
-          <ProgramTagFilter programs={programs} />
+          <Suspense
+            fallback={
+              <div className="z-10 flex flex-wrap items-center justify-center gap-4">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Skeleton key={i} className="h-6 w-16 rounded-full" />
+                ))}
+              </div>
+            }
+          >
+            <ProgramTagFilter programs={programs} />
+          </Suspense>
         </Container>
       </section>
 
@@ -98,7 +110,23 @@ export default async function ProgramsPage({ params }: Props) {
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
-          <ProgramList programs={programs} />
+          <Suspense
+            fallback={
+              <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                {Array.from({ length: 8 }).map((_, i) => (
+                  <li key={i} className="border border-border">
+                    <Skeleton className="aspect-4/3 w-full rounded-none" />
+                    <div className="space-y-2 p-3">
+                      <Skeleton className="h-3 w-24" />
+                      <Skeleton className="h-6 w-full" />
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            }
+          >
+            <ProgramList programs={programs} />
+          </Suspense>
         </Container>
       </section>
     </main>
