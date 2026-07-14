@@ -118,7 +118,7 @@ export function GalleryClient() {
                   animate={{ opacity: 1 }}
                   exit={reducedMotion ? undefined : { opacity: 0 }}
                   transition={{ duration: 0.2 }}
-                  className="mx-auto max-w-md border-2 border-foreground/70 border-dashed"
+                  className="mx-auto max-w-md rounded-xs border-2 border-foreground/50 border-dashed"
                 >
                   <Empty>
                     <EmptyHeader>

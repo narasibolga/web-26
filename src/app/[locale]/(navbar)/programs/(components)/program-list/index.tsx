@@ -1,12 +1,13 @@
 "use client";
 
 import Image from "next/image";
+import { useSearchParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
-import { useMemo, useState } from "react";
+import { useCallback, useMemo } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Empty, EmptyHeader, EmptyTitle } from "@/components/ui/empty";
-import { Link } from "@/i18n/navigation";
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import type { ProgramMeta } from "@/lib/programs";
 import { cn } from "@/lib/utils";
 
@@ -14,10 +15,21 @@ type ProgramListProps = {
   programs: ProgramMeta[];
 };
 
-export function ProgramList({ programs }: ProgramListProps) {
+type ProgramTagFilterProps = {
+  programs: ProgramMeta[];
+};
+
+export function useActiveTag(): string {
+  const searchParams = useSearchParams();
+  return searchParams.get("tag") ?? "all";
+}
+
+export function ProgramTagFilter({ programs }: ProgramTagFilterProps) {
   const t = useTranslations("programs");
-  const locale = useLocale();
-  const [activeTag, setActiveTag] = useState<string>("all");
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+  const activeTag = searchParams.get("tag") ?? "all";
 
   const tags = useMemo(() => {
     const set = new Set<string>();
@@ -29,6 +41,53 @@ export function ProgramList({ programs }: ProgramListProps) {
     return Array.from(set).sort();
   }, [programs]);
 
+  const selectTag = useCallback(
+    (tag: string) => {
+      const params = new URLSearchParams(searchParams.toString());
+      if (tag === "all") params.delete("tag");
+      else params.set("tag", tag);
+      const qs = params.toString();
+      router.replace(qs ? `${pathname}?${qs}` : pathname);
+    },
+    [searchParams, router, pathname],
+  );
+
+  return (
+    <div className="z-10 flex flex-wrap items-center justify-center gap-4">
+      <Button
+        variant="link"
+        size="none"
+        onClick={() => selectTag("all")}
+        className={cn(
+          "text-white uppercase",
+          activeTag === "all" && "underline",
+        )}
+      >
+        {t("tags.all")}
+      </Button>
+      {tags.map((tag) => (
+        <Button
+          key={tag}
+          variant="link"
+          size="none"
+          onClick={() => selectTag(tag)}
+          className={cn(
+            "text-white uppercase",
+            activeTag === tag && "underline",
+          )}
+        >
+          {tag}
+        </Button>
+      ))}
+    </div>
+  );
+}
+
+export function ProgramList({ programs }: ProgramListProps) {
+  const t = useTranslations("programs");
+  const locale = useLocale();
+  const activeTag = useActiveTag();
+
   const filtered =
     activeTag === "all"
       ? programs
@@ -36,28 +95,6 @@ export function ProgramList({ programs }: ProgramListProps) {
 
   return (
     <div className="flex flex-col gap-8">
-      <div className="flex flex-wrap items-center justify-center gap-4">
-        <Button
-          variant="link"
-          size="none"
-          onClick={() => setActiveTag("all")}
-          className={cn(activeTag === "all" && "underline")}
-        >
-          {t("tags.all")}
-        </Button>
-        {tags.map((tag) => (
-          <Button
-            key={tag}
-            variant="link"
-            size="none"
-            onClick={() => setActiveTag(tag)}
-            className={cn(activeTag === tag && "underline")}
-          >
-            {tag}
-          </Button>
-        ))}
-      </div>
-
       {filtered.length === 0 ? (
         <Empty>
           <EmptyHeader>

@@ -16,7 +16,7 @@ import { Link } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { getAllPrograms } from "@/lib/programs";
 import { SITE_URL } from "@/lib/site";
-import { ProgramList } from "./(components)/program-list";
+import { ProgramList, ProgramTagFilter } from "./(components)/program-list";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -76,9 +76,8 @@ export default async function ProgramsPage({ params }: Props) {
           <h1 className="z-10 mt-auto mb-4 text-center font-serif text-5xl text-shadow-2xs text-white tracking-tighter">
             {t("hero.heading")}
           </h1>
-          <p className="z-10 text-center text-white text-xs uppercase">
-            {t("hero.subheading")}
-          </p>
+
+          <ProgramTagFilter programs={programs} />
         </Container>
       </section>
 

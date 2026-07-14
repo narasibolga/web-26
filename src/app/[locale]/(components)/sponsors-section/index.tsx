@@ -44,7 +44,7 @@ export async function SponsorsSection({ locale }: Props) {
             {sponsors.map((sponsor) => (
               <div
                 key={sponsor.id}
-                className="relative flex h-40 w-72 shrink-0 items-center justify-center bg-white px-8 md:h-48 md:w-80 border border-border"
+                className="relative flex h-40 w-72 shrink-0 items-center justify-center border border-border bg-white px-8 md:h-48 md:w-80"
               >
                 <Image
                   src={sponsor.src}
