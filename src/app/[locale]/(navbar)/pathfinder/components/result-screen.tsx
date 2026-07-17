@@ -1,15 +1,40 @@
 "use client";
 
-import { RefreshIcon } from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  CameraLensIcon,
+  FerryBoatIcon,
+  FortressIcon,
+  MountainIcon,
+  RefreshIcon,
+  SunsetIcon,
+  UserGroupIcon,
+  WaterfallDown01Icon,
+  WindSurfIcon,
+} from "@hugeicons/core-free-icons";
+import { HugeiconsIcon, type IconSvgElement } from "@hugeicons/react";
 import type { Variants } from "motion/react";
 import { useReducedMotion } from "motion/react";
 import * as m from "motion/react-m";
 import { useTranslations } from "next-intl";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import type { ResolvedArchetype, ScoredLocation } from "@/lib/pathfinder";
+import type {
+  ArchetypeCode,
+  ResolvedArchetype,
+  ScoredLocation,
+} from "@/lib/pathfinder";
 import { LocationCard } from "./location-card";
+
+const archetypeIcons: Record<ArchetypeCode, IconSvgElement> = {
+  MRN: SunsetIcon,
+  VYG: FerryBoatIcon,
+  TRK: MountainIcon,
+  SKR: FortressIcon,
+  ANC: WaterfallDown01Icon,
+  SOC: UserGroupIcon,
+  CRO: CameraLensIcon,
+  DRF: WindSurfIcon,
+};
 
 type ResultScreenProps = {
   resolved: ResolvedArchetype;
@@ -86,8 +111,13 @@ export function ResultScreen({
       initial={initial}
       animate="visible"
       variants={rootVariants}
-      className="mx-auto flex w-full max-w-5xl flex-col gap-10 lg:gap-12"
+      className="relative mx-auto flex w-full max-w-5xl flex-col gap-10 overflow-hidden lg:gap-12"
     >
+      <HugeiconsIcon
+        icon={archetypeIcons[resolved.code]}
+        aria-hidden
+        className="-right-12 pointer-events-none absolute top-0 size-[420px] rotate-12 select-none text-foreground/[0.04]"
+      />
       <m.header variants={retakeVariants} className="flex justify-center">
         <Button
           variant="outline-foreground"
