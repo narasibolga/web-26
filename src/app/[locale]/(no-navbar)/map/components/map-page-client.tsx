@@ -6,7 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import dynamic from "next/dynamic";
 import { useSearchParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import type { Earthquake } from "@/app/api/bmkg/hazards/route";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -62,28 +62,22 @@ export function MapPageClient() {
     staleTime: 5 * 60 * 1000,
   });
 
-  const selectLocation = useCallback(
-    (id: string | null) => {
-      const params = new URLSearchParams(searchParams.toString());
-      if (id) params.set("location", id);
-      else params.delete("location");
-      const qs = params.toString();
-      router.replace(qs ? `${pathname}?${qs}` : pathname);
-    },
-    [searchParams, router, pathname],
-  );
+  const selectLocation = (id: string | null) => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (id) params.set("location", id);
+    else params.delete("location");
+    const qs = params.toString();
+    router.replace(qs ? `${pathname}?${qs}` : pathname);
+  };
 
-  const switchMode = useCallback(
-    (next: MapMode) => {
-      if (next === mode) return;
-      const params = new URLSearchParams(searchParams.toString());
-      params.delete("location");
-      const qs = params.toString();
-      router.replace(qs ? `${pathname}?${qs}` : pathname);
-      setMode(next);
-    },
-    [mode, searchParams, router, pathname],
-  );
+  const switchMode = (next: MapMode) => {
+    if (next === mode) return;
+    const params = new URLSearchParams(searchParams.toString());
+    params.delete("location");
+    const qs = params.toString();
+    router.replace(qs ? `${pathname}?${qs}` : pathname);
+    setMode(next);
+  };
 
   const toggleCategory = (cat: LocationCategory) => {
     setActiveCategories((prev) => {

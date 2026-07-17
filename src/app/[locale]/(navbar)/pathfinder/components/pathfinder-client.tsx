@@ -32,9 +32,14 @@ export function PathfinderClient() {
   const [direction, setDirection] = useState(1);
   const [selections, setSelections] = useState<Record<string, string>>({});
 
+  // hydrates persisted quiz selections from localStorage after mount; `window` is unavailable during SSR so the value cannot be derived during render.
   useEffect(() => {
     if (hydrated && storedResult) {
+      // post-mount hydration from localStorage; value cannot exist during SSR render.
+      // react-doctor-disable-next-line react-hooks-js/set-state-in-effect
       setSelections(storedResult.selections);
+      // post-mount stage transition tied to the hydrated stored result.
+      // react-doctor-disable-next-line react-hooks-js/set-state-in-effect
       setStage("results");
     }
   }, [hydrated, storedResult]);

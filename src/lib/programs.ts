@@ -33,9 +33,9 @@ function isDraftEnabled(): boolean {
 
 export function getProgramSlugs(): string[] {
   if (!existsSync(PROGRAMS_DIR)) return [];
-  return readdirSync(PROGRAMS_DIR)
-    .filter((name) => name.endsWith(".md"))
-    .map((name) => name.replace(/\.md$/, ""));
+  return readdirSync(PROGRAMS_DIR).flatMap((name) =>
+    name.endsWith(".md") ? [name.replace(/\.md$/, "")] : [],
+  );
 }
 
 function readProgramFile(slug: string): Program {
@@ -75,9 +75,10 @@ function readProgramFile(slug: string): Program {
     }
     tags = Array.from(
       new Set(
-        frontmatter.tags
-          .map((tag) => String(tag).trim().toLowerCase())
-          .filter((tag) => tag.length > 0),
+        frontmatter.tags.flatMap((tag) => {
+          const t = String(tag).trim().toLowerCase();
+          return t.length > 0 ? [t] : [];
+        }),
       ),
     );
   }
@@ -103,9 +104,11 @@ export function getProgram(slug: string): Program | null {
 export async function getProgramHTML(slug: string): Promise<string> {
   const program = getProgram(slug);
   if (!program) return "";
+  // `remark-html` sanitizes by default (sanitize: true); the previous
+  // `sanitize: false` allowed raw HTML through and was flagged as an XSS sink.
   const file = await remark()
     .use(remarkGfm)
-    .use(remarkHtml, { sanitize: false })
+    .use(remarkHtml)
     .process(program.content);
   return String(file);
 }

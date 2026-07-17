@@ -72,7 +72,7 @@ export function GalleryEmptyIllustration() {
         cy="42"
         r="7"
         className="fill-primary"
-        initial={{ scale: 0, opacity: 0 }}
+        initial={{ scale: 0.95, opacity: 0 }}
         animate={{
           scale: [1, 1.08, 1],
           opacity: [0.85, 1, 0.85],

@@ -153,7 +153,8 @@ export default async function ProgramPage({ params }: Props) {
 
         <article
           className="typeset typeset-docs max-w-none"
-          // biome-ignore lint/security/noDangerouslySetInnerHtml: built-time markdown from local files
+          // markdown is sanitized by remark-html's default schema in getProgramHTML (programs.ts); the value reaching this sink is already sanitized.
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: built-time markdown from local files, sanitized via remark-html defaults
           dangerouslySetInnerHTML={{ __html: html }}
         />
       </Container>

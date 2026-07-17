@@ -87,6 +87,7 @@ export default async function LocaleLayout({
           <Providers>
             <script
               type="application/ld+json"
+              // JSON-LD built from developer-authored site metadata and i18n translations, not user/request-derived input; no untrusted data reaches the sink.
               // biome-ignore lint/security/noDangerouslySetInnerHtml: serialised JSON-LD, no user input
               dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />

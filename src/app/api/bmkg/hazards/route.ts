@@ -143,9 +143,10 @@ export async function GET() {
 
     const events = dedupeByDatetime(
       raw
-        .map(toEarthquake)
-        .filter((e): e is Earthquake => e !== null)
-        .filter((e) => withinBounds(e.lat, e.lng))
+        .flatMap((g) => {
+          const e = toEarthquake(g);
+          return e && withinBounds(e.lat, e.lng) ? [e] : [];
+        })
         .sort((a, b) => b.datetime.localeCompare(a.datetime)),
     );
 

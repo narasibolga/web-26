@@ -83,6 +83,7 @@ export default async function ProgramsPage({ params }: Props) {
             fallback={
               <div className="z-10 flex flex-wrap items-center justify-center gap-4">
                 {Array.from({ length: 5 }).map((_, i) => (
+                  // biome-ignore lint/suspicious/noArrayIndexKey: static placeholder list
                   <Skeleton key={i} className="h-6 w-16 rounded-full" />
                 ))}
               </div>
@@ -114,6 +115,7 @@ export default async function ProgramsPage({ params }: Props) {
             fallback={
               <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
                 {Array.from({ length: 8 }).map((_, i) => (
+                  // biome-ignore lint/suspicious/noArrayIndexKey: static placeholder list
                   <li key={i} className="border border-border">
                     <Skeleton className="aspect-4/3 w-full rounded-none" />
                     <div className="space-y-2 p-3">

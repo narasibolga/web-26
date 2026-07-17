@@ -5,7 +5,7 @@ import { Container } from "@/components/layout/container";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import { locations } from "@/lib/locations";
-import { SectionHeading } from "../_primitives";
+import { SectionHeading } from "../_primitives/section-heading";
 import { AdventureCarousel } from "./components/adventure-carousel";
 
 type Props = { locale: string };

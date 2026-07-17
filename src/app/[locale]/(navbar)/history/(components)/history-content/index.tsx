@@ -12,7 +12,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Link } from "@/i18n/navigation";
-import { SectionHeading } from "../../../../(components)/_primitives";
+import { SectionHeading } from "../../../../(components)/_primitives/section-heading";
 import { HistoryTimelineCard } from "./history-timeline-card";
 
 type Props = { locale: string };

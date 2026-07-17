@@ -90,16 +90,21 @@ function Carousel({
 
   React.useEffect(() => {
     if (!api || !setApi) return;
+    // notifies the parent of the embla API once it is available on mount; this is the shadcn/ui carousel convention and the API cannot be derived during render.
+    // react-doctor-disable-next-line react-hooks-js/set-state-in-effect
     setApi(api);
   }, [api, setApi]);
 
   React.useEffect(() => {
     if (!api) return;
+    // initialises canScrollPrev/canScrollNext from the embla API on mount; the API state is not available during render.
+    // react-doctor-disable-next-line react-hooks-js/set-state-in-effect
     onSelect(api);
     api.on("reInit", onSelect);
     api.on("select", onSelect);
 
     return () => {
+      api?.off("reInit", onSelect);
       api?.off("select", onSelect);
     };
   }, [api, onSelect]);

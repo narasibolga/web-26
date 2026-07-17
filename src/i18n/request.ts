@@ -9,19 +9,22 @@ type MessageTree = Record<string, unknown>;
 
 async function loadMessagesForLocale(locale: string): Promise<MessageTree> {
   const files = await collectMessageFiles(SRC_DIR, locale);
+  const contents = await Promise.all(
+    files.map(async ({ path }) => {
+      const raw = await readFile(path, "utf8");
+      return JSON.parse(raw) as MessageTree;
+    }),
+  );
   const messages: MessageTree = {};
-
-  for (const { path, namespace } of files) {
-    const raw = await readFile(path, "utf8");
-    const parsed = JSON.parse(raw) as MessageTree;
+  for (let i = 0; i < files.length; i++) {
+    const { path, namespace } = files[i];
     if (namespace in messages) {
       throw new Error(
         `i18n: duplicate namespace "${namespace}" from ${relative(SRC_DIR, path)}`,
       );
     }
-    messages[namespace] = parsed;
+    messages[namespace] = contents[i];
   }
-
   return messages;
 }
 
@@ -31,25 +34,21 @@ async function collectMessageFiles(
   dir: string,
   locale: string,
 ): Promise<MessageFileEntry[]> {
-  const entries: MessageFileEntry[] = [];
   const children = await readdir(dir, { withFileTypes: true }).catch(() => []);
-
-  for (const entry of children) {
-    const fullPath = join(dir, entry.name);
-
-    if (entry.isDirectory()) {
+  const nested = await Promise.all(
+    children.map(async (entry) => {
+      const fullPath = join(dir, entry.name);
+      if (!entry.isDirectory()) return [];
       if (entry.name === "messages") {
         const file = join(fullPath, `${locale}.json`);
         const componentFolder = dir.split(/[\\/]/).pop() ?? "";
         const namespace = normalizeNamespace(componentFolder, entry.name);
-        entries.push({ path: file, namespace });
-      } else {
-        entries.push(...(await collectMessageFiles(fullPath, locale)));
+        return [{ path: file, namespace }] as MessageFileEntry[];
       }
-    }
-  }
-
-  return entries;
+      return collectMessageFiles(fullPath, locale);
+    }),
+  );
+  return nested.flat();
 }
 
 function normalizeNamespace(componentFolder: string, messagesFolder: string) {
@@ -58,6 +57,8 @@ function normalizeNamespace(componentFolder: string, messagesFolder: string) {
 }
 
 export default getRequestConfig(async ({ requestLocale }) => {
+  // the guard below uses the awaited `requested` value, so the await cannot be deferred past it.
+  // react-doctor-disable-next-line react-doctor/async-defer-await
   const requested = await requestLocale;
   const locale = routing.locales.includes(requested as never)
     ? (requested as string)

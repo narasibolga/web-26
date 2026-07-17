@@ -5,7 +5,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Container } from "@/components/layout/container";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
-import { SectionHeading } from "../_primitives";
+import { SectionHeading } from "../_primitives/section-heading";
 
 type Props = { locale: string };
 

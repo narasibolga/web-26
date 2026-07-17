@@ -93,6 +93,7 @@ export async function Footer({ locale }: Props) {
                 src="/images/ugm.jpeg"
                 alt={t("partnerCard.label")}
                 fill
+                sizes="100vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
             </div>

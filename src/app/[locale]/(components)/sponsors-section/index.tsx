@@ -2,7 +2,7 @@ import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Container } from "@/components/layout/container";
 import { Marquee } from "@/components/ui/marquee";
-import { SectionHeading } from "../_primitives";
+import { SectionHeading } from "../_primitives/section-heading";
 
 type Props = { locale: string };
 

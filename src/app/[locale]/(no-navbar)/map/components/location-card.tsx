@@ -125,13 +125,25 @@ export function LocationCard({
   );
 }
 
-function formatDate(iso: string, locale: "en" | "id"): string {
-  const d = new Date(iso);
-  if (Number.isNaN(d.getTime())) return "";
-  return new Intl.DateTimeFormat(locale === "id" ? "id-ID" : "en-GB", {
+const quakeDateFormatters: Record<"en" | "id", Intl.DateTimeFormat> = {
+  en: new Intl.DateTimeFormat("en-GB", {
     day: "numeric",
     month: "short",
     hour: "2-digit",
     minute: "2-digit",
-  }).format(d);
+    timeZone: "Asia/Jakarta",
+  }),
+  id: new Intl.DateTimeFormat("id-ID", {
+    day: "numeric",
+    month: "short",
+    hour: "2-digit",
+    minute: "2-digit",
+    timeZone: "Asia/Jakarta",
+  }),
+};
+
+function formatDate(iso: string, locale: "en" | "id"): string {
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return "";
+  return quakeDateFormatters[locale].format(d);
 }

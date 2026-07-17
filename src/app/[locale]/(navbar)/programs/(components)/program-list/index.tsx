@@ -3,13 +3,13 @@
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
-import { useCallback, useMemo } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Empty, EmptyHeader, EmptyTitle } from "@/components/ui/empty";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import type { ProgramMeta } from "@/lib/programs";
 import { cn } from "@/lib/utils";
+import { useActiveTag } from "./use-active-tag";
 
 type ProgramListProps = {
   programs: ProgramMeta[];
@@ -19,10 +19,20 @@ type ProgramTagFilterProps = {
   programs: ProgramMeta[];
 };
 
-export function useActiveTag(): string {
-  const searchParams = useSearchParams();
-  return searchParams.get("tag") ?? "all";
-}
+const programDateFormatters: Record<"en" | "id", Intl.DateTimeFormat> = {
+  en: new Intl.DateTimeFormat("en", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    timeZone: "Asia/Jakarta",
+  }),
+  id: new Intl.DateTimeFormat("id", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    timeZone: "Asia/Jakarta",
+  }),
+};
 
 export function ProgramTagFilter({ programs }: ProgramTagFilterProps) {
   const t = useTranslations("programs");
@@ -31,26 +41,17 @@ export function ProgramTagFilter({ programs }: ProgramTagFilterProps) {
   const pathname = usePathname();
   const activeTag = searchParams.get("tag") ?? "all";
 
-  const tags = useMemo(() => {
-    const set = new Set<string>();
-    for (const program of programs) {
-      for (const tag of program.tags) {
-        set.add(tag);
-      }
-    }
-    return Array.from(set).sort();
-  }, [programs]);
+  const tags = Array.from(
+    new Set(programs.flatMap((program) => program.tags)),
+  ).sort();
 
-  const selectTag = useCallback(
-    (tag: string) => {
-      const params = new URLSearchParams(searchParams.toString());
-      if (tag === "all") params.delete("tag");
-      else params.set("tag", tag);
-      const qs = params.toString();
-      router.replace(qs ? `${pathname}?${qs}` : pathname);
-    },
-    [searchParams, router, pathname],
-  );
+  const selectTag = (tag: string) => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (tag === "all") params.delete("tag");
+    else params.set("tag", tag);
+    const qs = params.toString();
+    router.replace(qs ? `${pathname}?${qs}` : pathname);
+  };
 
   return (
     <div className="z-10 flex flex-wrap items-center justify-center gap-4">
@@ -131,11 +132,9 @@ export function ProgramList({ programs }: ProgramListProps) {
                     <span>{program.author}</span>
                     {" - "}
                     <time dateTime={program.date}>
-                      {new Intl.DateTimeFormat(locale, {
-                        day: "numeric",
-                        month: "long",
-                        year: "numeric",
-                      }).format(new Date(program.date))}
+                      {programDateFormatters[locale as "en" | "id"].format(
+                        new Date(program.date),
+                      )}
                     </time>
                   </div>
                   <h2 className="line-clamp-2 font-heading text-2xl text-foreground">

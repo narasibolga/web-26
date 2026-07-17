@@ -6,7 +6,7 @@ import { AnimatePresence, useReducedMotion } from "motion/react";
 import * as m from "motion/react-m";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { Container } from "@/components/layout/container";
 import {
   Breadcrumb,
@@ -43,11 +43,8 @@ export function GalleryClient() {
   const [activeWeek, setActiveWeek] = useState<GalleryWeekKey>("week-1");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
-  const allWeeks = useMemo(() => getAllWeekKeys(), []);
-  const photos = useMemo<GalleryPhoto[]>(
-    () => getWeekPhotos(activeWeek),
-    [activeWeek],
-  );
+  const allWeeks = getAllWeekKeys();
+  const photos: GalleryPhoto[] = getWeekPhotos(activeWeek);
 
   const weekLabel = (key: GalleryWeekKey) => {
     const n = Number(key.replace("week-", ""));

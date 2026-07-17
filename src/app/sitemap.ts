@@ -18,9 +18,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: route === "" ? 1 : 0.8,
       alternates: {
         languages: Object.fromEntries(
-          routing.locales
-            .filter((l) => l !== canonicalLocale)
-            .map((l) => [l, `${SITE_URL}/${l}${path}`]),
+          routing.locales.flatMap((l) =>
+            l !== canonicalLocale ? [[l, `${SITE_URL}/${l}${path}`]] : [],
+          ),
         ),
       },
     };

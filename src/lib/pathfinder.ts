@@ -656,14 +656,13 @@ export function rankLocations(
   topN = 6,
 ): ScoredLocation[] {
   const scored = Object.entries(locationScores)
-    .map(([locationId, scores]) => {
+    .flatMap(([locationId, scores]) => {
       let score = 0;
       for (const dim of dimensions) {
         score += (scores[dim] ?? 0) * totals[dim];
       }
-      return { locationId, score };
+      return score > 0 ? [{ locationId, score }] : [];
     })
-    .filter((s) => s.score > 0)
     .sort((a, b) => b.score - a.score);
 
   return scored.slice(0, topN).map((s, i) => ({

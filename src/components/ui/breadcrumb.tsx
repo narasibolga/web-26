@@ -64,6 +64,8 @@ function BreadcrumbLink({
 
 function BreadcrumbPage({ className, ...props }: React.ComponentProps<"span">) {
   return (
+    // BreadcrumbPage marks the non-navigable current page; `role="link" aria-disabled="true"` is the W3C WAI-ARIA breadcrumb pattern for the current page and cannot be replaced by `<a>` without an href.
+    // react-doctor-disable-next-line react-doctor/prefer-tag-over-role
     <span
       data-slot="breadcrumb-page"
       role="link"

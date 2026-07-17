@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import * as m from "motion/react-m";
 import Image from "next/image";
 
 type Props = {
@@ -17,7 +17,7 @@ type Props = {
 
 export function HistoryTimelineCard({ era }: Props) {
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
@@ -50,6 +50,6 @@ export function HistoryTimelineCard({ era }: Props) {
       <p className="mt-2 text-center text-muted-foreground text-xs">
         {era.attribution}
       </p>
-    </motion.div>
+    </m.div>
   );
 }

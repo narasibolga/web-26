@@ -111,8 +111,7 @@ export function LocationDetail({ item, onBack, locale }: LocationDetailProps) {
             <Carousel opts={{ loop: true }}>
               <CarouselContent className="ml-0">
                 {item.images.map((src, i) => (
-                  // biome-ignore lint/suspicious/noArrayIndexKey: gallery order is stable
-                  <CarouselItem key={i} className="pl-0">
+                  <CarouselItem key={src} className="pl-0">
                     <div className="relative aspect-4/3 w-full overflow-hidden bg-secondary-foreground/10">
                       <Image
                         src={src}
@@ -185,11 +184,21 @@ function Row({ label, value }: { label: string; value: string }) {
   );
 }
 
+const quakeDateTimeFormatters: Record<"en" | "id", Intl.DateTimeFormat> = {
+  en: new Intl.DateTimeFormat("en-GB", {
+    dateStyle: "medium",
+    timeStyle: "short",
+    timeZone: "Asia/Jakarta",
+  }),
+  id: new Intl.DateTimeFormat("id-ID", {
+    dateStyle: "medium",
+    timeStyle: "short",
+    timeZone: "Asia/Jakarta",
+  }),
+};
+
 function formatDateTime(iso: string, locale: "en" | "id"): string {
   const d = new Date(iso);
   if (Number.isNaN(d.getTime())) return iso;
-  return new Intl.DateTimeFormat(locale === "id" ? "id-ID" : "en-GB", {
-    dateStyle: "medium",
-    timeStyle: "short",
-  }).format(d);
+  return quakeDateTimeFormatters[locale].format(d);
 }

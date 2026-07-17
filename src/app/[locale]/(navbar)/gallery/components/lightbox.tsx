@@ -10,7 +10,7 @@ import { AnimatePresence, useReducedMotion } from "motion/react";
 import * as m from "motion/react-m";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { useCallback, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import {
   type GalleryPhoto,
@@ -41,15 +41,15 @@ export function Lightbox({
 
   const isOpen = index !== null && index >= 0 && index < photos.length;
 
-  const goPrev = useCallback(() => {
+  const goPrev = () => {
     if (index === null || photos.length === 0) return;
     onIndexChange((index - 1 + photos.length) % photos.length);
-  }, [index, photos.length, onIndexChange]);
+  };
 
-  const goNext = useCallback(() => {
+  const goNext = () => {
     if (index === null || photos.length === 0) return;
     onIndexChange((index + 1) % photos.length);
-  }, [index, photos.length, onIndexChange]);
+  };
 
   // Keyboard nav
   useEffect(() => {
@@ -60,15 +60,17 @@ export function Lightbox({
         onClose();
       } else if (e.key === "ArrowLeft") {
         e.preventDefault();
-        goPrev();
+        if (index === null || photos.length === 0) return;
+        onIndexChange((index - 1 + photos.length) % photos.length);
       } else if (e.key === "ArrowRight") {
         e.preventDefault();
-        goNext();
+        if (index === null || photos.length === 0) return;
+        onIndexChange((index + 1) % photos.length);
       }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [isOpen, onClose, goPrev, goNext]);
+  }, [isOpen, onClose, index, photos.length, onIndexChange]);
 
   // Scroll lock + focus management
   useEffect(() => {
