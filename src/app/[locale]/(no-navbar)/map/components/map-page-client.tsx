@@ -126,33 +126,6 @@ export function MapPageClient() {
                 <h1 className="mt-3 font-serif text-4xl text-secondary-foreground leading-tight">
                   {mode === "tourism" ? t("title") : t("hazardTitle")}
                 </h1>
-                <div className="mt-3 flex gap-2">
-                  {(["tourism", "hazard"] as const).map((m) => {
-                    const isActive = m === mode;
-                    return (
-                      <Badge
-                        key={m}
-                        variant="outline"
-                        render={
-                          <button
-                            type="button"
-                            aria-pressed={isActive}
-                            aria-label={t(`mode.${m}`)}
-                            onClick={() => switchMode(m)}
-                          />
-                        }
-                        className={cn(
-                          "h-6 uppercase",
-                          isActive
-                            ? "border-secondary-foreground bg-secondary-foreground/15 text-secondary-foreground"
-                            : "border-secondary-foreground/30 text-secondary-foreground/70 hover:bg-secondary-foreground/10 hover:text-secondary-foreground",
-                        )}
-                      >
-                        {t(`mode.${m}`)}
-                      </Badge>
-                    );
-                  })}
-                </div>
               </div>
               <div className="flex-1 overflow-y-auto">
                 {mode === "tourism" ? (
@@ -287,6 +260,35 @@ export function MapPageClient() {
           onSelect={selectLocation}
           locale={locale}
         />
+        <div className="-translate-x-1/2 absolute top-4 left-1/2 z-20">
+          <div className="flex gap-1 rounded-full border border-secondary-foreground/15 bg-secondary p-1 shadow-md">
+            {(["tourism", "hazard"] as const).map((m) => {
+              const isActive = m === mode;
+              return (
+                <Badge
+                  key={m}
+                  variant="outline"
+                  render={
+                    <button
+                      type="button"
+                      aria-pressed={isActive}
+                      aria-label={t(`mode.${m}`)}
+                      onClick={() => switchMode(m)}
+                    />
+                  }
+                  className={cn(
+                    "h-8 rounded-full border-none px-4 uppercase",
+                    isActive
+                      ? "bg-background text-foreground"
+                      : "text-secondary-foreground/70 hover:bg-secondary-foreground/10 hover:text-secondary-foreground",
+                  )}
+                >
+                  {t(`mode.${m}`)}
+                </Badge>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </main>
   );
