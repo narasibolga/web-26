@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight02Icon, Image02Icon } from "@hugeicons/core-free-icons";
+import { ArrowRight02Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { AnimatePresence, useReducedMotion } from "motion/react";
 import * as m from "motion/react-m";
@@ -33,6 +33,7 @@ import {
   getWeekPhotos,
 } from "@/lib/gallery";
 import { cn } from "@/lib/utils";
+import { GalleryEmptyIllustration } from "./gallery-empty-illustration";
 import { Lightbox } from "./lightbox";
 
 export function GalleryClient() {
@@ -118,12 +119,12 @@ export function GalleryClient() {
                   animate={{ opacity: 1 }}
                   exit={reducedMotion ? undefined : { opacity: 0 }}
                   transition={{ duration: 0.2 }}
-                  className="mx-auto max-w-md rounded-xs border-2 border-foreground/50 border-dashed"
+                  className="mx-auto max-w-md rounded-xs"
                 >
                   <Empty>
                     <EmptyHeader>
                       <EmptyMedia>
-                        <HugeiconsIcon icon={Image02Icon} size={34} />
+                        <GalleryEmptyIllustration />
                       </EmptyMedia>
                       <EmptyTitle>{t("empty.title")}</EmptyTitle>
                       <EmptyDescription>
@@ -135,7 +136,7 @@ export function GalleryClient() {
               ) : (
                 <m.div
                   key={activeWeek}
-                  className="columns-1 gap-4 sm:columns-2 lg:columns-4 [&>*]:mb-4"
+                  className="columns-1 gap-4 *:mb-4 sm:columns-2 lg:columns-4"
                   initial={reducedMotion ? undefined : { opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={reducedMotion ? undefined : { opacity: 0 }}

@@ -11,6 +11,7 @@ import * as m from "motion/react-m";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { useCallback, useEffect, useRef } from "react";
+import { Button } from "@/components/ui/button";
 import {
   type GalleryPhoto,
   type GalleryWeekKey,
@@ -146,34 +147,37 @@ export function Lightbox({
               />
             </m.div>
 
-            <button
+            <Button
               ref={closeBtnRef}
-              type="button"
+              variant="outline"
+              size="icon-lg"
               onClick={onClose}
               aria-label={t("close")}
-              className="absolute top-2 right-2 z-10 flex size-10 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
+              className="absolute top-2 right-2 z-10 rounded-none"
             >
               <HugeiconsIcon icon={Cancel01Icon} className="size-5" />
-            </button>
+            </Button>
 
             {photos.length > 1 && (
               <>
-                <button
-                  type="button"
+                <Button
+                  variant="outline"
+                  size="icon-lg"
                   onClick={goPrev}
                   aria-label={t("previous")}
-                  className="-translate-y-1/2 absolute top-1/2 left-2 z-10 flex size-12 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
+                  className="absolute top-1/2 left-2 z-10 -translate-y-1/2 rounded-none"
                 >
                   <HugeiconsIcon icon={ArrowLeft01Icon} className="size-6" />
-                </button>
-                <button
-                  type="button"
+                </Button>
+                <Button
+                  variant="outline"
+                  size="icon-lg"
                   onClick={goNext}
                   aria-label={t("next")}
-                  className="-translate-y-1/2 absolute top-1/2 right-2 z-10 flex size-12 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
+                  className="absolute top-1/2 right-2 z-10 -translate-y-1/2 rounded-none"
                 >
                   <HugeiconsIcon icon={ArrowRight01Icon} className="size-6" />
-                </button>
+                </Button>
               </>
             )}
           </div>
