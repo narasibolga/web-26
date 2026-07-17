@@ -1,5 +1,6 @@
 {
   "title": "Discover Sibolga",
+  "hazardTitle": "Earthquake Activity",
   "backHome": "Back to Home",
   "noLocations": "No other points yet.",
   "noMatchesTitle": "No matches",
@@ -9,6 +10,31 @@
   "mapError": "The map could not be loaded. Check your internet connection.",
   "backToList": "Back to list",
   "viewInGoogleMaps": "View in Google Maps",
+  "hazardsLoading": "Loading earthquake data...",
+  "hazardsErrorTitle": "Can't load data",
+  "hazardsErrorDescription": "BMKG's feed could not be reached. Try again in a moment.",
+  "hazardsRetry": "Retry",
+  "noQuakes": "No recent earthquakes to show.",
+  "mode": {
+    "tourism": "Tourism",
+    "hazard": "Disasters"
+  },
+  "severity": {
+    "red": "High impact",
+    "yellow": "Moderate",
+    "green": "Minor"
+  },
+  "quake": {
+    "region": "Region",
+    "magnitude": "Magnitude",
+    "depth": "Depth",
+    "coordinates": "Coordinates",
+    "datetime": "Date & time",
+    "tsunami": "Tsunami potential",
+    "tsunamiYes": "Yes — potential tsunami",
+    "tsunamiNo": "No tsunami potential",
+    "felt": "Felt in"
+  },
   "kategori": {
     "pantai": "Beach",
     "pulau": "Island",

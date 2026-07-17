@@ -2,10 +2,12 @@
 
 import { ArrowLeft01Icon, Loading01Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
+import { useQuery } from "@tanstack/react-query";
 import dynamic from "next/dynamic";
 import { useSearchParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { useCallback, useState } from "react";
+import type { Earthquake } from "@/app/api/bmkg/hazards/route";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -24,6 +26,11 @@ import {
   locations,
 } from "@/lib/locations";
 import { cn } from "@/lib/utils";
+import {
+  type MapMode,
+  normalizeLocations,
+  normalizeQuakes,
+} from "../lib/hazard";
 import { LocationCard } from "./location-card";
 import { LocationDetail } from "./location-detail";
 import { MapNavPanel } from "./map-nav-panel";
@@ -43,6 +50,17 @@ export function MapPageClient() {
   const [activeCategories, setActiveCategories] = useState<
     Set<LocationCategory>
   >(new Set());
+  const [mode, setMode] = useState<MapMode>("tourism");
+  const { data, isPending, isError, refetch } = useQuery({
+    queryKey: ["bmkg-hazards"],
+    queryFn: async () => {
+      const res = await fetch("/api/bmkg/hazards");
+      if (!res.ok) throw new Error("upstream");
+      return (await res.json()) as { earthquakes: Earthquake[] };
+    },
+    enabled: mode === "hazard",
+    staleTime: 5 * 60 * 1000,
+  });
 
   const selectLocation = useCallback(
     (id: string | null) => {
@@ -55,6 +73,18 @@ export function MapPageClient() {
     [searchParams, router, pathname],
   );
 
+  const switchMode = useCallback(
+    (next: MapMode) => {
+      if (next === mode) return;
+      const params = new URLSearchParams(searchParams.toString());
+      params.delete("location");
+      const qs = params.toString();
+      router.replace(qs ? `${pathname}?${qs}` : pathname);
+      setMode(next);
+    },
+    [mode, searchParams, router, pathname],
+  );
+
   const toggleCategory = (cat: LocationCategory) => {
     setActiveCategories((prev) => {
       const next = new Set(prev);
@@ -64,21 +94,27 @@ export function MapPageClient() {
     });
   };
 
-  const filteredLocations =
+  const tourismItems = normalizeLocations(locations);
+  const filteredTourism =
     activeCategories.size === 0
-      ? locations
-      : locations.filter((l) => activeCategories.has(l.category));
+      ? tourismItems
+      : tourismItems.filter(
+          (i) => i.category && activeCategories.has(i.category),
+        );
 
-  const selectedLocation = locations.find((l) => l.id === selectedId) ?? null;
+  const hazardItems = normalizeQuakes(data?.earthquakes ?? []);
+
+  const items = mode === "tourism" ? filteredTourism : hazardItems;
+  const selectedItem = items.find((i) => i.id === selectedId) ?? null;
 
   return (
     <main className="relative flex min-h-0 flex-1 flex-col overflow-hidden lg:flex-row">
       <MapNavPanel>
         <div className="flex h-full min-w-0 flex-col">
-          {selectedLocation ? (
+          {selectedItem ? (
             <LocationDetail
-              key={selectedLocation.id}
-              location={selectedLocation}
+              key={selectedItem.id}
+              item={selectedItem}
               onBack={() => selectLocation(null)}
               locale={locale}
             />
@@ -94,15 +130,38 @@ export function MapPageClient() {
                   {t("backHome")}
                 </Button>
                 <h1 className="mt-3 font-serif text-4xl text-secondary-foreground leading-tight">
-                  {t("title")}
+                  {mode === "tourism" ? t("title") : t("hazardTitle")}
                 </h1>
+                <div className="mt-3 flex gap-2">
+                  {(["tourism", "hazard"] as const).map((m) => {
+                    const isActive = m === mode;
+                    return (
+                      <Badge
+                        key={m}
+                        variant="outline"
+                        render={
+                          <button
+                            type="button"
+                            aria-pressed={isActive}
+                            aria-label={t(`mode.${m}`)}
+                            onClick={() => switchMode(m)}
+                          />
+                        }
+                        className={cn(
+                          "h-6 uppercase",
+                          isActive
+                            ? "border-secondary-foreground bg-secondary-foreground/15 text-secondary-foreground"
+                            : "border-secondary-foreground/30 text-secondary-foreground/70 hover:bg-secondary-foreground/10 hover:text-secondary-foreground",
+                        )}
+                      >
+                        {t(`mode.${m}`)}
+                      </Badge>
+                    );
+                  })}
+                </div>
               </div>
               <div className="flex-1 overflow-y-auto">
-                {locations.length === 0 ? (
-                  <p className="px-4 py-4 font-sans text-secondary-foreground/70 text-sm">
-                    {t("noLocations")}
-                  </p>
-                ) : (
+                {mode === "tourism" ? (
                   <>
                     <div className="flex flex-wrap gap-2 border-secondary-foreground/15 border-b px-4 py-3">
                       {categoryOrder.map((cat) => {
@@ -141,7 +200,7 @@ export function MapPageClient() {
                         );
                       })}
                     </div>
-                    {filteredLocations.length === 0 ? (
+                    {filteredTourism.length === 0 ? (
                       <Empty className="border-secondary-foreground/20 p-6 text-secondary-foreground/70">
                         <EmptyHeader>
                           <EmptyTitle className="font-sans text-secondary-foreground">
@@ -163,11 +222,11 @@ export function MapPageClient() {
                       </Empty>
                     ) : (
                       <div className="divide-y divide-secondary-foreground/15">
-                        {filteredLocations.map((location) => (
+                        {filteredTourism.map((item) => (
                           <LocationCard
-                            key={location.id}
-                            location={location}
-                            selected={location.id === selectedId}
+                            key={item.id}
+                            item={item}
+                            selected={item.id === selectedId}
                             onSelect={selectLocation}
                             locale={locale}
                           />
@@ -175,6 +234,51 @@ export function MapPageClient() {
                       </div>
                     )}
                   </>
+                ) : isPending ? (
+                  <div className="flex items-center gap-2 px-4 py-6 font-sans text-secondary-foreground/70 text-sm">
+                    <HugeiconsIcon
+                      icon={Loading01Icon}
+                      className="animate-spin"
+                      size={16}
+                    />
+                    {t("hazardsLoading")}
+                  </div>
+                ) : isError ? (
+                  <Empty className="border-secondary-foreground/20 p-6 text-secondary-foreground/70">
+                    <EmptyHeader>
+                      <EmptyTitle className="font-sans text-secondary-foreground">
+                        {t("hazardsErrorTitle")}
+                      </EmptyTitle>
+                      <EmptyDescription className="font-sans text-secondary-foreground/70">
+                        {t("hazardsErrorDescription")}
+                      </EmptyDescription>
+                    </EmptyHeader>
+                    <EmptyContent>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => refetch()}
+                      >
+                        {t("hazardsRetry")}
+                      </Button>
+                    </EmptyContent>
+                  </Empty>
+                ) : hazardItems.length === 0 ? (
+                  <p className="px-4 py-4 font-sans text-secondary-foreground/70 text-sm">
+                    {t("noQuakes")}
+                  </p>
+                ) : (
+                  <div className="divide-y divide-secondary-foreground/15">
+                    {hazardItems.map((item) => (
+                      <LocationCard
+                        key={item.id}
+                        item={item}
+                        selected={item.id === selectedId}
+                        onSelect={selectLocation}
+                        locale={locale}
+                      />
+                    ))}
+                  </div>
                 )}
               </div>
             </>
@@ -183,7 +287,8 @@ export function MapPageClient() {
       </MapNavPanel>
       <div className="relative min-h-0 flex-1">
         <MapView
-          locations={filteredLocations}
+          items={items}
+          mode={mode}
           selectedId={selectedId}
           onSelect={selectLocation}
           locale={locale}

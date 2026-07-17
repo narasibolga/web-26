@@ -15,12 +15,13 @@ import {
   Source,
   TerrainControl,
 } from "react-map-gl/maplibre";
+import { BAY_CENTER, categoryColor, categoryIcon } from "@/lib/locations";
 import {
-  BAY_CENTER,
-  categoryColor,
-  categoryIcon,
-  type Location,
-} from "@/lib/locations";
+  hazardColor,
+  hazardIcon,
+  type MapItem,
+  type MapMode,
+} from "../lib/hazard";
 
 const OPENFREEMAP_STYLE = "https://tiles.openfreemap.org/styles/positron";
 const TERRAIN_SOURCE_ID = "terrarium-dem";
@@ -38,14 +39,16 @@ const ENTRANCE_START_BEARING = -120;
 const ENTRANCE_DURATION = 2400;
 
 type MapViewProps = {
-  locations: Location[];
+  items: MapItem[];
+  mode: MapMode;
   selectedId: string | null;
   onSelect: (id: string) => void;
   locale: "en" | "id";
 };
 
 export function MapView({
-  locations,
+  items,
+  mode,
   selectedId,
   onSelect,
   locale,
@@ -58,14 +61,14 @@ export function MapView({
     typeof window !== "undefined" &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  const selected = locations.find((l) => l.id === selectedId) ?? null;
+  const selected = items.find((i) => i.id === selectedId) ?? null;
 
   const initialView = (() => {
     const base =
-      locations.length === 1
+      items.length === 1
         ? {
-            longitude: locations[0].lng,
-            latitude: locations[0].lat,
+            longitude: items[0].lng,
+            latitude: items[0].lat,
             zoom: RESTING_ZOOM,
           }
         : {
@@ -87,14 +90,14 @@ export function MapView({
     const map = mapRef.current?.getMap();
     if (!map) return;
 
-    const selectedLoc = selectedId
-      ? locations.find((l) => l.id === selectedId)
+    const selectedItem = selectedId
+      ? items.find((i) => i.id === selectedId)
       : null;
 
-    if (selectedLoc) {
+    if (selectedItem) {
       initialSelectedHandled.current = true;
       mapRef.current?.flyTo({
-        center: [selectedLoc.lng, selectedLoc.lat],
+        center: [selectedItem.lng, selectedItem.lat],
         zoom: FOCUS_ZOOM,
         pitch: reduceMotion ? 0 : DEFAULT_PITCH,
         bearing: reduceMotion ? 0 : DEFAULT_BEARING,
@@ -108,15 +111,15 @@ export function MapView({
     if (reduceMotion) return;
     let center: [number, number];
     let zoom: number;
-    if (locations.length === 0) {
+    if (items.length === 0) {
       center = [BAY_CENTER.lng, BAY_CENTER.lat];
       zoom = RESTING_ZOOM - 2;
-    } else if (locations.length === 1) {
-      center = [locations[0].lng, locations[0].lat];
+    } else if (items.length === 1) {
+      center = [items[0].lng, items[0].lat];
       zoom = RESTING_ZOOM;
     } else {
-      const lngs = locations.map((l) => l.lng);
-      const lats = locations.map((l) => l.lat);
+      const lngs = items.map((i) => i.lng);
+      const lats = items.map((i) => i.lat);
       const bounds: [number, number, number, number] = [
         Math.min(...lngs),
         Math.min(...lats),
@@ -147,17 +150,23 @@ export function MapView({
   useEffect(() => {
     if (!selectedId) return;
     if (!initialSelectedHandled.current) return;
-    const loc = locations.find((l) => l.id === selectedId);
-    if (!loc) return;
+    const item = items.find((i) => i.id === selectedId);
+    if (!item) return;
     mapRef.current?.flyTo({
-      center: [loc.lng, loc.lat],
+      center: [item.lng, item.lat],
       zoom: FOCUS_ZOOM,
       pitch: reduceMotion ? 0 : DEFAULT_PITCH,
       bearing: reduceMotion ? 0 : DEFAULT_BEARING,
       duration: 900,
       essential: true,
     });
-  }, [selectedId, locations, reduceMotion]);
+  }, [selectedId, items, reduceMotion]);
+
+  function markerColor(item: MapItem): string {
+    if (mode === "hazard" && item.severity) return hazardColor[item.severity];
+    if (item.category) return categoryColor[item.category];
+    return categoryColor.landmark;
+  }
 
   return (
     <MapGL
@@ -196,18 +205,24 @@ export function MapView({
         </>
       )}
 
-      {locations.map((location) => {
-        const isActive = location.id === selectedId;
-        const color = categoryColor[location.category];
+      {items.map((item) => {
+        const isActive = item.id === selectedId;
+        const color = markerColor(item);
+        const icon =
+          mode === "hazard"
+            ? hazardIcon
+            : item.category
+              ? categoryIcon[item.category]
+              : categoryIcon.landmark;
         return (
           <Marker
-            key={location.id}
-            longitude={location.lng}
-            latitude={location.lat}
+            key={item.id}
+            longitude={item.lng}
+            latitude={item.lat}
             anchor="bottom"
             onClick={(e: MarkerEvent<MouseEvent>) => {
               e.originalEvent.stopPropagation();
-              onSelect(location.id);
+              onSelect(item.id);
             }}
           >
             <button
@@ -218,12 +233,9 @@ export function MapView({
                   ? "h-8 w-8 ring-2 ring-background"
                   : "h-6 w-6 hover:h-7 hover:ring-2"
               }`}
-              aria-label={location.name[locale]}
+              aria-label={item.label[locale]}
             >
-              <HugeiconsIcon
-                icon={categoryIcon[location.category]}
-                size={isActive ? 18 : 14}
-              />
+              <HugeiconsIcon icon={icon} size={isActive ? 18 : 14} />
               <span
                 aria-hidden="true"
                 style={{ borderColor: color }}
@@ -246,12 +258,27 @@ export function MapView({
           closeButton={false}
           className="p-0! font-sans"
         >
-          <p className="font-bold font-sans text-foreground text-sm uppercase leading-snug">
-            {selected.name[locale]}
-          </p>
-          <p className="font-sans text-muted-foreground text-xs uppercase">
-            {t(`kategori.${selected.category}`)}
-          </p>
+          {mode === "hazard" && selected.quake ? (
+            <>
+              <p className="font-bold font-sans text-foreground text-sm uppercase leading-snug">
+                M{selected.quake.magnitude.toFixed(1)}
+              </p>
+              <p className="font-sans text-muted-foreground text-xs uppercase">
+                {selected.quake.region}
+              </p>
+            </>
+          ) : (
+            <>
+              <p className="font-bold font-sans text-foreground text-sm uppercase leading-snug">
+                {selected.label[locale]}
+              </p>
+              {selected.category && (
+                <p className="font-sans text-muted-foreground text-xs uppercase">
+                  {t(`kategori.${selected.category}`)}
+                </p>
+              )}
+            </>
+          )}
         </Popup>
       )}
     </MapGL>

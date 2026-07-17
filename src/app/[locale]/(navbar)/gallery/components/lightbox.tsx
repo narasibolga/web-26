@@ -165,7 +165,7 @@ export function Lightbox({
                   size="icon-lg"
                   onClick={goPrev}
                   aria-label={t("previous")}
-                  className="absolute top-1/2 left-2 z-10 -translate-y-1/2 rounded-none"
+                  className="-translate-y-1/2 absolute top-1/2 left-2 z-10 rounded-none"
                 >
                   <HugeiconsIcon icon={ArrowLeft01Icon} className="size-6" />
                 </Button>
@@ -174,7 +174,7 @@ export function Lightbox({
                   size="icon-lg"
                   onClick={goNext}
                   aria-label={t("next")}
-                  className="absolute top-1/2 right-2 z-10 -translate-y-1/2 rounded-none"
+                  className="-translate-y-1/2 absolute top-1/2 right-2 z-10 rounded-none"
                 >
                   <HugeiconsIcon icon={ArrowRight01Icon} className="size-6" />
                 </Button>

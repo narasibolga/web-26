@@ -1,5 +1,6 @@
 {
   "title": "Jelajahi Sibolga",
+  "hazardTitle": "Aktivitas Gempa Bumi",
   "backHome": "Kembali ke Beranda",
   "noLocations": "Belum ada titik lain.",
   "noMatchesTitle": "Tidak ada hasil",
@@ -9,6 +10,31 @@
   "mapError": "Peta tidak dapat dimuat. Periksa koneksi internet Anda.",
   "backToList": "Kembali ke daftar",
   "viewInGoogleMaps": "Lihat di Google Maps",
+  "hazardsLoading": "Memuat data gempa...",
+  "hazardsErrorTitle": "Data tidak dapat dimuat",
+  "hazardsErrorDescription": "Sumber data BMKG tidak dapat dijangkau. Coba lagi sebentar lagi.",
+  "hazardsRetry": "Coba lagi",
+  "noQuakes": "Tidak ada gempa terbaru untuk ditampilkan.",
+  "mode": {
+    "tourism": "Wisata",
+    "hazard": "Bencana"
+  },
+  "severity": {
+    "red": "Dampak tinggi",
+    "yellow": "Sedang",
+    "green": "Ringan"
+  },
+  "quake": {
+    "region": "Wilayah",
+    "magnitude": "Magnitudo",
+    "depth": "Kedalaman",
+    "coordinates": "Koordinat",
+    "datetime": "Tanggal & waktu",
+    "tsunami": "Potensi tsunami",
+    "tsunamiYes": "Ya — berpotensi tsunami",
+    "tsunamiNo": "Tidak berpotensi tsunami",
+    "felt": "Dirasakan di"
+  },
   "kategori": {
     "pantai": "Pantai",
     "pulau": "Pulau",
