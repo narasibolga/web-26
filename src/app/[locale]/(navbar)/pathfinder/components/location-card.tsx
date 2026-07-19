@@ -3,14 +3,12 @@
 import { ExternalLinkIcon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import Image from "next/image";
-import { useLocale, useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
+import { Link, useTypedLocale } from "@/i18n/navigation";
 import { locations } from "@/lib/locations";
 import type { ScoredLocation } from "@/lib/pathfinder";
 
-export function LocationCard({ result }: { result: ScoredLocation }) {
-  const _t = useTranslations("pathfinder");
-  const locale = useLocale() as "en" | "id";
+export function PathfinderLocationCard({ result }: { result: ScoredLocation }) {
+  const locale = useTypedLocale();
 
   const location = locations.find((l) => l.id === result.locationId);
   if (!location) return null;

@@ -1,6 +1,6 @@
 import { Alert02Icon } from "@hugeicons/core-free-icons";
 import type { IconSvgElement } from "@hugeicons/react";
-import type { Earthquake } from "@/app/api/bmkg/hazards/route";
+import type { Earthquake } from "@/lib/bmkg";
 import type { Location, LocationCategory } from "@/lib/locations";
 
 export type Severity = "red" | "yellow" | "green";

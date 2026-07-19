@@ -6,9 +6,9 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-interface MapNavPanelProps {
+type MapNavPanelProps = {
   children: React.ReactNode;
-}
+};
 
 export function MapNavPanel({ children }: MapNavPanelProps) {
   const [open, setOpen] = useState(false);

@@ -4,18 +4,19 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Container } from "@/components/layout/container";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
+import type { Locale } from "@/i18n/routing";
 import { locations } from "@/lib/locations";
 import { SectionHeading } from "../_primitives/section-heading";
 import { AdventureCarousel } from "./components/adventure-carousel";
 
-type Props = { locale: string };
+type Props = { locale: Locale };
 
 export async function AdventureSection({ locale }: Props) {
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "adventure-section" });
 
   const items = locations.map((location) => {
-    const name = location.name[locale as "en" | "id"] ?? location.name.en;
+    const name = location.name[locale] ?? location.name.en;
     return {
       title: name,
       imageSrc: location.images[0],

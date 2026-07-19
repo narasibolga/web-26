@@ -2,9 +2,10 @@ import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
+import type { Locale } from "@/i18n/routing";
 import { SectionHeading } from "../_primitives/section-heading";
 
-type Props = { locale: string };
+type Props = { locale: Locale };
 
 export async function CheckboardSection({ locale }: Props) {
   setRequestLocale(locale);

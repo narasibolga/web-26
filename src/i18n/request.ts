@@ -1,18 +1,23 @@
 import { readdir, readFile } from "node:fs/promises";
 import { join, relative } from "node:path";
 import { getRequestConfig } from "next-intl/server";
-import { routing } from "./routing";
-
-const SRC_DIR = join(process.cwd(), "src");
+import { type Locale, routing } from "./routing";
 
 type MessageTree = Record<string, unknown>;
 
 async function loadMessagesForLocale(locale: string): Promise<MessageTree> {
-  const files = await collectMessageFiles(SRC_DIR, locale);
+  const srcDir = join(process.cwd(), "src");
+  const files = await collectMessageFiles(srcDir, locale);
   const contents = await Promise.all(
     files.map(async ({ path }) => {
       const raw = await readFile(path, "utf8");
-      return JSON.parse(raw) as MessageTree;
+      try {
+        return JSON.parse(raw) as MessageTree;
+      } catch (e) {
+        throw new Error(
+          `i18n: invalid JSON in ${relative(srcDir, path)}: ${(e as Error).message}`,
+        );
+      }
     }),
   );
   const messages: MessageTree = {};
@@ -20,7 +25,7 @@ async function loadMessagesForLocale(locale: string): Promise<MessageTree> {
     const { path, namespace } = files[i];
     if (namespace in messages) {
       throw new Error(
-        `i18n: duplicate namespace "${namespace}" from ${relative(SRC_DIR, path)}`,
+        `i18n: duplicate namespace "${namespace}" from ${relative(srcDir, path)}`,
       );
     }
     messages[namespace] = contents[i];
@@ -34,7 +39,7 @@ async function collectMessageFiles(
   dir: string,
   locale: string,
 ): Promise<MessageFileEntry[]> {
-  const children = await readdir(dir, { withFileTypes: true }).catch(() => []);
+  const children = await readdir(dir, { withFileTypes: true });
   const nested = await Promise.all(
     children.map(async (entry) => {
       const fullPath = join(dir, entry.name);
@@ -56,13 +61,18 @@ function normalizeNamespace(componentFolder: string, messagesFolder: string) {
   return raw || messagesFolder;
 }
 
+function isLocale(value: string | undefined): value is Locale {
+  return (
+    typeof value === "string" &&
+    (routing.locales as readonly string[]).includes(value)
+  );
+}
+
 export default getRequestConfig(async ({ requestLocale }) => {
   // the guard below uses the awaited `requested` value, so the await cannot be deferred past it.
   // react-doctor-disable-next-line react-doctor/async-defer-await
   const requested = await requestLocale;
-  const locale = routing.locales.includes(requested as never)
-    ? (requested as string)
-    : routing.defaultLocale;
+  const locale = isLocale(requested) ? requested : routing.defaultLocale;
 
   return {
     locale,

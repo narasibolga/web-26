@@ -1,52 +1,47 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Suspense } from "react";
-import { routing } from "@/i18n/routing";
 import { locations } from "@/lib/locations";
+import {
+  buildLocalePageMetadata,
+  localeStaticParams,
+  verifyLocale,
+} from "@/lib/metadata";
 import { SITE_URL } from "@/lib/site";
 import { MapPageClient } from "./components/map-page-client";
 
 type Props = { params: Promise<{ locale: string }> };
 
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
+export const generateStaticParams = localeStaticParams;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "map" });
-
-  const url = `${SITE_URL}/${locale}/map`;
-
-  return {
+  return buildLocalePageMetadata({
+    locale,
     title: t("title"),
     description: t("title"),
-    alternates: {
-      canonical: url,
-      languages: Object.fromEntries(
-        routing.locales.map((l) => [l, `${SITE_URL}/${l}/map`]),
-      ),
-    },
-    openGraph: { title: t("title"), description: t("title"), url },
-  };
+    segment: "map",
+  });
 }
 
 export default async function MapPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const verified = verifyLocale(locale);
 
   const primary = locations[0];
   const jsonLd = primary
     ? {
         "@context": "https://schema.org",
         "@type": "Place",
-        name: primary.name[locale as "en" | "id"] ?? primary.name.en,
+        name: primary.name[verified] ?? primary.name.en,
         geo: {
           "@type": "GeoCoordinates",
           latitude: primary.lat,
           longitude: primary.lng,
         },
-        url: `${SITE_URL}/${locale}/map`,
+        url: `${SITE_URL}/${verified}/map`,
       }
     : null;
 

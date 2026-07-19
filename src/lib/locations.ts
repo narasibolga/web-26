@@ -6,7 +6,7 @@ import {
   WaterfallDownIcon,
 } from "@hugeicons/core-free-icons";
 import type { IconSvgElement } from "@hugeicons/react";
-import type { Dimension } from "@/lib/pathfinder";
+import type { Dimension } from "@/lib/pathfinder/types";
 
 export const BAY_CENTER = { lat: 1.7431, lng: 98.7833 };
 

@@ -5,8 +5,9 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Container } from "@/components/layout/container";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
+import type { Locale } from "@/i18n/routing";
 
-type Props = { locale: string };
+type Props = { locale: Locale };
 
 export async function HistorySection({ locale }: Props) {
   setRequestLocale(locale);

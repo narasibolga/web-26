@@ -1,12 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { useSearchParams } from "next/navigation";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Empty, EmptyHeader, EmptyTitle } from "@/components/ui/empty";
-import { Link, usePathname, useRouter } from "@/i18n/navigation";
+import { Link, useTypedLocale } from "@/i18n/navigation";
+import { useUpdateSearchParams } from "@/i18n/search-params";
+import { formatLocaleDate } from "@/lib/datetime";
 import type { ProgramMeta } from "@/lib/programs";
 import { cn } from "@/lib/utils";
 import { useActiveTag } from "./use-active-tag";
@@ -19,38 +20,20 @@ type ProgramTagFilterProps = {
   programs: ProgramMeta[];
 };
 
-const programDateFormatters: Record<"en" | "id", Intl.DateTimeFormat> = {
-  en: new Intl.DateTimeFormat("en", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-    timeZone: "Asia/Jakarta",
-  }),
-  id: new Intl.DateTimeFormat("id", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-    timeZone: "Asia/Jakarta",
-  }),
-};
-
 export function ProgramTagFilter({ programs }: ProgramTagFilterProps) {
   const t = useTranslations("programs");
-  const searchParams = useSearchParams();
-  const router = useRouter();
-  const pathname = usePathname();
-  const activeTag = searchParams.get("tag") ?? "all";
+  const activeTag = useActiveTag();
+  const updateSearchParams = useUpdateSearchParams();
 
   const tags = Array.from(
     new Set(programs.flatMap((program) => program.tags)),
   ).sort();
 
   const selectTag = (tag: string) => {
-    const params = new URLSearchParams(searchParams.toString());
-    if (tag === "all") params.delete("tag");
-    else params.set("tag", tag);
-    const qs = params.toString();
-    router.replace(qs ? `${pathname}?${qs}` : pathname);
+    updateSearchParams((params) => {
+      if (tag === "all") params.delete("tag");
+      else params.set("tag", tag);
+    });
   };
 
   return (
@@ -86,7 +69,7 @@ export function ProgramTagFilter({ programs }: ProgramTagFilterProps) {
 
 export function ProgramList({ programs }: ProgramListProps) {
   const t = useTranslations("programs");
-  const locale = useLocale();
+  const locale = useTypedLocale();
   const activeTag = useActiveTag();
 
   const filtered =
@@ -120,21 +103,21 @@ export function ProgramList({ programs }: ProgramListProps) {
                       className="object-cover"
                     />
                   )}
-                  <Badge
-                    variant="glass"
-                    className="absolute top-2 left-2 z-10 rounded-none lowercase"
-                  >
-                    {program.tags[0]}
-                  </Badge>
+                  {program.tags[0] && (
+                    <Badge
+                      variant="glass"
+                      className="absolute top-2 left-2 z-10 rounded-none lowercase"
+                    >
+                      {program.tags[0]}
+                    </Badge>
+                  )}
                 </div>
                 <div className="space-y-1 p-3">
                   <div className="flex gap-2 text-muted-foreground text-xs uppercase">
                     <span>{program.author}</span>
                     {" - "}
                     <time dateTime={program.date}>
-                      {programDateFormatters[locale as "en" | "id"].format(
-                        new Date(program.date),
-                      )}
+                      {formatLocaleDate(program.date, locale, "programDate")}
                     </time>
                   </div>
                   <h2 className="line-clamp-2 font-heading text-2xl text-foreground">

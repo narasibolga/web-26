@@ -2,9 +2,10 @@ import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Container } from "@/components/layout/container";
 import { Marquee } from "@/components/ui/marquee";
+import type { Locale } from "@/i18n/routing";
 import { SectionHeading } from "../_primitives/section-heading";
 
-type Props = { locale: string };
+type Props = { locale: Locale };
 
 const sponsorImages = [
   { src: "/images/sponsors/gik.webp", alt: "GIK" },

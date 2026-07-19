@@ -1,4 +1,5 @@
 import { setRequestLocale } from "next-intl/server";
+import { verifyLocale } from "@/lib/metadata";
 import { Footer } from "../(components)/footer";
 import { Navbar } from "../(components)/navbar";
 
@@ -18,7 +19,7 @@ export default async function NavbarLayout({
     <>
       <Navbar />
       {children}
-      <Footer locale={locale} />
+      <Footer locale={verifyLocale(locale)} />
     </>
   );
 }

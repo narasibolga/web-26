@@ -7,45 +7,29 @@ import {
   setRequestLocale,
 } from "next-intl/server";
 import { Providers } from "@/components/providers";
-import { routing } from "@/i18n/routing";
 import { brandon, notoSerif } from "@/lib/fonts";
+import {
+  buildLocalePageMetadata,
+  localeStaticParams,
+  verifyLocale,
+} from "@/lib/metadata";
 import { OG_LOCALE_MAP, SITE_URL } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 type LocaleParams = { params: Promise<{ locale: string }> };
 
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
+export const generateStaticParams = localeStaticParams;
 
 export async function generateMetadata({
   params,
 }: LocaleParams): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "layout" });
-
-  const title = t("title");
-  const description = t("description");
-  const url = `${SITE_URL}/${locale}`;
-
-  return {
-    title,
-    description,
-    alternates: {
-      canonical: url,
-      languages: Object.fromEntries(
-        routing.locales.map((l) => [l, `${SITE_URL}/${l}`]),
-      ),
-    },
-    openGraph: {
-      type: "website",
-      url,
-      siteName: title,
-      title,
-      description,
-      locale: OG_LOCALE_MAP[locale] ?? locale,
-    },
-  };
+  return buildLocalePageMetadata({
+    locale,
+    title: t("title"),
+    description: t("description"),
+  });
 }
 
 export default async function LocaleLayout({
@@ -53,27 +37,28 @@ export default async function LocaleLayout({
   params,
 }: LocaleParams & { children: React.ReactNode }) {
   const { locale } = await params;
+  const verified = verifyLocale(locale);
 
-  if (!routing.locales.includes(locale as never)) {
+  if (verified !== locale) {
     notFound();
   }
 
-  setRequestLocale(locale);
+  setRequestLocale(verified);
   const messages = await getMessages();
-  const t = await getTranslations({ locale, namespace: "layout" });
+  const t = await getTranslations({ locale: verified, namespace: "layout" });
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: t("title"),
     description: t("description"),
-    url: `${SITE_URL}/${locale}`,
-    inLanguage: OG_LOCALE_MAP[locale] ?? locale,
+    url: `${SITE_URL}/${verified}`,
+    inLanguage: OG_LOCALE_MAP[verified] ?? verified,
   };
 
   return (
     <html
-      lang={locale}
+      lang={verified}
       className={cn(
         "h-full",
         "antialiased",
@@ -83,7 +68,7 @@ export default async function LocaleLayout({
       )}
     >
       <body className="flex min-h-full flex-col">
-        <NextIntlClientProvider locale={locale} messages={messages}>
+        <NextIntlClientProvider locale={verified} messages={messages}>
           <Providers>
             <script
               type="application/ld+json"

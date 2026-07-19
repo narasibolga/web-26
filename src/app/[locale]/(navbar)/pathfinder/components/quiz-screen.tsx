@@ -4,9 +4,10 @@ import { ArrowLeft01Icon, ArrowRight01Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { AnimatePresence, useReducedMotion } from "motion/react";
 import * as m from "motion/react-m";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { Container } from "@/components/layout/container";
 import { Button } from "@/components/ui/button";
+import { useTypedLocale } from "@/i18n/navigation";
 import type { QuizQuestion } from "@/lib/pathfinder";
 import { cn } from "@/lib/utils";
 
@@ -34,7 +35,7 @@ export function QuizScreen({
   isFirst,
 }: QuizScreenProps) {
   const t = useTranslations("pathfinder");
-  const locale = useLocale() as "en" | "id";
+  const locale = useTypedLocale();
   const reducedMotion = useReducedMotion();
 
   return (

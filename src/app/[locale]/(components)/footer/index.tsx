@@ -5,8 +5,9 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Container } from "@/components/layout/container";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
+import type { Locale } from "@/i18n/routing";
 
-type Props = { locale: string };
+type Props = { locale: Locale };
 
 const pageLinks = [
   { key: "map", href: "/map" },

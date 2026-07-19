@@ -5,9 +5,10 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Container } from "@/components/layout/container";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
+import type { Locale } from "@/i18n/routing";
 import { SectionHeading } from "../_primitives/section-heading";
 
-type Props = { locale: string };
+type Props = { locale: Locale };
 
 export async function ExperienceSection({ locale }: Props) {
   setRequestLocale(locale);

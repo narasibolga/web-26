@@ -6,9 +6,11 @@ import { remark } from "remark";
 import remarkGfm from "remark-gfm";
 import remarkHtml from "remark-html";
 
-const PROGRAMS_DIR = join(process.cwd(), "content", "programs");
-
 const FALLBACK_AUTHOR = "NaraSibolga Team";
+
+function programsDir(): string {
+  return join(process.cwd(), "content", "programs");
+}
 
 export type ProgramFrontmatter = {
   title: string;
@@ -32,14 +34,15 @@ function isDraftEnabled(): boolean {
 }
 
 export function getProgramSlugs(): string[] {
-  if (!existsSync(PROGRAMS_DIR)) return [];
-  return readdirSync(PROGRAMS_DIR).flatMap((name) =>
+  const dir = programsDir();
+  if (!existsSync(dir)) return [];
+  return readdirSync(dir).flatMap((name) =>
     name.endsWith(".md") ? [name.replace(/\.md$/, "")] : [],
   );
 }
 
 function readProgramFile(slug: string): Program {
-  const fullPath = join(PROGRAMS_DIR, `${slug}.md`);
+  const fullPath = join(programsDir(), `${slug}.md`);
   const raw = readFileSync(fullPath, "utf8");
   const { data, content } = matter(raw);
 
@@ -97,13 +100,13 @@ function readProgramFile(slug: string): Program {
 }
 
 export function getProgram(slug: string): Program | null {
-  if (!existsSync(join(PROGRAMS_DIR, `${slug}.md`))) return null;
+  if (!existsSync(join(programsDir(), `${slug}.md`))) return null;
   return readProgramFile(slug);
 }
 
-export async function getProgramHTML(slug: string): Promise<string> {
+export async function getProgramHTML(slug: string): Promise<string | null> {
   const program = getProgram(slug);
-  if (!program) return "";
+  if (!program) return null;
   // `remark-html` sanitizes by default (sanitize: true); the previous
   // `sanitize: false` allowed raw HTML through and was flagged as an XSS sink.
   const file = await remark()

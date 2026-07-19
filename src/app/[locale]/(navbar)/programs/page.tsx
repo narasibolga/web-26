@@ -15,38 +15,23 @@ import {
 } from "@/components/ui/breadcrumb";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Link } from "@/i18n/navigation";
-import { routing } from "@/i18n/routing";
+import { buildLocalePageMetadata, localeStaticParams } from "@/lib/metadata";
 import { getAllPrograms } from "@/lib/programs";
-import { SITE_URL } from "@/lib/site";
 import { ProgramList, ProgramTagFilter } from "./(components)/program-list";
 
 type Props = { params: Promise<{ locale: string }> };
 
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
+export const generateStaticParams = localeStaticParams;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "programs" });
-
-  const url = `${SITE_URL}/${locale}/programs`;
-
-  return {
+  return buildLocalePageMetadata({
+    locale,
     title: t("meta.title"),
     description: t("meta.description"),
-    alternates: {
-      canonical: url,
-      languages: Object.fromEntries(
-        routing.locales.map((l) => [l, `${SITE_URL}/${l}/programs`]),
-      ),
-    },
-    openGraph: {
-      title: t("meta.title"),
-      description: t("meta.description"),
-      url,
-    },
-  };
+    segment: "programs",
+  });
 }
 
 export default async function ProgramsPage({ params }: Props) {

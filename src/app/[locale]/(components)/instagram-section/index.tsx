@@ -4,7 +4,9 @@ import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
-import { Section, SectionHeading } from "../_primitives";
+import type { Locale } from "@/i18n/routing";
+import { Section } from "../_primitives/section";
+import { SectionHeading } from "../_primitives/section-heading";
 
 const INSTAGRAM_POST_URL = "https://www.instagram.com/narasibolga";
 
@@ -27,7 +29,7 @@ const posts = [
   },
 ];
 
-export async function InstagramSection({ locale }: { locale: string }) {
+export async function InstagramSection({ locale }: { locale: Locale }) {
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "instagram-section" });
 

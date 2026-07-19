@@ -23,7 +23,7 @@ import type {
   ResolvedArchetype,
   ScoredLocation,
 } from "@/lib/pathfinder";
-import { LocationCard } from "./location-card";
+import { PathfinderLocationCard } from "./location-card";
 
 const archetypeIcons: Record<ArchetypeCode, IconSvgElement> = {
   MRN: SunsetIcon,
@@ -186,7 +186,7 @@ export function ResultScreen({
         >
           {results.map((result) => (
             <m.li key={result.locationId} variants={itemVariants}>
-              <LocationCard result={result} />
+              <PathfinderLocationCard result={result} />
             </m.li>
           ))}
         </m.ul>

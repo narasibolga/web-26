@@ -5,35 +5,23 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import { useQuery } from "@tanstack/react-query";
 import dynamic from "next/dynamic";
 import { useSearchParams } from "next/navigation";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
-import type { Earthquake } from "@/app/api/bmkg/hazards/route";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-  Empty,
-  EmptyContent,
-  EmptyDescription,
-  EmptyHeader,
-  EmptyTitle,
-} from "@/components/ui/empty";
-import { Link, usePathname, useRouter } from "@/i18n/navigation";
-import {
-  categoryColor,
-  categoryIcon,
-  categoryOrder,
-  type LocationCategory,
-  locations,
-} from "@/lib/locations";
+import { Link, useTypedLocale } from "@/i18n/navigation";
+import { useUpdateSearchParams } from "@/i18n/search-params";
+import type { Earthquake } from "@/lib/bmkg";
+import { type LocationCategory, locations } from "@/lib/locations";
 import { cn } from "@/lib/utils";
 import {
   type MapMode,
   normalizeLocations,
   normalizeQuakes,
 } from "../lib/hazard";
-import { LocationCard } from "./location-card";
 import { LocationDetail } from "./location-detail";
 import { MapNavPanel } from "./map-nav-panel";
+import { HazardPanel, TourismPanel } from "./map-panels";
 
 const MapView = dynamic(() => import("./map-view").then((m) => m.MapView), {
   ssr: false,
@@ -42,11 +30,10 @@ const MapView = dynamic(() => import("./map-view").then((m) => m.MapView), {
 
 export function MapPageClient() {
   const t = useTranslations("map");
-  const locale = useLocale() as "en" | "id";
+  const locale = useTypedLocale();
   const searchParams = useSearchParams();
-  const router = useRouter();
-  const pathname = usePathname();
   const selectedId = searchParams.get("location");
+  const updateSearchParams = useUpdateSearchParams();
   const [activeCategories, setActiveCategories] = useState<
     Set<LocationCategory>
   >(new Set());
@@ -55,7 +42,12 @@ export function MapPageClient() {
     queryKey: ["bmkg-hazards"],
     queryFn: async () => {
       const res = await fetch("/api/bmkg/hazards");
-      if (!res.ok) throw new Error("upstream");
+      if (!res.ok) {
+        const body = await res.json().catch(() => null);
+        throw new Error(
+          `bmkg upstream ${res.status}: ${body?.error ?? "unknown"}`,
+        );
+      }
       return (await res.json()) as { earthquakes: Earthquake[] };
     },
     enabled: mode === "hazard",
@@ -63,19 +55,15 @@ export function MapPageClient() {
   });
 
   const selectLocation = (id: string | null) => {
-    const params = new URLSearchParams(searchParams.toString());
-    if (id) params.set("location", id);
-    else params.delete("location");
-    const qs = params.toString();
-    router.replace(qs ? `${pathname}?${qs}` : pathname);
+    updateSearchParams((params) => {
+      if (id) params.set("location", id);
+      else params.delete("location");
+    });
   };
 
   const switchMode = (next: MapMode) => {
     if (next === mode) return;
-    const params = new URLSearchParams(searchParams.toString());
-    params.delete("location");
-    const qs = params.toString();
-    router.replace(qs ? `${pathname}?${qs}` : pathname);
+    updateSearchParams((params) => params.delete("location"));
     setMode(next);
   };
 
@@ -129,123 +117,25 @@ export function MapPageClient() {
               </div>
               <div className="flex-1 overflow-y-auto">
                 {mode === "tourism" ? (
-                  <>
-                    <div className="flex flex-wrap gap-2 border-secondary-foreground/15 border-b px-4 py-3">
-                      {categoryOrder.map((cat) => {
-                        const isActive = activeCategories.has(cat);
-                        return (
-                          <Badge
-                            key={cat}
-                            variant="outline"
-                            render={
-                              <button
-                                type="button"
-                                aria-pressed={isActive}
-                                aria-label={t(`kategori.${cat}`)}
-                                onClick={() => toggleCategory(cat)}
-                              />
-                            }
-                            className={cn(
-                              "h-6 uppercase",
-                              isActive
-                                ? "border-secondary-foreground bg-secondary-foreground/15 text-secondary-foreground"
-                                : "border-secondary-foreground/30 text-secondary-foreground/70 hover:bg-secondary-foreground/10 hover:text-secondary-foreground",
-                            )}
-                          >
-                            <span
-                              aria-hidden="true"
-                              className="flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-full text-background"
-                              style={{ backgroundColor: categoryColor[cat] }}
-                            >
-                              <HugeiconsIcon
-                                icon={categoryIcon[cat]}
-                                size={12}
-                              />
-                            </span>
-                            {t(`kategori.${cat}`)}
-                          </Badge>
-                        );
-                      })}
-                    </div>
-                    {filteredTourism.length === 0 ? (
-                      <Empty className="border-secondary-foreground/20 p-6 text-secondary-foreground/70">
-                        <EmptyHeader>
-                          <EmptyTitle className="font-sans text-secondary-foreground">
-                            {t("noMatchesTitle")}
-                          </EmptyTitle>
-                          <EmptyDescription className="font-sans text-secondary-foreground/70">
-                            {t("noMatchesDescription")}
-                          </EmptyDescription>
-                        </EmptyHeader>
-                        <EmptyContent>
-                          <Button
-                            variant="outline"
-                            size="sm"
-                            onClick={() => setActiveCategories(new Set())}
-                          >
-                            {t("resetFilter")}
-                          </Button>
-                        </EmptyContent>
-                      </Empty>
-                    ) : (
-                      <div className="divide-y divide-secondary-foreground/15">
-                        {filteredTourism.map((item) => (
-                          <LocationCard
-                            key={item.id}
-                            item={item}
-                            selected={item.id === selectedId}
-                            onSelect={selectLocation}
-                            locale={locale}
-                          />
-                        ))}
-                      </div>
-                    )}
-                  </>
-                ) : isPending ? (
-                  <div className="flex items-center gap-2 px-4 py-6 font-sans text-secondary-foreground/70 text-sm">
-                    <HugeiconsIcon
-                      icon={Loading01Icon}
-                      className="animate-spin"
-                      size={16}
-                    />
-                    {t("hazardsLoading")}
-                  </div>
-                ) : isError ? (
-                  <Empty className="border-secondary-foreground/20 p-6 text-secondary-foreground/70">
-                    <EmptyHeader>
-                      <EmptyTitle className="font-sans text-secondary-foreground">
-                        {t("hazardsErrorTitle")}
-                      </EmptyTitle>
-                      <EmptyDescription className="font-sans text-secondary-foreground/70">
-                        {t("hazardsErrorDescription")}
-                      </EmptyDescription>
-                    </EmptyHeader>
-                    <EmptyContent>
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={() => refetch()}
-                      >
-                        {t("hazardsRetry")}
-                      </Button>
-                    </EmptyContent>
-                  </Empty>
-                ) : hazardItems.length === 0 ? (
-                  <p className="px-4 py-4 font-sans text-secondary-foreground/70 text-sm">
-                    {t("noQuakes")}
-                  </p>
+                  <TourismPanel
+                    activeCategories={activeCategories}
+                    filteredTourism={filteredTourism}
+                    selectedId={selectedId}
+                    onSelect={selectLocation}
+                    locale={locale}
+                    onToggleCategory={toggleCategory}
+                    onResetCategories={() => setActiveCategories(new Set())}
+                  />
                 ) : (
-                  <div className="divide-y divide-secondary-foreground/15">
-                    {hazardItems.map((item) => (
-                      <LocationCard
-                        key={item.id}
-                        item={item}
-                        selected={item.id === selectedId}
-                        onSelect={selectLocation}
-                        locale={locale}
-                      />
-                    ))}
-                  </div>
+                  <HazardPanel
+                    isPending={isPending}
+                    isError={isError}
+                    hazardItems={hazardItems}
+                    selectedId={selectedId}
+                    onSelect={selectLocation}
+                    locale={locale}
+                    onRetry={() => refetch()}
+                  />
                 )}
               </div>
             </>

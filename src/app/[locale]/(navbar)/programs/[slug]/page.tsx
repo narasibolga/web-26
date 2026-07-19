@@ -67,7 +67,7 @@ export default async function ProgramPage({ params }: Props) {
 
   const program = getProgram(slug);
   if (!program) notFound();
-  const html = await getProgramHTML(slug);
+  const html = (await getProgramHTML(slug)) ?? "";
   const readingTime = getReadingTimeMinutes(program.content);
   const author = getProgramAuthor(program);
 
