@@ -15,6 +15,7 @@ import {
 } from "@/lib/metadata";
 import { OG_LOCALE_MAP, SITE_URL } from "@/lib/site";
 import { cn } from "@/lib/utils";
+import "../globals.css";
 
 type LocaleParams = { params: Promise<{ locale: string }> };
 

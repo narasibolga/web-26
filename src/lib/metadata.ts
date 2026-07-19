@@ -21,6 +21,7 @@ export function buildLocalePageMetadata({
   const path = segment ? `/${segment}` : "";
 
   return {
+    metadataBase: new URL(SITE_URL),
     title,
     description,
     alternates: {
@@ -37,6 +38,7 @@ export function buildLocalePageMetadata({
       description,
       locale: OG_LOCALE_MAP[locale] ?? locale,
     },
+    twitter: { card: "summary_large_image" },
   };
 }
 
