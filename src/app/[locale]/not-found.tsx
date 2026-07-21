@@ -35,6 +35,7 @@ export default async function NotFound() {
               const outer = i % 3 === 0 ? 68 : 74;
               return (
                 <line
+                  // biome-ignore lint/suspicious/noArrayIndexKey: static fixed-length array, index is stable identity
                   key={i}
                   x1={100 + Math.cos(angle) * inner}
                   y1={100 + Math.sin(angle) * inner}
@@ -94,9 +95,23 @@ export default async function NotFound() {
           </text>
 
           <g className="compass-needle origin-center">
-            <polygon points="100,38 108,100 100,108 92,100" fill="currentColor" />
-            <polygon points="100,162 108,100 100,92 92,100" fill="currentColor" opacity="0.5" />
-            <circle cx="100" cy="100" r="5" fill="hsl(var(--background))" stroke="currentColor" strokeWidth="2" />
+            <polygon
+              points="100,38 108,100 100,108 92,100"
+              fill="currentColor"
+            />
+            <polygon
+              points="100,162 108,100 100,92 92,100"
+              fill="currentColor"
+              opacity="0.5"
+            />
+            <circle
+              cx="100"
+              cy="100"
+              r="5"
+              fill="hsl(var(--background))"
+              stroke="currentColor"
+              strokeWidth="2"
+            />
           </g>
         </svg>
       </div>
@@ -114,7 +129,10 @@ export default async function NotFound() {
         <Link href="/">{t("backHome")}</Link>
       </Button>
 
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: we need styles
+        dangerouslySetInnerHTML={{
+          __html: `
         @keyframes compass-ring-spin {
           from { transform: rotate(0deg); }
           to { transform: rotate(360deg); }
@@ -138,7 +156,9 @@ export default async function NotFound() {
         .compass-float {
           animation: compass-float 4s ease-in-out infinite;
         }
-      `}} />
+      `,
+        }}
+      />
     </main>
   );
 }

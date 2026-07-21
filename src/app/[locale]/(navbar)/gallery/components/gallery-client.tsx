@@ -133,7 +133,7 @@ export function GalleryClient() {
               ) : (
                 <m.div
                   key={activeWeek}
-                  className="columns-1 gap-4 *:mb-4 sm:columns-2 lg:columns-4"
+                  className="columns-1 gap-3 *:mb-3 sm:columns-2 lg:columns-4"
                   initial={reducedMotion ? undefined : { opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={reducedMotion ? undefined : { opacity: 0 }}
@@ -154,7 +154,7 @@ export function GalleryClient() {
                         delay: reducedMotion ? 0 : i * 0.04,
                         ease: "easeOut",
                       }}
-                      className="group relative block w-full select-none overflow-hidden rounded-2xl bg-muted"
+                      className="group relative block w-full select-none overflow-hidden rounded-sm bg-muted"
                       style={{ aspectRatio: photo.aspect }}
                     >
                       <Image
