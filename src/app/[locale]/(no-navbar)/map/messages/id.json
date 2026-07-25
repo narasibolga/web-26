@@ -3,6 +3,8 @@
   "hazardTitle": "Aktivitas Gempa Bumi",
   "backHome": "Kembali ke Beranda",
   "noLocations": "Belum ada titik lain.",
+  "searchPlaceholder": "Cari lokasi...",
+  "clearSearch": "Hapus pencarian",
   "noMatchesTitle": "Tidak ada hasil",
   "noMatchesDescription": "Hapus filter untuk melihat semua lokasi.",
   "resetFilter": "Atur ulang filter",

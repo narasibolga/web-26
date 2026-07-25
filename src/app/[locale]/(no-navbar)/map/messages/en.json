@@ -3,6 +3,8 @@
   "hazardTitle": "Earthquake Activity",
   "backHome": "Back to Home",
   "noLocations": "No other points yet.",
+  "searchPlaceholder": "Search locations...",
+  "clearSearch": "Clear search",
   "noMatchesTitle": "No matches",
   "noMatchesDescription": "Clear the filters to see all locations.",
   "resetFilter": "Reset filter",

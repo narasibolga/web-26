@@ -1,39 +1,105 @@
 "use client";
 
-import { Cancel01Icon, Menu02Icon } from "@hugeicons/core-free-icons";
+import { Cancel01Icon, Search01Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { Drawer, DrawerContent, DrawerHeader } from "@/components/ui/drawer";
+import { Input } from "@/components/ui/input";
+import { useMediaQuery } from "@/hooks/use-media-query";
 
 type MapNavPanelProps = {
   children: React.ReactNode;
+  searchQuery: string;
+  onSearchChange: (value: string) => void;
+  showSearch: boolean;
 };
 
-export function MapNavPanel({ children }: MapNavPanelProps) {
-  const [open, setOpen] = useState(false);
+const SNAP_POINTS: ["110px", "50%", "100%"] = ["110px", "50%", "100%"];
+type SnapPoint = React.ComponentProps<typeof Drawer>["snapPoint"];
+
+export function MapNavPanel({
+  children,
+  searchQuery,
+  onSearchChange,
+  showSearch,
+}: MapNavPanelProps) {
+  const t = useTranslations("map");
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
+  const [snapPoint, setSnapPoint] = useState<SnapPoint>(SNAP_POINTS[0]);
+
+  const searchInput = showSearch && (
+    <div className="relative">
+      <HugeiconsIcon
+        icon={Search01Icon}
+        size={16}
+        className="-translate-y-1/2 pointer-events-none absolute top-1/2 left-3 text-muted-foreground"
+      />
+      <Input
+        value={searchQuery}
+        onChange={(e) => onSearchChange(e.target.value)}
+        placeholder={t("searchPlaceholder")}
+        className="h-10 rounded-xl border-border bg-muted pr-9 pl-9 text-foreground placeholder:text-muted-foreground"
+      />
+      {searchQuery && (
+        <button
+          type="button"
+          aria-label={t("clearSearch")}
+          onClick={() => onSearchChange("")}
+          className="-translate-y-1/2 absolute top-1/2 right-2 rounded-full p-1 text-muted-foreground hover:bg-muted-foreground/20"
+        >
+          <HugeiconsIcon icon={Cancel01Icon} size={14} />
+        </button>
+      )}
+    </div>
+  );
+
+  if (isDesktop) {
+    return (
+      <div className="pointer-events-none absolute top-16 bottom-4 left-4 z-20 w-[360px]">
+        <div className="pointer-events-auto flex h-full max-h-[calc(100dvh-5rem)] flex-col overflow-hidden rounded-2xl border border-border bg-background shadow-md">
+          {searchInput && (
+            <div className="shrink-0 p-4 pb-2">{searchInput}</div>
+          )}
+          <div className="min-h-0 flex-1 overflow-y-auto">{children}</div>
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <>
-      <Button
-        type="button"
-        variant="tertiary"
-        size="icon"
-        aria-expanded={open}
-        aria-label="Toggle navigation"
-        onClick={() => setOpen((v) => !v)}
-        className="absolute right-4 bottom-4 z-30 size-10 rounded-full bg-secondary text-secondary-foreground shadow-md lg:hidden"
+    <Drawer
+      open
+      onOpenChange={(next, eventDetails) => {
+        if (!next) {
+          eventDetails.cancel();
+          setSnapPoint(SNAP_POINTS[0]);
+          return;
+        }
+      }}
+      swipeDirection="down"
+      snapPoints={SNAP_POINTS}
+      snapPoint={snapPoint}
+      onSnapPointChange={setSnapPoint}
+      showSwipeHandle
+      modal={false}
+    >
+      <DrawerContent
+        className="border-border bg-background text-foreground"
+        dragArea={
+          searchInput ? (
+            <DrawerHeader className="pb-2 text-left">
+              {searchInput}
+            </DrawerHeader>
+          ) : (
+            <div className="h-2" />
+          )
+        }
       >
-        <HugeiconsIcon icon={open ? Cancel01Icon : Menu02Icon} size={18} />
-      </Button>
-      <div
-        className={cn(
-          "absolute top-0 left-0 z-20 h-full w-85 max-w-[85%] overflow-hidden border-secondary-foreground/15 border-r bg-secondary text-secondary-foreground transition-transform duration-300 ease-out lg:static lg:z-auto lg:max-w-none lg:translate-x-0 lg:border-b-0",
-          open ? "translate-x-0" : "-translate-x-full",
-        )}
-      >
-        {children}
-      </div>
-    </>
+        <div className="min-h-0 flex-1 overflow-y-auto px-4 pb-4">
+          {children}
+        </div>
+      </DrawerContent>
+    </Drawer>
   );
 }

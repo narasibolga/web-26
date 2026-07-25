@@ -35,19 +35,19 @@ export function LocationDetail({ item, onBack, locale }: LocationDetailProps) {
       : item.label[locale];
 
   return (
-    <div className="flex h-full min-w-0 flex-col gap-3 p-4">
-      <Button variant="tertiary" className="w-fit" onClick={onBack}>
+    <div className="flex h-full min-w-0 flex-col gap-3 bg-background p-4 text-foreground">
+      <Button variant="link" size="none" className="w-fit" onClick={onBack}>
         <HugeiconsIcon icon={ArrowLeft01Icon} size={16} />
         {t("backToList")}
       </Button>
 
       <div className="flex min-w-0 flex-1 flex-col gap-4 overflow-y-auto">
-        <h2 className="font-serif text-4xl text-secondary-foreground leading-tight">
+        <h2 className="font-serif text-3xl text-foreground leading-tight">
           {heading}
         </h2>
 
         {color && (
-          <span className="flex items-center gap-1.5 font-sans text-secondary-foreground/70 text-xs uppercase tracking-tight">
+          <span className="flex items-center gap-1.5 font-sans text-muted-foreground text-xs uppercase tracking-tight">
             <span
               aria-hidden="true"
               className="h-1.5 w-1.5 rounded-[1px]"
@@ -72,7 +72,7 @@ export function LocationDetail({ item, onBack, locale }: LocationDetailProps) {
               variant: "outline-foreground",
               size: "sm",
             }),
-            "mt-4 w-fit border-secondary-foreground/30 text-secondary-foreground hover:bg-secondary-foreground/10 hover:text-secondary-foreground",
+            "mt-4 w-fit border-border text-foreground hover:bg-muted",
           )}
         >
           {t("viewInGoogleMaps")}
@@ -92,7 +92,7 @@ function HazardDetailBody({
 }) {
   const t = useTranslations("map");
   return (
-    <dl className="flex flex-col gap-3 font-sans text-base text-secondary-foreground/80">
+    <dl className="flex flex-col gap-3 font-sans text-base text-muted-foreground">
       <Row label={t("quake.region")} value={quake.region} />
       <Row label={t("quake.magnitude")} value={quake.magnitude.toFixed(1)} />
       <Row label={t("quake.depth")} value={`${quake.depth} km`} />
@@ -126,12 +126,12 @@ function TourismDetailBody({
   return (
     <>
       {item.images && (
-        <div className="overflow-hidden border-secondary-foreground/15 border-b">
+        <div className="overflow-hidden border-border border-b">
           <Carousel opts={{ loop: true }}>
             <CarouselContent className="ml-0">
               {item.images.map((src, i) => (
-                <CarouselItem key={src} className="pl-0">
-                  <div className="relative aspect-4/3 w-full overflow-hidden bg-secondary-foreground/10">
+                <CarouselItem key={`${src}-${i}`} className="pl-0">
+                  <div className="relative aspect-4/3 w-full overflow-hidden bg-muted">
                     <Image
                       src={src}
                       alt={`${item.label[locale]} — ${i + 1}`}
@@ -145,18 +145,18 @@ function TourismDetailBody({
             </CarouselContent>
             <CarouselPrevious
               variant="secondary"
-              className="left-1 border-secondary-foreground/20 bg-secondary text-secondary-foreground hover:bg-secondary-foreground/10"
+              className="left-1 border-border bg-background text-foreground hover:bg-muted"
             />
             <CarouselNext
               variant="secondary"
-              className="right-1 border-secondary-foreground/20 bg-secondary text-secondary-foreground hover:bg-secondary-foreground/10"
+              className="right-1 border-border bg-background text-foreground hover:bg-muted"
             />
           </Carousel>
         </div>
       )}
 
       {item.category && (
-        <span className="flex items-center gap-1.5 font-sans text-secondary-foreground/70 text-xs uppercase tracking-tight">
+        <span className="flex items-center gap-1.5 font-sans text-muted-foreground text-xs uppercase tracking-tight">
           <span
             aria-hidden="true"
             className="h-1.5 w-1.5 rounded-[1px]"
@@ -167,7 +167,7 @@ function TourismDetailBody({
       )}
 
       {item.description && (
-        <p className="font-sans text-base text-secondary-foreground/80 leading-relaxed">
+        <p className="font-sans text-base text-muted-foreground leading-relaxed">
           {item.description[locale]}
         </p>
       )}
@@ -178,10 +178,10 @@ function TourismDetailBody({
 function Row({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex flex-col gap-0.5">
-      <dt className="font-sans text-secondary-foreground/50 text-xs uppercase tracking-tight">
+      <dt className="font-sans text-muted-foreground text-xs uppercase tracking-tight">
         {label}
       </dt>
-      <dd className="font-sans text-secondary-foreground/90">{value}</dd>
+      <dd className="font-sans text-foreground">{value}</dd>
     </div>
   );
 }

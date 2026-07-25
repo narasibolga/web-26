@@ -44,20 +44,10 @@ export function LocationCard({
       aria-pressed={selected}
       aria-label={item.label[locale]}
       onClick={() => onSelect(item.id)}
-      className={`group relative w-full py-3 pr-3 pl-4 text-left outline-none transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-secondary ${
-        selected
-          ? "bg-secondary-foreground/15"
-          : "bg-secondary hover:bg-secondary-foreground/10"
+      className={`group relative w-full py-3 pr-3 pl-4 text-left outline-none transition-colors focus-visible:ring-2 focus-visible:ring-primary ${
+        selected ? "bg-muted" : "bg-background hover:bg-muted/50"
       }`}
     >
-      <span
-        aria-hidden="true"
-        className={`absolute top-0 bottom-0 left-0 w-px transition-colors ${
-          selected
-            ? "bg-secondary-foreground"
-            : "bg-transparent group-hover:bg-secondary-foreground/30"
-        }`}
-      />
       <span className="flex flex-row items-center gap-3">
         <span
           aria-hidden="true"
@@ -66,12 +56,12 @@ export function LocationCard({
         >
           <HugeiconsIcon icon={icon} size={22} />
         </span>
-        <span className="flex min-w-0 flex-col gap-1">
-          <span className="font-serif text-base text-secondary-foreground leading-snug">
+        <span className="flex min-w-0 flex-col">
+          <span className="text-base text-foreground leading-snug">
             {label}
           </span>
           {isHazard && item.quake ? (
-            <span className="flex items-center gap-1.5 font-sans text-secondary-foreground/70 text-xs uppercase">
+            <span className="flex items-center gap-1.5 font-sans text-muted-foreground text-xs uppercase">
               <span
                 aria-hidden="true"
                 className="h-1.5 w-1.5 rounded-[1px]"
@@ -85,7 +75,7 @@ export function LocationCard({
             </span>
           ) : (
             item.category && (
-              <span className="font-sans text-secondary-foreground/70 text-xs uppercase">
+              <span className="font-sans text-muted-foreground text-sm">
                 {t(`kategori.${item.category}`)}
               </span>
             )
