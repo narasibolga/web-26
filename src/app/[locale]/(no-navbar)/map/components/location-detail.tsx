@@ -130,6 +130,7 @@ function TourismDetailBody({
           <Carousel opts={{ loop: true }}>
             <CarouselContent className="ml-0">
               {item.images.map((src, i) => (
+                // biome-ignore lint/suspicious/noArrayIndexKey: images may be duplicate
                 <CarouselItem key={`${src}-${i}`} className="pl-0">
                   <div className="relative aspect-4/3 w-full overflow-hidden bg-muted">
                     <Image

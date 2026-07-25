@@ -3,7 +3,6 @@
 import { Cancel01Icon, Search01Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { useTranslations } from "next-intl";
-import { useState } from "react";
 import { Drawer, DrawerContent, DrawerHeader } from "@/components/ui/drawer";
 import { Input } from "@/components/ui/input";
 import { useMediaQuery } from "@/hooks/use-media-query";
@@ -15,8 +14,7 @@ type MapNavPanelProps = {
   showSearch: boolean;
 };
 
-const SNAP_POINTS: ["110px", "50%", "100%"] = ["110px", "50%", "100%"];
-type SnapPoint = React.ComponentProps<typeof Drawer>["snapPoint"];
+const SNAP_POINTS = ["110px", 0.5, 1];
 
 export function MapNavPanel({
   children,
@@ -26,7 +24,6 @@ export function MapNavPanel({
 }: MapNavPanelProps) {
   const t = useTranslations("map");
   const isDesktop = useMediaQuery("(min-width: 1024px)");
-  const [snapPoint, setSnapPoint] = useState<SnapPoint>(SNAP_POINTS[0]);
 
   const searchInput = showSearch && (
     <div className="relative">
@@ -69,18 +66,14 @@ export function MapNavPanel({
 
   return (
     <Drawer
-      open
+      defaultOpen
       onOpenChange={(next, eventDetails) => {
         if (!next) {
           eventDetails.cancel();
-          setSnapPoint(SNAP_POINTS[0]);
-          return;
         }
       }}
       swipeDirection="down"
       snapPoints={SNAP_POINTS}
-      snapPoint={snapPoint}
-      onSnapPointChange={setSnapPoint}
       showSwipeHandle
       modal={false}
     >

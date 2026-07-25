@@ -116,12 +116,13 @@ export function MapPageClient() {
         locale={locale}
       />
 
-      <BackHomeButton />
-
-      <FilterBar
-        activeCategories={activeCategories}
-        onToggleCategory={toggleCategory}
-      />
+      <div className="pointer-events-none absolute inset-x-4 top-4 z-30 flex items-center gap-2">
+        <BackHomeButton />
+        <FilterBar
+          activeCategories={activeCategories}
+          onToggleCategory={toggleCategory}
+        />
+      </div>
 
       <MapNavPanel
         searchQuery={searchQuery}
@@ -176,7 +177,7 @@ function BackHomeButton() {
       aria-label={t("backHome")}
       render={<Link href="/" />}
       nativeButton={false}
-      className="absolute top-4 left-4 z-30 size-10 rounded-full bg-background text-foreground shadow-md"
+      className="pointer-events-auto size-10 shrink-0 rounded-full bg-background text-foreground shadow-md"
     >
       <HugeiconsIcon icon={Home01Icon} size={18} />
     </Button>
@@ -191,9 +192,8 @@ type FilterBarProps = {
 function FilterBar({ activeCategories, onToggleCategory }: FilterBarProps) {
   const t = useTranslations("map");
   return (
-    <div className="max-lg:-translate-x-1/2 pointer-events-none absolute top-4 lg:right-4 max-lg:left-1/2 z-20 w-[calc(100%-8rem)] max-w-2xl lg:w-auto">
-      <div className="pointer-events-auto flex gap-1 overflow-x-auto p-1">
-        {categoryOrder.map((cat) => {
+    <div className="pointer-events-auto flex gap-1 overflow-x-auto p-1 lg:ml-auto lg:flex-none">
+      {categoryOrder.map((cat) => {
           const isActive = activeCategories.has(cat);
           return (
             <Badge
@@ -230,7 +230,6 @@ function FilterBar({ activeCategories, onToggleCategory }: FilterBarProps) {
             </Badge>
           );
         })}
-      </div>
     </div>
   );
 }
@@ -243,7 +242,7 @@ type ModeSwitchProps = {
 function ModeSwitch({ mode, onSwitch }: ModeSwitchProps) {
   const t = useTranslations("map");
   return (
-    <div className="absolute right-4 bottom-4 z-30">
+    <div className="absolute z-30 max-lg:left-1/2 max-lg:top-16 max-lg:-translate-x-1/2 lg:bottom-4 lg:right-4">
       <div className="flex gap-1 rounded-full border border-border bg-background p-1 shadow-md">
         {(["tourism", "hazard"] as const).map((m) => {
           const isActive = m === mode;

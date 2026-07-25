@@ -43,7 +43,11 @@ export function TourismPanel({
           </EmptyDescription>
         </EmptyHeader>
         <EmptyContent>
-          <Button variant="outline-foreground" size="sm" onClick={onResetCategories}>
+          <Button
+            variant="outline-foreground"
+            size="sm"
+            onClick={onResetCategories}
+          >
             {t("resetFilter")}
           </Button>
         </EmptyContent>
