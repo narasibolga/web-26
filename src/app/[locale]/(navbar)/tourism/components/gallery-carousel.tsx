@@ -29,7 +29,7 @@ export function GalleryCarousel({ images }: { images: GalleryImage[] }) {
               index === images.length - 1 && "mr-4 md:mr-8",
             )}
           >
-            <article className="relative h-72 overflow-hidden rounded-2xl md:h-96 lg:h-[28rem]">
+            <article className="relative aspect-3/2 overflow-hidden rounded-2xl">
               <Image
                 src={image.src}
                 alt={image.alt}

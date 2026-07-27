@@ -2,7 +2,15 @@ import type { MetadataRoute } from "next";
 import { routing } from "@/i18n/routing";
 import { SITE_URL } from "@/lib/site";
 
-const ROUTES = ["", "activities", "pathfinder", "history", "map", "gallery"];
+const ROUTES = [
+  "",
+  "activities",
+  "pathfinder",
+  "history",
+  "map",
+  "gallery",
+  "tourism",
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const canonicalLocale = routing.defaultLocale;
