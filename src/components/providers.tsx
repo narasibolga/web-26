@@ -3,6 +3,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { domAnimation, LazyMotion } from "motion/react";
 import { useState } from "react";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 export const Providers = (props: { children: React.ReactNode }) => {
   const [queryClient] = useState(
@@ -16,7 +17,9 @@ export const Providers = (props: { children: React.ReactNode }) => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <LazyMotion features={domAnimation}>{props.children}</LazyMotion>
+      <TooltipProvider>
+        <LazyMotion features={domAnimation}>{props.children}</LazyMotion>
+      </TooltipProvider>
     </QueryClientProvider>
   );
 };

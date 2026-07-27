@@ -14,5 +14,8 @@
   },
   "back": "Kembali",
   "by": "Oleh {author}",
-  "readingTime": "{minutes} menit baca"
+  "readingTime": "{minutes} menit baca",
+  "related": {
+    "title": "Program Terkait"
+  }
 }

@@ -14,5 +14,8 @@
   },
   "back": "Back",
   "by": "By {author}",
-  "readingTime": "{minutes} min read"
+  "readingTime": "{minutes} min read",
+  "related": {
+    "title": "Related Programs"
+  }
 }

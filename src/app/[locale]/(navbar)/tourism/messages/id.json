@@ -40,43 +40,29 @@
   "timeline": {
     "heading": "Tiga belas jam menyusuri Sibolga",
     "description": "Setiap perpindahan sudah diperhitungkan agar perjalanan tetap mengalir tanpa terburu-buru.",
-    "columns": {
-      "time": "Waktu",
-      "activity": "Kegiatan"
+    "indicators": {
+      "signup": "Perlu mendaftar",
+      "recreation": "Kegiatan rekreasi",
+      "fee": "Memerlukan biaya tambahan"
     },
-    "items": [
-      {
-        "time": "08.00",
-        "activity": "Berangkat dari Kota Sibolga menuju Pantai Pandan."
-      },
-      {
-        "time": "08.30—10.00",
-        "activity": "Menikmati suasana Pantai Pandan dan mencicipi kuliner lokal."
-      },
-      {
-        "time": "10.00—10.30",
-        "activity": "Menuju dermaga di kawasan Pandan untuk menyeberang ke Pulau Mursala."
-      },
-      {
-        "time": "10.30—14.30",
-        "activity": "Menjelajahi Pulau Mursala dan menikmati keindahan Air Terjun Mursala."
-      },
-      { "time": "14.30—15.00", "activity": "Kembali menuju Kota Sibolga." },
-      { "time": "15.00—16.00", "activity": "Makan di Seafood Malaya." },
-      {
-        "time": "16.00—17.20",
-        "activity": "Menuju pusat oleh-oleh dan berbelanja Keripik Sambal khas Sibolga."
-      },
-      {
-        "time": "17.20—17.45",
-        "activity": "Perjalanan menuju Bukit Panomboman."
-      },
-      {
-        "time": "17.45—21.00",
-        "activity": "Menikmati panorama Kota Sibolga dan matahari terbenam di Bukit Panomboman."
-      },
-      { "time": "21.00", "activity": "Perjalanan selesai." }
-    ]
+    "periods": {
+      "morning": "Pagi",
+      "afternoon": "Siang",
+      "evening": "Sore",
+      "night": "Malam"
+    },
+    "items": {
+      "depart": "Berangkat dari Kota Sibolga menuju Pantai Pandan.",
+      "beach": "Menikmati suasana Pantai Pandan dan mencicipi kuliner lokal.",
+      "crossing": "Menuju dermaga di kawasan Pandan untuk menyeberang ke Pulau Mursala.",
+      "island": "Menjelajahi Pulau Mursala dan menikmati keindahan Air Terjun Mursala.",
+      "return": "Kembali menuju Kota Sibolga.",
+      "lunch": "Makan di Seafood Malaya.",
+      "souvenirs": "Menuju pusat oleh-oleh dan berbelanja Keripik Sambal khas Sibolga.",
+      "hillTravel": "Perjalanan menuju Bukit Panomboman.",
+      "sunset": "Menikmati panorama Kota Sibolga dan matahari terbenam di Bukit Panomboman.",
+      "finish": "Perjalanan selesai."
+    }
   },
   "planning": {
     "heading": "Sebelum berangkat, siapkan mulai Rp320.000",

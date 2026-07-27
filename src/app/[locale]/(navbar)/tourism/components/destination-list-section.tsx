@@ -48,30 +48,16 @@ export async function DestinationListSection({
               "flex flex-col items-center justify-center gap-3 px-6 py-20 text-center md:px-16",
               index === 1
                 ? "bg-primary text-primary-foreground"
-                : "bg-background text-foreground",
+                : "bg-secondary text-secondary-foreground",
             )}
           >
-            <p
-              className={cn(
-                "text-sm uppercase",
-                index === 1
-                  ? "text-primary-foreground/60"
-                  : "text-muted-foreground",
-              )}
-            >
+            <p className={cn("text-primary-foreground text-sm uppercase")}>
               {destination.label}
             </p>
             <h3 className="font-serif text-4xl tracking-tighter md:text-5xl">
               {destination.name}
             </h3>
-            <p
-              className={cn(
-                "max-w-md",
-                index === 1
-                  ? "text-primary-foreground/75"
-                  : "text-muted-foreground",
-              )}
-            >
+            <p className={cn("max-w-md text-primary-foreground/75")}>
               {destination.description}
             </p>
           </div>

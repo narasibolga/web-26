@@ -40,37 +40,29 @@
   "timeline": {
     "heading": "Thirteen hours around Sibolga",
     "description": "Each transfer is accounted for, keeping the day flowing without feeling rushed.",
-    "columns": {
-      "time": "Time",
-      "activity": "Activity"
+    "indicators": {
+      "signup": "Requires sign-up",
+      "recreation": "Recreation activity",
+      "fee": "Additional fee required"
     },
-    "items": [
-      { "time": "08.00", "activity": "Leave Sibolga City for Pantai Pandan." },
-      {
-        "time": "08.30—10.00",
-        "activity": "Enjoy Pantai Pandan and sample local food."
-      },
-      {
-        "time": "10.00—10.30",
-        "activity": "Head to the Pandan jetty for the crossing to Mursala Island."
-      },
-      {
-        "time": "10.30—14.30",
-        "activity": "Explore Mursala Island and its celebrated waterfall."
-      },
-      { "time": "14.30—15.00", "activity": "Return to Sibolga City." },
-      { "time": "15.00—16.00", "activity": "Lunch at Seafood Malaya." },
-      {
-        "time": "16.00—17.20",
-        "activity": "Visit a local shop for Sibolga chilli crackers and souvenirs."
-      },
-      { "time": "17.20—17.45", "activity": "Travel to Bukit Panomboman." },
-      {
-        "time": "17.45—21.00",
-        "activity": "Take in Sibolga’s panorama and sunset from Bukit Panomboman."
-      },
-      { "time": "21.00", "activity": "The trip ends." }
-    ]
+    "periods": {
+      "morning": "Morning",
+      "afternoon": "Afternoon",
+      "evening": "Evening",
+      "night": "Night"
+    },
+    "items": {
+      "depart": "Leave Sibolga City for Pantai Pandan.",
+      "beach": "Enjoy Pantai Pandan and sample local food.",
+      "crossing": "Head to the Pandan jetty for the crossing to Mursala Island.",
+      "island": "Explore Mursala Island and its celebrated waterfall.",
+      "return": "Return to Sibolga City.",
+      "lunch": "Lunch at Seafood Malaya.",
+      "souvenirs": "Visit a local shop for Sibolga chilli crackers and souvenirs.",
+      "hillTravel": "Travel to Bukit Panomboman.",
+      "sunset": "Take in Sibolga’s panorama and sunset from Bukit Panomboman.",
+      "finish": "The trip ends."
+    }
   },
   "planning": {
     "heading": "Before you go, here's a plan for IDR 320,000",

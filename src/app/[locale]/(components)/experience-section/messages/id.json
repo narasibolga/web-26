@@ -1,17 +1,17 @@
 {
-  "heading": "Satu destinasi, dua perjalanan",
-  "description": "Temukan keajaiban resor kastil Victoria kami sesuai pilihan Anda. Bergabunglah dengan kami di pegunungan untuk sehari penuh relaksasi dan petualangan, atau menginap semalam untuk benar-benar meresapi semua yang ditawarkan Mohonk. Apa pun pilihan Anda, resor Hudson Valley kami menawarkan pelarian yang hangat dan menyambut, penuh kesempatan untuk terhubung — dengan orang terkasih, alam, dan diri sendiri.",
+  "heading": "Satu pesisir, dua cara menjelajah",
+  "description": "Ikuti rencana perjalanan sehari di Sibolga, atau temukan destinasi yang sesuai dengan suasana hati dan minatmu.",
   "imageAlt": "Perahu di atas air",
   "cards": {
     "0": {
-      "title": "Pengalaman Menginap",
-      "description": "Manjakan diri dalam pengalaman resor lengkap dengan akomodasi menawan, hidangan lezat, aktivitas tak terhitung, dan fasilitas eksklusif tambahan.",
-      "cta": "Pelajari Lebih Lanjut"
+      "title": "Rencanakan Harimu",
+      "description": "Ikuti rute sehari yang praktis melalui pantai, panorama pulau, kuliner lokal, dan senja yang menghadap Sibolga.",
+      "cta": "Lihat Rencana Perjalanan"
     },
     "1": {
-      "title": "Pengalaman Sehari",
-      "description": "Nikmati akses ke area resor yang indah seharian, termasuk aktivitas luar ruangan, pilihan bersantap, dan hiburan malam. Pilih dari berbagai paket.",
-      "cta": "Pelajari Lebih Lanjut"
+      "title": "Temukan Tempatmu",
+      "description": "Jawab beberapa pertanyaan singkat dan temukan destinasi Sibolga yang paling sesuai dengan suasana hati dan gaya perjalananmu.",
+      "cta": "Ikuti Pathfinder"
     }
   }
 }

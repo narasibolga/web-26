@@ -39,7 +39,7 @@ export async function ExperienceSection({ locale }: Props) {
             <Button
               className="mt-auto"
               nativeButton={false}
-              render={<Link href="/" />}
+              render={<Link href="/tourism" />}
             >
               {t("cards.0.cta")}
             </Button>
@@ -53,7 +53,7 @@ export async function ExperienceSection({ locale }: Props) {
               className="mt-auto"
               variant="outline-foreground"
               nativeButton={false}
-              render={<Link href="/" />}
+              render={<Link href="/pathfinder" />}
             >
               {t("cards.1.cta")}
             </Button>

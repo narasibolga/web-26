@@ -32,6 +32,10 @@ type CarouselContextProps = {
 
 const CarouselContext = React.createContext<CarouselContextProps | null>(null);
 
+const subscribeToHydration = () => () => {};
+const getHydratedSnapshot = () => true;
+const getServerHydratedSnapshot = () => false;
+
 function useCarousel() {
   const context = React.useContext(CarouselContext);
 
@@ -60,6 +64,11 @@ function Carousel({
   );
   const [canScrollPrev, setCanScrollPrev] = React.useState(false);
   const [canScrollNext, setCanScrollNext] = React.useState(false);
+  const hydrated = React.useSyncExternalStore(
+    subscribeToHydration,
+    getHydratedSnapshot,
+    getServerHydratedSnapshot,
+  );
 
   const onSelect = React.useCallback((api: CarouselApi) => {
     if (!api) return;
@@ -119,8 +128,8 @@ function Carousel({
           orientation || (opts?.axis === "y" ? "vertical" : "horizontal"),
         scrollPrev,
         scrollNext,
-        canScrollPrev,
-        canScrollNext,
+        canScrollPrev: !hydrated || canScrollPrev,
+        canScrollNext: !hydrated || canScrollNext,
       }}
     >
       <div

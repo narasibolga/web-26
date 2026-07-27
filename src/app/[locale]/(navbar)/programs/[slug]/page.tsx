@@ -21,6 +21,7 @@ import {
   getProgramHTML,
   getReadingTimeMinutes,
 } from "@/lib/programs";
+import { getRelatedPrograms } from "@/lib/related-programs";
 import { SITE_URL } from "@/lib/site";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
@@ -70,6 +71,7 @@ export default async function ProgramPage({ params }: Props) {
   const html = (await getProgramHTML(slug)) ?? "";
   const readingTime = getReadingTimeMinutes(program.content);
   const author = getProgramAuthor(program);
+  const relatedPrograms = getRelatedPrograms(program, getAllPrograms());
 
   return (
     <main>
@@ -158,6 +160,60 @@ export default async function ProgramPage({ params }: Props) {
           dangerouslySetInnerHTML={{ __html: html }}
         />
       </Container>
+
+      {relatedPrograms.length > 0 && (
+        <section className="border-border border-t bg-muted/30">
+          <Container className="max-w-5xl py-12 md:py-16">
+            <h2 className="mb-6 font-serif text-3xl text-foreground md:text-4xl">
+              {t("related.title")}
+            </h2>
+            <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {relatedPrograms.map((relatedProgram) => (
+                <li key={relatedProgram.slug}>
+                  <Link
+                    href={`/programs/${relatedProgram.slug}`}
+                    className="group block h-full border border-border bg-background transition-colors hover:bg-border/20"
+                  >
+                    <div className="relative aspect-4/3 w-full bg-muted">
+                      {relatedProgram.image && (
+                        <Image
+                          src={relatedProgram.image}
+                          alt={relatedProgram.title}
+                          fill
+                          sizes="(min-width: 1024px) 320px, (min-width: 640px) 50vw, 100vw"
+                          className="object-cover"
+                        />
+                      )}
+                      {relatedProgram.tags[0] && (
+                        <Badge
+                          variant="glass"
+                          className="absolute top-2 left-2 z-10 rounded-none lowercase"
+                        >
+                          {relatedProgram.tags[0]}
+                        </Badge>
+                      )}
+                    </div>
+                    <div className="space-y-2 p-4">
+                      <time
+                        dateTime={relatedProgram.date}
+                        className="text-muted-foreground text-xs uppercase"
+                      >
+                        {relatedProgram.date}
+                      </time>
+                      <h3 className="line-clamp-2 font-heading text-2xl text-foreground">
+                        {relatedProgram.title}
+                      </h3>
+                      <p className="line-clamp-2 text-muted-foreground text-sm">
+                        {relatedProgram.summary}
+                      </p>
+                    </div>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </Container>
+        </section>
+      )}
     </main>
   );
 }

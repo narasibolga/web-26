@@ -1,4 +1,4 @@
-import { ArrowRight01Icon, InstagramIcon } from "@hugeicons/core-free-icons";
+import { ArrowRight01Icon, Copy01Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -80,10 +80,7 @@ export async function InstagramSection({ locale }: { locale: Locale }) {
             />
             <div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/20" />
             <div className="absolute top-3 right-3 text-white/90 md:top-4 md:right-4">
-              <HugeiconsIcon
-                icon={InstagramIcon}
-                className="size-6 md:size-7"
-              />
+              <HugeiconsIcon icon={Copy01Icon} className="size-6 md:size-7" />
             </div>
           </Link>
         ))}
