@@ -1,0 +1,157 @@
+{
+  "meta": {
+    "title": "One Day Trip Sibolga",
+    "description": "A one-day itinerary for Pantai Pandan, Mursala Island, local food, and a Sibolga sunset."
+  },
+  "hero": {
+    "heading": "One Day Trip Sibolga",
+    "imageAlt": "Tour boats crossing the waters of Sibolga",
+    "facts": ["1 day", "3 main stops", "From IDR 320,000"]
+  },
+  "breadcrumb": "One Day Trip",
+  "intro": {
+    "heading": "One day, three sides of the coast.",
+    "description": "Only have one day in Sibolga? This itinerary brings together the beach, island scenery, local food, and a sunset panorama in one practical route—so a short stay still feels complete.",
+    "note": "The route starts in Sibolga City and ends at Bukit Panomboman."
+  },
+  "destinations": {
+    "heading": "From the shoreline to the evening light",
+    "items": [
+      {
+        "name": "Pantai Pandan",
+        "label": "Coast",
+        "image": "/images/tourism-package/2.png",
+        "alt": "The shoreline at Pantai Pandan",
+        "description": "A coastal destination on the Sibolga–Central Tapanuli border, known for its sea views, easygoing atmosphere, and seafood."
+      },
+      {
+        "name": "Mursala Island",
+        "label": "Island",
+        "image": "/images/tourism-package/7.png",
+        "alt": "A waterfall flowing into the sea at Mursala Island",
+        "description": "An island escape with an iconic waterfall that drops straight into the sea, pristine scenery, and the day’s signature marine experience."
+      },
+      {
+        "name": "Kedai Sunset Sibolga",
+        "label": "Sunset",
+        "image": "/images/tourism-package/5.png",
+        "alt": "The evening view from Bukit Panomboman",
+        "description": "A relaxed hilltop stop at Bukit Panomboman overlooking Sibolga City and the surrounding sea."
+      }
+    ]
+  },
+  "timeline": {
+    "heading": "Thirteen hours around Sibolga",
+    "description": "Each transfer is accounted for, keeping the day flowing without feeling rushed.",
+    "columns": {
+      "time": "Time",
+      "activity": "Activity"
+    },
+    "items": [
+      { "time": "08.00", "activity": "Leave Sibolga City for Pantai Pandan." },
+      {
+        "time": "08.30—10.00",
+        "activity": "Enjoy Pantai Pandan and sample local food."
+      },
+      {
+        "time": "10.00—10.30",
+        "activity": "Head to the Pandan jetty for the crossing to Mursala Island."
+      },
+      {
+        "time": "10.30—14.30",
+        "activity": "Explore Mursala Island and its celebrated waterfall."
+      },
+      { "time": "14.30—15.00", "activity": "Return to Sibolga City." },
+      { "time": "15.00—16.00", "activity": "Lunch at Seafood Malaya." },
+      {
+        "time": "16.00—17.20",
+        "activity": "Visit a local shop for Sibolga chilli crackers and souvenirs."
+      },
+      { "time": "17.20—17.45", "activity": "Travel to Bukit Panomboman." },
+      {
+        "time": "17.45—21.00",
+        "activity": "Take in Sibolga’s panorama and sunset from Bukit Panomboman."
+      },
+      { "time": "21.00", "activity": "The trip ends." }
+    ]
+  },
+  "cost": {
+    "heading": "Plan for IDR 320,000",
+    "items": [
+      {
+        "name": "Mursala Island package",
+        "detail": "Return boat, entrance, life jacket, and lunch",
+        "price": "From IDR 300,000/person"
+      },
+      {
+        "name": "Vehicle parking",
+        "detail": "If bringing your own vehicle",
+        "price": "Motorbike IDR 5,000 · Car IDR 10,000"
+      }
+    ],
+    "totalLabel": "Estimated total",
+    "total": "From ± IDR 320,000/person",
+    "disclaimer": "Excludes transport to Sibolga and personal spending on additional food or souvenirs."
+  },
+  "maps": {
+    "heading": "Save every stop",
+    "open": "Open map",
+    "items": [
+      {
+        "name": "Pantai Pandan",
+        "href": "https://maps.app.goo.gl/51wGMb9TfZxQtwKp8"
+      },
+      {
+        "name": "Mursala Island",
+        "href": "https://maps.app.goo.gl/TcDrkPmB1MmKJJas8"
+      },
+      {
+        "name": "Kedai Sunset Sibolga",
+        "href": "https://maps.app.goo.gl/mRqwT1xXMuL8ueop6"
+      },
+      {
+        "name": "Seafood Malaya",
+        "href": "https://maps.app.goo.gl/DCHAtnfdYYyELRpc6"
+      },
+      {
+        "name": "Sibolga Chilli Crackers",
+        "href": "https://maps.app.goo.gl/sueWrPoR7Kui2y4m6"
+      }
+    ]
+  },
+  "tips": {
+    "heading": "Small notes for an easier day",
+    "items": [
+      "Start early to make the most of the day.",
+      "Check the weather before crossing to Mursala Island.",
+      "Wear comfortable clothing and suitable footwear.",
+      "Carry enough cash for smaller purchases.",
+      "Keep every destination clean."
+    ]
+  },
+  "gallery": {
+    "heading": "What you will meet along the way",
+    "images": [
+      {
+        "src": "/images/tourism-package/3.png",
+        "alt": "Pantai Pandan and its shoreline"
+      },
+      {
+        "src": "/images/tourism-package/6.png",
+        "alt": "A view of Mursala Island"
+      },
+      {
+        "src": "/images/tourism-package/4.png",
+        "alt": "The atmosphere at Kedai Sunset Sibolga"
+      },
+      {
+        "src": "/images/tourism-package/8.png",
+        "alt": "Seafood served at Seafood Malaya"
+      },
+      {
+        "src": "/images/tourism-package/10.png",
+        "alt": "Sibolga chilli crackers sold as souvenirs"
+      }
+    ]
+  }
+}

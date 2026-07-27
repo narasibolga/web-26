@@ -15,6 +15,7 @@ const menuLinks = [
   { key: "history", href: "/history" },
   { key: "programs", href: "/programs" },
   { key: "gallery", href: "/gallery" },
+  { key: "tourism", href: "/tourism" },
 ] as const;
 
 export const Navbar = () => {

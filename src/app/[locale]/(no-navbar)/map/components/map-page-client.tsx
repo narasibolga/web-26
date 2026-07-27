@@ -194,42 +194,42 @@ function FilterBar({ activeCategories, onToggleCategory }: FilterBarProps) {
   return (
     <div className="pointer-events-auto flex gap-1 overflow-x-auto p-1 lg:ml-auto lg:flex-none">
       {categoryOrder.map((cat) => {
-          const isActive = activeCategories.has(cat);
-          return (
-            <Badge
-              key={cat}
-              variant="outline"
-              render={
-                <button
-                  type="button"
-                  aria-pressed={isActive}
-                  aria-label={t(`kategori.${cat}`)}
-                  onClick={() => onToggleCategory(cat)}
-                />
-              }
-              className={cn(
-                "h-7 shrink-0 gap-1 rounded-full border-border bg-background px-2 text-foreground uppercase shadow-sm",
-                isActive && "ring-1",
-              )}
-              style={
-                isActive
-                  ? {
-                      boxShadow: `0 0 0 2px ${categoryColor[cat]}, 0 1px 2px 0 rgb(0 0 0 / 0.05)`,
-                    }
-                  : undefined
-              }
+        const isActive = activeCategories.has(cat);
+        return (
+          <Badge
+            key={cat}
+            variant="outline"
+            render={
+              <button
+                type="button"
+                aria-pressed={isActive}
+                aria-label={t(`kategori.${cat}`)}
+                onClick={() => onToggleCategory(cat)}
+              />
+            }
+            className={cn(
+              "h-7 shrink-0 gap-1 rounded-full border-border bg-background px-2 text-foreground uppercase shadow-sm",
+              isActive && "ring-1",
+            )}
+            style={
+              isActive
+                ? {
+                    boxShadow: `0 0 0 2px ${categoryColor[cat]}, 0 1px 2px 0 rgb(0 0 0 / 0.05)`,
+                  }
+                : undefined
+            }
+          >
+            <span
+              aria-hidden="true"
+              className="mr-1.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full text-background"
+              style={{ backgroundColor: categoryColor[cat] }}
             >
-              <span
-                aria-hidden="true"
-                className="mr-1.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full text-background"
-                style={{ backgroundColor: categoryColor[cat] }}
-              >
-                <HugeiconsIcon icon={categoryIcon[cat]} size={10} />
-              </span>
-              {t(`kategori.${cat}`)}
-            </Badge>
-          );
-        })}
+              <HugeiconsIcon icon={categoryIcon[cat]} size={10} />
+            </span>
+            {t(`kategori.${cat}`)}
+          </Badge>
+        );
+      })}
     </div>
   );
 }
@@ -242,7 +242,7 @@ type ModeSwitchProps = {
 function ModeSwitch({ mode, onSwitch }: ModeSwitchProps) {
   const t = useTranslations("map");
   return (
-    <div className="absolute z-30 max-lg:left-1/2 max-lg:top-16 max-lg:-translate-x-1/2 lg:bottom-4 lg:right-4">
+    <div className="max-lg:-translate-x-1/2 absolute z-30 max-lg:top-16 max-lg:left-1/2 lg:right-4 lg:bottom-4">
       <div className="flex gap-1 rounded-full border border-border bg-background p-1 shadow-md">
         {(["tourism", "hazard"] as const).map((m) => {
           const isActive = m === mode;

@@ -35,7 +35,7 @@ export async function CheckboardSection({ locale }: Props) {
         </Button>
       </div>
 
-      <div className="flex flex-col items-center justify-center gap-6 bg-background px-4 py-20 text-center text-foreground md:py-24">
+      <div className="flex flex-col items-center justify-center gap-6 bg-secondary px-4 py-20 text-center text-secondary-foreground md:py-24">
         <SectionHeading>{t("panels.1.heading")}</SectionHeading>
         <p className="max-w-md">{t("panels.1.description")}</p>
         <Button

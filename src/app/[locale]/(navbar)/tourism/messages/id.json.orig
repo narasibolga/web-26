@@ -1,0 +1,163 @@
+{
+  "meta": {
+    "title": "One Day Trip Sibolga",
+    "description": "Paket perjalanan sehari untuk menikmati Pantai Pandan, Pulau Mursala, kuliner khas, dan matahari terbenam di Sibolga."
+  },
+  "hero": {
+    "heading": "One Day Trip Sibolga",
+    "imageAlt": "Perahu wisata melintasi perairan Sibolga",
+    "facts": ["1 hari", "3 destinasi utama", "Mulai Rp320.000"]
+  },
+  "breadcrumb": "One Day Trip",
+  "intro": {
+    "heading": "Satu hari, tiga wajah pesisir.",
+    "description": "Hanya memiliki waktu satu hari di Sibolga? Itinerary ini merangkai pantai, pulau, kuliner khas, dan panorama matahari terbenam dalam satu rute yang praktis—agar waktu singkat tetap terasa penuh.",
+    "note": "Rute dimulai dari Kota Sibolga dan berakhir di Bukit Panomboman."
+  },
+  "destinations": {
+    "heading": "Dari garis pantai ke cahaya senja",
+    "items": [
+      {
+        "name": "Pantai Pandan",
+        "label": "Pesisir",
+        "image": "/images/tourism-package/2.png",
+        "alt": "Suasana pesisir Pantai Pandan",
+        "description": "Destinasi pesisir di perbatasan Sibolga dan Tapanuli Tengah dengan panorama laut, suasana santai, dan pilihan kuliner seafood."
+      },
+      {
+        "name": "Pulau Mursala",
+        "label": "Bahari",
+        "image": "/images/tourism-package/7.png",
+        "alt": "Air terjun yang mengalir ke laut di Pulau Mursala",
+        "description": "Pulau unggulan dengan air terjun ikonik yang langsung mengalir ke laut, panorama alami, dan pengalaman bahari yang menjadi inti perjalanan."
+      },
+      {
+        "name": "Kedai Sunset Sibolga",
+        "label": "Senja",
+        "image": "/images/tourism-package/5.png",
+        "alt": "Pemandangan dari Bukit Panomboman saat senja",
+        "description": "Tempat bersantai di Bukit Panomboman dengan pemandangan Kota Sibolga dan hamparan laut dari ketinggian."
+      }
+    ]
+  },
+  "timeline": {
+    "heading": "Tiga belas jam menyusuri Sibolga",
+    "description": "Setiap perpindahan sudah diperhitungkan agar perjalanan tetap mengalir tanpa terburu-buru.",
+    "columns": {
+      "time": "Waktu",
+      "activity": "Kegiatan"
+    },
+    "items": [
+      {
+        "time": "08.00",
+        "activity": "Berangkat dari Kota Sibolga menuju Pantai Pandan."
+      },
+      {
+        "time": "08.30—10.00",
+        "activity": "Menikmati suasana Pantai Pandan dan mencicipi kuliner lokal."
+      },
+      {
+        "time": "10.00—10.30",
+        "activity": "Menuju dermaga di kawasan Pandan untuk menyeberang ke Pulau Mursala."
+      },
+      {
+        "time": "10.30—14.30",
+        "activity": "Menjelajahi Pulau Mursala dan menikmati keindahan Air Terjun Mursala."
+      },
+      { "time": "14.30—15.00", "activity": "Kembali menuju Kota Sibolga." },
+      { "time": "15.00—16.00", "activity": "Makan di Seafood Malaya." },
+      {
+        "time": "16.00—17.20",
+        "activity": "Menuju pusat oleh-oleh dan berbelanja Keripik Sambal khas Sibolga."
+      },
+      {
+        "time": "17.20—17.45",
+        "activity": "Perjalanan menuju Bukit Panomboman."
+      },
+      {
+        "time": "17.45—21.00",
+        "activity": "Menikmati panorama Kota Sibolga dan matahari terbenam di Bukit Panomboman."
+      },
+      { "time": "21.00", "activity": "Perjalanan selesai." }
+    ]
+  },
+  "cost": {
+    "heading": "Siapkan mulai Rp320.000",
+    "items": [
+      {
+        "name": "Paket Pulau Mursala",
+        "detail": "Kapal PP, tiket masuk, life jacket, dan makan siang",
+        "price": "Mulai Rp300.000/orang"
+      },
+      {
+        "name": "Parkir kendaraan",
+        "detail": "Jika membawa kendaraan pribadi",
+        "price": "Motor Rp5.000 · Mobil Rp10.000"
+      }
+    ],
+    "totalLabel": "Estimasi total",
+    "total": "Mulai ± Rp320.000/orang",
+    "disclaimer": "Belum termasuk transportasi menuju Sibolga serta pengeluaran pribadi untuk makan dan oleh-oleh."
+  },
+  "maps": {
+    "heading": "Simpan titik perjalanannya",
+    "open": "Buka peta",
+    "items": [
+      {
+        "name": "Pantai Pandan",
+        "href": "https://maps.app.goo.gl/51wGMb9TfZxQtwKp8"
+      },
+      {
+        "name": "Pulau Mursala",
+        "href": "https://maps.app.goo.gl/TcDrkPmB1MmKJJas8"
+      },
+      {
+        "name": "Kedai Sunset Sibolga",
+        "href": "https://maps.app.goo.gl/mRqwT1xXMuL8ueop6"
+      },
+      {
+        "name": "Seafood Malaya",
+        "href": "https://maps.app.goo.gl/DCHAtnfdYYyELRpc6"
+      },
+      {
+        "name": "Keripik Sambal Sibolga",
+        "href": "https://maps.app.goo.gl/sueWrPoR7Kui2y4m6"
+      }
+    ]
+  },
+  "tips": {
+    "heading": "Catatan kecil untuk perjalanan yang nyaman",
+    "items": [
+      "Datang pagi agar waktu perjalanan lebih optimal.",
+      "Pastikan kondisi cuaca mendukung sebelum menuju Pulau Mursala.",
+      "Gunakan pakaian nyaman dan alas kaki yang sesuai.",
+      "Siapkan uang tunai secukupnya.",
+      "Jaga kebersihan di setiap destinasi."
+    ]
+  },
+  "gallery": {
+    "heading": "Yang akan Anda temui sepanjang hari",
+    "images": [
+      {
+        "src": "/images/tourism-package/3.png",
+        "alt": "Pantai Pandan dan garis pantainya"
+      },
+      {
+        "src": "/images/tourism-package/6.png",
+        "alt": "Pemandangan Pulau Mursala"
+      },
+      {
+        "src": "/images/tourism-package/4.png",
+        "alt": "Suasana Kedai Sunset Sibolga"
+      },
+      {
+        "src": "/images/tourism-package/8.png",
+        "alt": "Hidangan laut di Seafood Malaya"
+      },
+      {
+        "src": "/images/tourism-package/10.png",
+        "alt": "Oleh-oleh Keripik Sambal Sibolga"
+      }
+    ]
+  }
+}
