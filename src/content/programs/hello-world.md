@@ -41,4 +41,4 @@ export function generateStaticParams() {
 }
 ```
 
-That's it. Edit this file at `content/programs/hello-world.md`.
+That's it. Edit this file at `src/content/programs/hello-world.md`.

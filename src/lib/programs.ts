@@ -9,7 +9,7 @@ import remarkHtml from "remark-html";
 const FALLBACK_AUTHOR = "NaraSibolga Team";
 
 function programsDir(): string {
-  return join(process.cwd(), "content", "programs");
+  return join(process.cwd(), "src", "content", "programs");
 }
 
 export type ProgramFrontmatter = {

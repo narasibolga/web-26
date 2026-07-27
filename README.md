@@ -10,7 +10,7 @@ Bilingual (English / Bahasa Indonesia) marketing site for Sibolga and Tapanuli B
 - **Styling**: Tailwind CSS v4
 - **Maps**: `maplibre-gl` + `react-map-gl`
 - **Data fetching**: `@tanstack/react-query` for client-side, RSC for server-rendered pages
-- **Content**: Markdown under `content/programs/`, parsed with `remark`
+- **Content**: Markdown under `src/content/programs/`, parsed with `remark`
 - **Package manager**: bun
 
 ## Project layout
