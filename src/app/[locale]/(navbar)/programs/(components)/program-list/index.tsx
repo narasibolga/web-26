@@ -4,7 +4,13 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Empty, EmptyHeader, EmptyTitle } from "@/components/ui/empty";
+import {
+  Empty,
+  EmptyContent,
+  EmptyDescription,
+  EmptyHeader,
+  EmptyTitle,
+} from "@/components/ui/empty";
 import { Link, useTypedLocale } from "@/i18n/navigation";
 import { useUpdateSearchParams } from "@/i18n/search-params";
 import { formatLocaleDate } from "@/lib/datetime";
@@ -16,18 +22,12 @@ type ProgramListProps = {
   programs: ProgramMeta[];
 };
 
-type ProgramTagFilterProps = {
-  programs: ProgramMeta[];
-};
+const programTags = ["all", "soshum", "saintek", "agro", "medika"] as const;
 
-export function ProgramTagFilter({ programs }: ProgramTagFilterProps) {
+export function ProgramTagFilter() {
   const t = useTranslations("programs");
   const activeTag = useActiveTag();
   const updateSearchParams = useUpdateSearchParams();
-
-  const tags = Array.from(
-    new Set(programs.flatMap((program) => program.tags)),
-  ).sort();
 
   const selectTag = (tag: string) => {
     updateSearchParams((params) => {
@@ -38,18 +38,7 @@ export function ProgramTagFilter({ programs }: ProgramTagFilterProps) {
 
   return (
     <div className="z-10 flex flex-wrap items-center justify-center gap-4">
-      <Button
-        variant="link"
-        size="none"
-        onClick={() => selectTag("all")}
-        className={cn(
-          "text-white uppercase",
-          activeTag === "all" && "underline",
-        )}
-      >
-        {t("tags.all")}
-      </Button>
-      {tags.map((tag) => (
+      {programTags.map((tag) => (
         <Button
           key={tag}
           variant="link"
@@ -60,7 +49,7 @@ export function ProgramTagFilter({ programs }: ProgramTagFilterProps) {
             activeTag === tag && "underline",
           )}
         >
-          {tag}
+          {t(`tags.${tag}`)}
         </Button>
       ))}
     </div>
@@ -71,6 +60,7 @@ export function ProgramList({ programs }: ProgramListProps) {
   const t = useTranslations("programs");
   const locale = useTypedLocale();
   const activeTag = useActiveTag();
+  const updateSearchParams = useUpdateSearchParams();
 
   const filtered =
     activeTag === "all"
@@ -82,8 +72,19 @@ export function ProgramList({ programs }: ProgramListProps) {
       {filtered.length === 0 ? (
         <Empty>
           <EmptyHeader>
-            <EmptyTitle>{t("tags.empty")}</EmptyTitle>
+            <EmptyTitle>{t("tags.empty.title")}</EmptyTitle>
+            <EmptyDescription>{t("tags.empty.description")}</EmptyDescription>
           </EmptyHeader>
+          <EmptyContent>
+            <Button
+              variant="outline-foreground"
+              onClick={() =>
+                updateSearchParams((params) => params.delete("tag"))
+              }
+            >
+              {t("tags.empty.showAll")}
+            </Button>
+          </EmptyContent>
         </Empty>
       ) : (
         <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">

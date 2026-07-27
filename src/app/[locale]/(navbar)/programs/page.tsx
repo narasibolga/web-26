@@ -74,7 +74,7 @@ export default async function ProgramsPage({ params }: Props) {
               </div>
             }
           >
-            <ProgramTagFilter programs={programs} />
+            <ProgramTagFilter />
           </Suspense>
         </Container>
       </section>

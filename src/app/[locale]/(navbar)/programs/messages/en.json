@@ -10,7 +10,15 @@
   "tags": {
     "label": "Tags",
     "all": "All",
-    "empty": "No programs with this tag yet"
+    "soshum": "Social Sciences & Humanities",
+    "saintek": "Science & Technology",
+    "agro": "Agriculture",
+    "medika": "Health & Medicine",
+    "empty": {
+      "title": "No programs with this tag yet",
+      "description": "Try another tag to explore more stories and updates.",
+      "showAll": "View all programs"
+    }
   },
   "back": "Back",
   "by": "By {author}",

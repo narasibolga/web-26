@@ -10,7 +10,15 @@
   "tags": {
     "label": "Tag",
     "all": "Semua",
-    "empty": "Belum ada program dengan tag ini"
+    "soshum": "SOSHUM",
+    "saintek": "SAINTEK",
+    "agro": "AGRO",
+    "medika": "KESEHATAN",
+    "empty": {
+      "title": "Belum ada program dengan tag ini",
+      "description": "Coba tag lain untuk menjelajahi lebih banyak cerita dan pembaruan.",
+      "showAll": "Lihat semua program"
+    }
   },
   "back": "Kembali",
   "by": "Oleh {author}",

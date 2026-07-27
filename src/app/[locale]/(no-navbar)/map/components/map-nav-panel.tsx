@@ -4,7 +4,12 @@ import { Cancel01Icon, Search01Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { useTranslations } from "next-intl";
 import { Drawer, DrawerContent, DrawerHeader } from "@/components/ui/drawer";
-import { Input } from "@/components/ui/input";
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupButton,
+  InputGroupInput,
+} from "@/components/ui/input-group";
 import { useMediaQuery } from "@/hooks/use-media-query";
 
 type MapNavPanelProps = {
@@ -26,29 +31,30 @@ export function MapNavPanel({
   const isDesktop = useMediaQuery("(min-width: 1024px)");
 
   const searchInput = showSearch && (
-    <div className="relative">
-      <HugeiconsIcon
-        icon={Search01Icon}
-        size={16}
-        className="-translate-y-1/2 pointer-events-none absolute top-1/2 left-3 text-muted-foreground"
-      />
-      <Input
+    <InputGroup className="border-border bg-white">
+      <InputGroupAddon>
+        <HugeiconsIcon
+          icon={Search01Icon}
+          className="text-muted-foreground"
+        />
+      </InputGroupAddon>
+      <InputGroupInput
         value={searchQuery}
         onChange={(e) => onSearchChange(e.target.value)}
         placeholder={t("searchPlaceholder")}
-        className="h-10 rounded-xl border-border bg-muted pr-9 pl-9 text-foreground placeholder:text-muted-foreground"
       />
       {searchQuery && (
-        <button
-          type="button"
-          aria-label={t("clearSearch")}
-          onClick={() => onSearchChange("")}
-          className="-translate-y-1/2 absolute top-1/2 right-2 rounded-full p-1 text-muted-foreground hover:bg-muted-foreground/20"
-        >
-          <HugeiconsIcon icon={Cancel01Icon} size={14} />
-        </button>
+        <InputGroupAddon align="inline-end">
+          <InputGroupButton
+            size="icon-xs"
+            aria-label={t("clearSearch")}
+            onClick={() => onSearchChange("")}
+          >
+            <HugeiconsIcon icon={Cancel01Icon} />
+          </InputGroupButton>
+        </InputGroupAddon>
       )}
-    </div>
+    </InputGroup>
   );
 
   if (isDesktop) {
