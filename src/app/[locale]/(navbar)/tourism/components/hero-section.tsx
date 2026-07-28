@@ -33,7 +33,7 @@ export async function HeroSection({ locale }: HeroSectionProps) {
           {t("hero.heading")}
         </h1>
         <div className="mt-5 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 font-medium text-sm uppercase">
-          {facts.map((fact, index) => (
+          {facts.map((fact, _index) => (
             <div key={fact} className="flex items-center gap-5">
               {fact}
             </div>

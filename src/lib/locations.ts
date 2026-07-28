@@ -23,7 +23,11 @@ export function formatCoord(lat: number, lng: number): string {
 }
 
 export type LocationCategory =
-  "pantai" | "pulau" | "bukit" | "air-terjun" | "landmark";
+  | "pantai"
+  | "pulau"
+  | "bukit"
+  | "air-terjun"
+  | "landmark";
 
 export const categoryColor: Record<LocationCategory, string> = {
   pantai: "oklch(0.62 0.12 230)",
@@ -59,7 +63,7 @@ export type Location = {
   description: { en: string; id: string };
 };
 
-// TODO: verify coordinates — approximated from public sources, pending review.
+// Coordinates audited against named map features and published field coordinates.
 export const locations: Location[] = [
   {
     id: "tangga-seratus",
@@ -92,8 +96,8 @@ export const locations: Location[] = [
     id: "pantai-pelabuhan-lama",
     name: { en: "Pantai Pelabuhan Lama", id: "Pantai Pelabuhan Lama" },
     category: "pantai",
-    lat: 1.7427,
-    lng: 98.7773,
+    lat: 1.7407041,
+    lng: 98.7741551,
     images: ["/images/map/pantai-pelabuhan-lama/1.webp"],
     description: {
       en: "Dulu pelabuhan, sekarang jadi spot wisata yang estetik. Pantainya bersih, airnya jernih, plus masih ada bangunan kolonial bersejarah seperti Bioskop Haven Theatre dan Gudang Marison. Cocok buat yang suka jalan-jalan sambil hunting foto.",
@@ -104,8 +108,8 @@ export const locations: Location[] = [
     id: "pulau-poncan",
     name: { en: "Pulau Poncan", id: "Pulau Poncan" },
     category: "pulau",
-    lat: 1.7109,
-    lng: 98.7635,
+    lat: 1.710590627,
+    lng: 98.764286518,
     images: ["/images/map/pulau-poncan/1.webp"],
     description: {
       en: "Air laut sebening kaca, jembatan di atas laut, dan spot snorkeling yang kece. Nggak cuma cantik, pulau ini juga punya gua peninggalan tentara Jepang yang bikin vibes petualangannya makin dapet.",
@@ -116,8 +120,8 @@ export const locations: Location[] = [
     id: "bukit-panomboman",
     name: { en: "Bukit Panomboman", id: "Bukit Panomboman" },
     category: "bukit",
-    lat: 1.735,
-    lng: 98.772,
+    lat: 1.7571859,
+    lng: 98.7717777,
     images: ["/images/map/bukit-panomboman/1.webp"],
     description: {
       en: "Kalau warga lokal ditanya spot sunset favorit, banyak yang bakal jawab di sini. Dari atas bukit kamu bisa lihat laut dan pegunungan sekaligus. Makin lengkap kalau ditemenin secangkir kopi di kafe sekitar.",
@@ -131,8 +135,8 @@ export const locations: Location[] = [
       id: "Pantai Pandaratan Pondok Batu",
     },
     category: "pantai",
-    lat: 1.6833,
-    lng: 98.8167,
+    lat: 1.7197222,
+    lng: 98.7836111,
     images: ["/images/map/pantai-pandaratan-pondok-batu/1.webp"],
     description: {
       en: "Hidden gem yang masih alami banget. Pasir putih, air laut super jernih, dan kalau lagi beruntung kamu bisa lihat banyak bintang laut di sekitar pantai. Rasanya kayak nemu private beach.",
@@ -158,8 +162,8 @@ export const locations: Location[] = [
     id: "batu-lubang-sibolga",
     name: { en: "Batu Lubang Sibolga", id: "Batu Lubang Sibolga" },
     category: "landmark",
-    lat: 1.738,
-    lng: 98.771,
+    lat: 1.7655116,
+    lng: 98.7971256,
     images: ["/images/map/batu-lubang-sibolga/1.webp"],
     description: {
       en: "Terowongan peninggalan zaman Belanda yang punya cerita panjang. Di sampingnya ada air terjun kecil yang bikin suasananya makin unik. Agak misterius, tapi justru itu yang bikin penasaran.",
@@ -170,8 +174,8 @@ export const locations: Location[] = [
     id: "air-terjun-sihobuk",
     name: { en: "Air Terjun Sihobuk", id: "Air Terjun Sihobuk" },
     category: "air-terjun",
-    lat: 1.76,
-    lng: 98.79,
+    lat: 1.7301132,
+    lng: 98.8262,
     images: ["/images/map/air-terjun-sihobuk/1.webp"],
     description: {
       en: "Air terjun setinggi sekitar 12–17 meter dengan kolam alami yang nyaman buat main air. Cocok buat quality time bareng keluarga karena anak-anak juga bisa berenang di sini.",
@@ -194,8 +198,8 @@ export const locations: Location[] = [
     id: "pantai-kalangan-indah",
     name: { en: "Pantai Kalangan Indah", id: "Pantai Kalangan Indah" },
     category: "pantai",
-    lat: 1.733,
-    lng: 98.795,
+    lat: 1.6672222,
+    lng: 98.8280556,
     images: ["/images/map/pantai-kalangan-indah/1.webp"],
     description: {
       en: "Pantai dengan pasir putih dan ombak yang tenang karena berada di kawasan teluk. Aman buat anak-anak main air, tapi tetap seru buat kamu yang cuma pengen rebahan sambil nikmatin angin pantai.",
@@ -206,8 +210,8 @@ export const locations: Location[] = [
     id: "pasir-putih-pandaratan",
     name: { en: "Pasir Putih Pandaratan", id: "Pasir Putih Pandaratan" },
     category: "pantai",
-    lat: 1.68,
-    lng: 98.82,
+    lat: 1.7197222,
+    lng: 98.7836111,
     images: ["/images/map/pasir-putih-pandaratan/1.webp"],
     description: {
       en: "Masih satu kawasan dengan Pondok Batu, tapi punya hamparan pasir putih yang luas dan suasana yang lebih sepi. Cocok buat yang cari tempat healing tanpa keramaian.",
@@ -257,8 +261,8 @@ export const locations: Location[] = [
       id: "Pulau Kalimantung Na Menek",
     },
     category: "pulau",
-    lat: 1.574,
-    lng: 98.528,
+    lat: 1.5615309,
+    lng: 98.5764404,
     images: ["/images/map/pulau-kalimantung-na-menek/1.webp"],
     description: {
       en: "Pulau mungil dengan pasir putih dan laut sebening kristal. Biasanya jadi satu paket wisata bareng Pulau Mursala dan Badalu. Sekali jalan, langsung dapat beberapa destinasi.",
@@ -305,8 +309,8 @@ export const locations: Location[] = [
     id: "pantai-pulau-putri",
     name: { en: "Pantai Pulau Putri", id: "Pantai Pulau Putri" },
     category: "pantai",
-    lat: 1.615,
-    lng: 98.525,
+    lat: 1.645,
+    lng: 98.5975,
     images: ["/images/map/pantai-pulau-putri/1.webp"],
     description: {
       en: "Pantai eksotis dengan pasir putih, laut jernih, dan deretan pohon kelapa yang bikin vibes liburannya makin dapet. Mau snorkeling, camping, atau sekadar rebahan menikmati suasana, semuanya bisa.",
@@ -317,8 +321,8 @@ export const locations: Location[] = [
     id: "pantai-pandan",
     name: { en: "Pantai Pandan", id: "Pantai Pandan" },
     category: "pantai",
-    lat: 1.805,
-    lng: 98.735,
+    lat: 1.6788889,
+    lng: 98.8269444,
     images: [
       "/images/map/pantai-pandan/1.webp",
       "/images/map/pantai-pandan/2.webp",
@@ -333,8 +337,8 @@ export const locations: Location[] = [
     id: "pantai-binasi",
     name: { en: "Pantai Binasi", id: "Pantai Binasi" },
     category: "pantai",
-    lat: 1.87,
-    lng: 98.68,
+    lat: 1.898105422,
+    lng: 98.549738043,
     images: ["/images/map/pantai-binasi/1.webp"],
     description: {
       en: "Pantai berpasir halus di Sorkam Barat dengan pemandangan sunset yang memukau. Deretan pohon pinus di tepinya bikin suasana makin teduh.",

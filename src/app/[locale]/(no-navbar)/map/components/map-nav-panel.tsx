@@ -33,10 +33,7 @@ export function MapNavPanel({
   const searchInput = showSearch && (
     <InputGroup className="border-border bg-white">
       <InputGroupAddon>
-        <HugeiconsIcon
-          icon={Search01Icon}
-          className="text-muted-foreground"
-        />
+        <HugeiconsIcon icon={Search01Icon} className="text-muted-foreground" />
       </InputGroupAddon>
       <InputGroupInput
         value={searchQuery}
