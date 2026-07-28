@@ -37,7 +37,7 @@ export async function Footer({ locale }: Props) {
             <Image
               src="/images/kkn-logo.png"
               alt={t("partnerLogoLabel")}
-              width={60}
+              width={52}
               height={60}
             />
           </div>

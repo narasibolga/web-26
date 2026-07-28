@@ -65,7 +65,7 @@ export const Navbar = () => {
                 src="/logo-text.svg"
                 alt={t("brand")}
                 width={160}
-                height={28}
+                height={29}
                 priority
               />
             </m.div>
