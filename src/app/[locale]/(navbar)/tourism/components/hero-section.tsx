@@ -32,16 +32,10 @@ export async function HeroSection({ locale }: HeroSectionProps) {
         <h1 className="max-w-3xl font-serif text-5xl text-shadow-2xs tracking-tighter md:text-6xl">
           {t("hero.heading")}
         </h1>
-        <div className="mt-5 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs uppercase">
+        <div className="mt-5 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 font-medium text-sm uppercase">
           {facts.map((fact, index) => (
             <div key={fact} className="flex items-center gap-5">
-              {index > 0 && (
-                <span
-                  className="size-1 rounded-full bg-white/60"
-                  aria-hidden="true"
-                />
-              )}
-              <span>{fact}</span>
+              {fact}
             </div>
           ))}
         </div>

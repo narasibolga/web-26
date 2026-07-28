@@ -10,8 +10,11 @@ import type { Locale } from "@/i18n/routing";
 type Props = { locale: Locale };
 
 const pageLinks = [
+  { key: "home", href: "/" },
   { key: "map", href: "/map" },
   { key: "history", href: "/history" },
+  { key: "programs", href: "/programs" },
+  { key: "tourism", href: "/tourism" },
   { key: "pathfinder", href: "/pathfinder" },
   { key: "gallery", href: "/gallery" },
 ] as const;
@@ -87,14 +90,14 @@ export async function Footer({ locale }: Props) {
             href="https://ugm.ac.id"
             target="_blank"
             rel="noopener noreferrer"
-            className="group border border-border/20 transition-colors hover:border-background md:col-span-3"
+            className="group h-fit border border-border/20 transition-colors hover:border-background md:col-span-3"
           >
             <div className="relative aspect-4/3 w-full overflow-hidden bg-background/10">
               <Image
                 src="/images/ugm.jpeg"
                 alt={t("partnerCard.label")}
                 fill
-                sizes="100vw"
+                sizes="100%"
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
             </div>

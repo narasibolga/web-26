@@ -27,7 +27,7 @@ const eras = [
   },
   {
     index: 2,
-    image: "/images/sibolga-trading-warehouse-1950.webp",
+    image: "/images/sibolga-1900s.webp",
     className: "bg-background text-foreground",
   },
 ] as const;

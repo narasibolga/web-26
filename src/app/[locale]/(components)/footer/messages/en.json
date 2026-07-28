@@ -6,8 +6,11 @@
     "contact": "Contact"
   },
   "links": {
+    "home": "Home",
     "map": "Map",
     "history": "History",
+    "programs": "Programs",
+    "tourism": "Tourism",
     "pathfinder": "Pathfinder",
     "gallery": "Gallery"
   },

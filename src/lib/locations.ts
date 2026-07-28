@@ -23,11 +23,7 @@ export function formatCoord(lat: number, lng: number): string {
 }
 
 export type LocationCategory =
-  | "pantai"
-  | "pulau"
-  | "bukit"
-  | "air-terjun"
-  | "landmark";
+  "pantai" | "pulau" | "bukit" | "air-terjun" | "landmark";
 
 export const categoryColor: Record<LocationCategory, string> = {
   pantai: "oklch(0.62 0.12 230)",
@@ -323,7 +319,11 @@ export const locations: Location[] = [
     category: "pantai",
     lat: 1.805,
     lng: 98.735,
-    images: ["/images/map/pantai-pandan/1.webp"],
+    images: [
+      "/images/map/pantai-pandan/1.webp",
+      "/images/map/pantai-pandan/2.webp",
+      "/images/map/pantai-pandan/3.webp",
+    ],
     description: {
       en: "Pantai di kawasan Pandan, Tapanuli Tengah, dengan pasir putih dan ombak yang bersahabat. Cocok buat refreshing sebelum melanjutkan perjalanan ke kepulauan Mursala.",
       id: "Pantai di kawasan Pandan, Tapanuli Tengah, dengan pasir putih dan ombak yang bersahabat. Cocok buat refreshing sebelum melanjutkan perjalanan ke kepulauan Mursala.",
