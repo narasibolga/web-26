@@ -17,6 +17,8 @@ type MapNavPanelProps = {
   searchQuery: string;
   onSearchChange: (value: string) => void;
   showSearch: boolean;
+  snapPoint: string | number | null;
+  onSnapPointChange: (snapPoint: string | number | null) => void;
 };
 
 const SNAP_POINTS = ["110px", 0.5, 1];
@@ -26,6 +28,8 @@ export function MapNavPanel({
   searchQuery,
   onSearchChange,
   showSearch,
+  snapPoint,
+  onSnapPointChange,
 }: MapNavPanelProps) {
   const t = useTranslations("map");
   const isDesktop = useMediaQuery("(min-width: 1024px)");
@@ -77,6 +81,8 @@ export function MapNavPanel({
       }}
       swipeDirection="down"
       snapPoints={SNAP_POINTS}
+      snapPoint={snapPoint}
+      onSnapPointChange={onSnapPointChange}
       showSwipeHandle
       modal={false}
     >

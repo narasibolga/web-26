@@ -29,6 +29,9 @@ import { LocationDetail } from "./location-detail";
 import { MapNavPanel } from "./map-nav-panel";
 import { HazardPanel, TourismPanel } from "./map-panels";
 
+const COLLAPSED_SNAP_POINT = "110px";
+const MIDDLE_SNAP_POINT = 0.5;
+
 const MapView = dynamic(() => import("./map-view").then((m) => m.MapView), {
   ssr: false,
   loading: () => <MapLoading />,
@@ -44,6 +47,9 @@ export function MapPageClient() {
   >(new Set());
   const [mode, setMode] = useState<MapMode>("tourism");
   const [searchQuery, setSearchQuery] = useState("");
+  const [navSnapPoint, setNavSnapPoint] = useState<string | number | null>(
+    COLLAPSED_SNAP_POINT,
+  );
 
   const { data, isPending, isError, refetch } = useQuery({
     queryKey: ["bmkg-hazards"],
@@ -66,6 +72,11 @@ export function MapPageClient() {
       if (id) params.set("location", id);
       else params.delete("location");
     });
+  };
+
+  const selectLocationFromPanel = (id: string | null) => {
+    selectLocation(id);
+    if (id) setNavSnapPoint(MIDDLE_SNAP_POINT);
   };
 
   const switchMode = (next: MapMode) => {
@@ -128,6 +139,8 @@ export function MapPageClient() {
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
         showSearch={mode === "tourism" && !selectedItem}
+        snapPoint={navSnapPoint}
+        onSnapPointChange={setNavSnapPoint}
       >
         <div className="flex h-full min-w-0 flex-col bg-background text-foreground">
           {selectedItem ? (
@@ -143,7 +156,7 @@ export function MapPageClient() {
                 <TourismPanel
                   filteredTourism={filteredTourism}
                   selectedId={selectedId}
-                  onSelect={selectLocation}
+                  onSelect={selectLocationFromPanel}
                   locale={locale}
                   onResetCategories={resetCategories}
                 />
@@ -153,7 +166,7 @@ export function MapPageClient() {
                   isError={isError}
                   hazardItems={hazardItems}
                   selectedId={selectedId}
-                  onSelect={selectLocation}
+                  onSelect={selectLocationFromPanel}
                   locale={locale}
                   onRetry={() => refetch()}
                 />
