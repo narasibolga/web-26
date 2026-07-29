@@ -73,13 +73,19 @@ describe("normalizeLocations", () => {
         lat: 1.5,
         lng: 98.5,
         name: { en: "Beach", id: "Pantai" },
-        category: "pantai",
+        category: "bahari",
         images: ["/img1.webp"],
         description: { en: "desc", id: "desc id" },
+        address: "Jl. Example No. 1",
+        visitInfo: {
+          admission: { en: "Free", id: "Gratis" },
+        },
       },
     ]);
     expect(items[0].mode).toBe("tourism");
     expect(items[0].label.en).toBe("Beach");
-    expect(items[0].category).toBe("pantai");
+    expect(items[0].category).toBe("bahari");
+    expect(items[0].address).toBe("Jl. Example No. 1");
+    expect(items[0].visitInfo?.admission?.id).toBe("Gratis");
   });
 });

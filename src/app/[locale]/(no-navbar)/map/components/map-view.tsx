@@ -4,7 +4,7 @@ import "maplibre-gl/dist/maplibre-gl.css";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { LngLat } from "maplibre-gl";
 import { useTranslations } from "next-intl";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useSyncExternalStore } from "react";
 import {
   Map as MapGL,
   type MapRef,
@@ -37,6 +37,21 @@ const RESTING_ZOOM = 13;
 const FOCUS_ZOOM = 14;
 const ENTRANCE_START_BEARING = -120;
 const ENTRANCE_DURATION = 2400;
+const REDUCE_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
+
+function subscribeToReducedMotion(onStoreChange: () => void) {
+  const mediaQuery = window.matchMedia(REDUCE_MOTION_QUERY);
+  mediaQuery.addEventListener("change", onStoreChange);
+  return () => mediaQuery.removeEventListener("change", onStoreChange);
+}
+
+function getReducedMotionSnapshot() {
+  return window.matchMedia(REDUCE_MOTION_QUERY).matches;
+}
+
+function getReducedMotionServerSnapshot() {
+  return false;
+}
 
 type MapViewProps = {
   items: MapItem[];
@@ -57,9 +72,11 @@ export function MapView({
   const mapRef = useRef<MapRef>(null);
   const initialSelectedHandled = useRef(false);
 
-  const reduceMotion =
-    typeof window !== "undefined" &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const reduceMotion = useSyncExternalStore(
+    subscribeToReducedMotion,
+    getReducedMotionSnapshot,
+    getReducedMotionServerSnapshot,
+  );
 
   const selected = items.find((i) => i.id === selectedId) ?? null;
 
@@ -165,7 +182,7 @@ export function MapView({
   function markerColor(item: MapItem): string {
     if (mode === "hazard" && item.severity) return hazardColor[item.severity];
     if (item.category) return categoryColor[item.category];
-    return categoryColor.landmark;
+    return categoryColor["sejarah-rekreasi"];
   }
 
   return (
@@ -213,7 +230,7 @@ export function MapView({
             ? hazardIcon
             : item.category
               ? categoryIcon[item.category]
-              : categoryIcon.landmark;
+              : categoryIcon["sejarah-rekreasi"];
         return (
           <Marker
             key={item.id}

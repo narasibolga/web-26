@@ -27,12 +27,12 @@ export function LocationCard({
       ? hazardColor[severity]
       : item.category
         ? categoryColor[item.category]
-        : categoryColor.landmark;
+        : categoryColor["sejarah-rekreasi"];
   const icon = isHazard
     ? hazardIcon
     : item.category
       ? categoryIcon[item.category]
-      : categoryIcon.landmark;
+      : categoryIcon["sejarah-rekreasi"];
   const label =
     isHazard && item.quake
       ? `M${item.quake.magnitude.toFixed(1)} — ${item.quake.region}`

@@ -1,7 +1,12 @@
 import { Alert02Icon } from "@hugeicons/core-free-icons";
 import type { IconSvgElement } from "@hugeicons/react";
 import type { Earthquake } from "@/lib/bmkg";
-import type { Location, LocationCategory } from "@/lib/locations";
+import type {
+  LocalizedText,
+  Location,
+  LocationCategory,
+  VisitInformation,
+} from "@/lib/locations";
 
 export type Severity = "red" | "yellow" | "green";
 
@@ -15,7 +20,12 @@ export type MapItem = {
   mode: MapMode;
   category?: LocationCategory;
   images?: string[];
-  description?: { en: string; id: string };
+  description?: LocalizedText;
+  address?: string;
+  visitInfo?: VisitInformation;
+  activities?: LocalizedText[];
+  facilities?: LocalizedText[];
+  notes?: LocalizedText[];
   severity?: Severity;
   quake?: Earthquake;
 };
@@ -44,6 +54,11 @@ export function normalizeLocations(locs: Location[]): MapItem[] {
     category: l.category,
     images: l.images,
     description: l.description,
+    address: l.address,
+    visitInfo: l.visitInfo,
+    activities: l.activities,
+    facilities: l.facilities,
+    notes: l.notes,
   }));
 }
 

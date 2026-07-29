@@ -38,10 +38,33 @@
     "felt": "Dirasakan di"
   },
   "kategori": {
-    "pantai": "Pantai",
-    "pulau": "Pulau",
-    "bukit": "Bukit & Panorama",
-    "air-terjun": "Air Terjun",
-    "landmark": "Benteng Sejarah"
+    "bahari": "Wisata Bahari",
+    "tematik": "Wisata Tematik",
+    "alam-panorama": "Alam & Panorama",
+    "sejarah-rekreasi": "Sejarah & Rekreasi",
+    "akomodasi": "Akomodasi",
+    "kuliner": "Kuliner",
+    "oleh-oleh": "Oleh-Oleh"
+  },
+  "detail": {
+    "address": "Alamat",
+    "plan": "Rencanakan kunjungan",
+    "admission": "Tiket masuk",
+    "openingHours": "Jam operasional",
+    "bestTime": "Waktu terbaik",
+    "visitDuration": "Durasi kunjungan",
+    "checkIn": "Check-in",
+    "checkOut": "Check-out",
+    "contact": "Kontak",
+    "suitableFor": "Cocok untuk",
+    "menu": "Menu",
+    "flavor": "Cita rasa",
+    "featuredProduct": "Produk unggulan",
+    "products": "Produk",
+    "advantages": "Keunggulan",
+    "activities": "Aktivitas",
+    "facilities": "Fasilitas",
+    "notes": "Perlu diketahui",
+    "disclaimer": "Jam operasional, harga, fasilitas, dan kontak dapat berubah. Konfirmasikan informasi terbaru kepada pengelola atau operator sebelum berkunjung."
   }
 }

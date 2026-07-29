@@ -4,6 +4,7 @@ import { ArrowLeft01Icon, ExternalLinkIcon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { LocationImagePlaceholder } from "@/components/location-image-placeholder";
 import { Button } from "@/components/ui/button";
 import { buttonVariants } from "@/components/ui/button-variants";
 import {
@@ -13,8 +14,13 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { Separator } from "@/components/ui/separator";
 import { formatLocaleDate } from "@/lib/datetime";
-import { categoryColor, formatCoord } from "@/lib/locations";
+import {
+  categoryColor,
+  formatCoord,
+  type LocalizedText,
+} from "@/lib/locations";
 import { cn } from "@/lib/utils";
 import { hazardColor, type MapItem } from "../lib/hazard";
 
@@ -125,13 +131,12 @@ function TourismDetailBody({
   const t = useTranslations("map");
   return (
     <>
-      {item.images && (
+      {item.images && item.images.length > 0 ? (
         <div className="overflow-hidden border-border border-b">
           <Carousel opts={{ loop: true }}>
             <CarouselContent className="ml-0">
               {item.images.map((src, i) => (
-                // biome-ignore lint/suspicious/noArrayIndexKey: images may be duplicate
-                <CarouselItem key={`${src}-${i}`} className="pl-0">
+                <CarouselItem key={src} className="pl-0">
                   <div className="relative aspect-4/3 w-full overflow-hidden bg-muted">
                     <Image
                       src={src}
@@ -154,7 +159,13 @@ function TourismDetailBody({
             />
           </Carousel>
         </div>
-      )}
+      ) : item.category ? (
+        <LocationImagePlaceholder
+          category={item.category}
+          name={item.label[locale]}
+          className="aspect-4/3 w-full border-border border-b"
+        />
+      ) : null}
 
       {item.category && (
         <span className="flex items-center gap-1.5 font-sans text-muted-foreground text-xs uppercase tracking-tight">
@@ -168,12 +179,177 @@ function TourismDetailBody({
       )}
 
       {item.description && (
-        <p className="font-sans text-base text-muted-foreground leading-relaxed">
+        <p className="font-sans text-base text-foreground/80 leading-relaxed">
           {item.description[locale]}
+        </p>
+      )}
+
+      {item.address && (
+        <DetailSection title={t("detail.address")}>
+          <p className="font-sans text-base text-foreground leading-relaxed">
+            {item.address}
+          </p>
+        </DetailSection>
+      )}
+
+      {item.visitInfo && (
+        <DetailSection title={t("detail.plan")}>
+          <dl className="grid grid-cols-1 gap-x-5 gap-y-4 sm:grid-cols-2">
+            <LocalizedRow
+              label={t("detail.admission")}
+              value={item.visitInfo.admission}
+              locale={locale}
+            />
+            <LocalizedRow
+              label={t("detail.openingHours")}
+              value={item.visitInfo.openingHours}
+              locale={locale}
+            />
+            <LocalizedRow
+              label={t("detail.bestTime")}
+              value={item.visitInfo.bestTime}
+              locale={locale}
+            />
+            <LocalizedRow
+              label={t("detail.visitDuration")}
+              value={item.visitInfo.visitDuration}
+              locale={locale}
+            />
+            <LocalizedRow
+              label={t("detail.checkIn")}
+              value={item.visitInfo.checkIn}
+              locale={locale}
+            />
+            <LocalizedRow
+              label={t("detail.checkOut")}
+              value={item.visitInfo.checkOut}
+              locale={locale}
+            />
+            {item.visitInfo.contact && (
+              <Row label={t("detail.contact")} value={item.visitInfo.contact} />
+            )}
+            <LocalizedRow
+              label={t("detail.suitableFor")}
+              value={item.visitInfo.suitableFor}
+              locale={locale}
+            />
+            <LocalizedRow
+              label={t("detail.menu")}
+              value={item.visitInfo.menu}
+              locale={locale}
+            />
+            <LocalizedRow
+              label={t("detail.flavor")}
+              value={item.visitInfo.flavor}
+              locale={locale}
+            />
+            <LocalizedRow
+              label={t("detail.featuredProduct")}
+              value={item.visitInfo.featuredProduct}
+              locale={locale}
+            />
+            <LocalizedRow
+              label={t("detail.products")}
+              value={item.visitInfo.products}
+              locale={locale}
+            />
+            <LocalizedRow
+              label={t("detail.advantages")}
+              value={item.visitInfo.advantages}
+              locale={locale}
+            />
+          </dl>
+        </DetailSection>
+      )}
+
+      {item.activities && item.activities.length > 0 && (
+        <TextList
+          title={t("detail.activities")}
+          items={item.activities}
+          locale={locale}
+        />
+      )}
+
+      {item.facilities && item.facilities.length > 0 && (
+        <TextList
+          title={t("detail.facilities")}
+          items={item.facilities}
+          locale={locale}
+        />
+      )}
+
+      {item.notes && item.notes.length > 0 && (
+        <TextList
+          title={t("detail.notes")}
+          items={item.notes}
+          locale={locale}
+        />
+      )}
+
+      {item.visitInfo && (
+        <p className="font-sans text-muted-foreground text-xs leading-relaxed">
+          {t("detail.disclaimer")}
         </p>
       )}
     </>
   );
+}
+
+function DetailSection({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <section className="flex flex-col gap-4">
+      <Separator />
+      <h3 className="font-serif text-foreground text-xl">{title}</h3>
+      {children}
+    </section>
+  );
+}
+
+function TextList({
+  title,
+  items,
+  locale,
+}: {
+  title: string;
+  items: LocalizedText[];
+  locale: "en" | "id";
+}) {
+  return (
+    <DetailSection title={title}>
+      <ul className="grid grid-cols-1 gap-x-5 gap-y-2 sm:grid-cols-2">
+        {items.map((item) => (
+          <li
+            key={`${item.en}-${item.id}`}
+            className="flex gap-2 font-sans text-foreground/80 text-sm leading-relaxed"
+          >
+            <span aria-hidden="true" className="text-muted-foreground">
+              —
+            </span>
+            {item[locale]}
+          </li>
+        ))}
+      </ul>
+    </DetailSection>
+  );
+}
+
+function LocalizedRow({
+  label,
+  value,
+  locale,
+}: {
+  label: string;
+  value?: LocalizedText;
+  locale: "en" | "id";
+}) {
+  if (!value) return null;
+  return <Row label={label} value={value[locale]} />;
 }
 
 function Row({ label, value }: { label: string; value: string }) {

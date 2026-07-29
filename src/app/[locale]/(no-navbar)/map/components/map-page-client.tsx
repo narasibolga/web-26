@@ -106,8 +106,12 @@ export function MapPageClient() {
       );
     }
     if (searchQuery.trim()) {
-      const q = searchQuery.toLowerCase();
-      items = items.filter((i) => i.label[locale].toLowerCase().includes(q));
+      const q = searchQuery.trim().toLocaleLowerCase(locale);
+      items = items.filter((i) =>
+        `${i.label[locale]} ${i.address ?? ""}`
+          .toLocaleLowerCase(locale)
+          .includes(q),
+      );
     }
     return items;
   }, [tourismItems, activeCategories, searchQuery, locale]);

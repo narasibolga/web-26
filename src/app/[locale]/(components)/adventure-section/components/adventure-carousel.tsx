@@ -12,7 +12,10 @@ import { cn } from "@/lib/utils";
 import { AdventureCard, type AdventureCardProps } from "./adventure-card";
 
 type AdventureCarouselProps = {
-  items: Pick<AdventureCardProps, "title" | "imageSrc" | "imageAlt" | "href">[];
+  items: Pick<
+    AdventureCardProps,
+    "title" | "imageSrc" | "imageAlt" | "category" | "href"
+  >[];
   exploreLabel: string;
 };
 
@@ -42,6 +45,7 @@ export function AdventureCarousel({
               title={item.title}
               imageSrc={item.imageSrc}
               imageAlt={item.imageAlt}
+              category={item.category}
               href={item.href}
               exploreLabel={exploreLabel}
             />

@@ -38,10 +38,33 @@
     "felt": "Felt in"
   },
   "kategori": {
-    "pantai": "Beach",
-    "pulau": "Island",
-    "bukit": "Hill & Panorama",
-    "air-terjun": "Waterfall",
-    "landmark": "Landmark"
+    "bahari": "Marine Tourism",
+    "tematik": "Themed Attractions",
+    "alam-panorama": "Nature & Panoramas",
+    "sejarah-rekreasi": "History & Recreation",
+    "akomodasi": "Accommodation",
+    "kuliner": "Culinary",
+    "oleh-oleh": "Souvenirs"
+  },
+  "detail": {
+    "address": "Address",
+    "plan": "Plan your visit",
+    "admission": "Admission",
+    "openingHours": "Opening hours",
+    "bestTime": "Best time",
+    "visitDuration": "Visit duration",
+    "checkIn": "Check-in",
+    "checkOut": "Check-out",
+    "contact": "Contact",
+    "suitableFor": "Suitable for",
+    "menu": "Menu",
+    "flavor": "Flavor",
+    "featuredProduct": "Featured product",
+    "products": "Products",
+    "advantages": "Why visit",
+    "activities": "Things to do",
+    "facilities": "Facilities",
+    "notes": "Good to know",
+    "disclaimer": "Hours, prices, facilities, and contact details may change. Confirm the latest information with the venue or operator before visiting."
   }
 }
