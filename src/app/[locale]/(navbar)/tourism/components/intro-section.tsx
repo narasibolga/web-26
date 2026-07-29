@@ -28,7 +28,10 @@ export async function IntroSection({ locale }: IntroSectionProps) {
 
   return (
     <Section containerClassName="items-center gap-10 pt-8 text-center">
-      <Breadcrumb className="uppercase">
+      <Breadcrumb
+        aria-label={tNav("accessibility.breadcrumb")}
+        className="uppercase"
+      >
         <BreadcrumbList>
           <BreadcrumbItem>
             <BreadcrumbLink render={<Link href="/" />}>

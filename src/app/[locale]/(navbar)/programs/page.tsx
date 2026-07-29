@@ -81,7 +81,10 @@ export default async function ProgramsPage({ params }: Props) {
 
       <section className="bg-background">
         <Container className="pt-8">
-          <Breadcrumb className="mb-8 flex justify-center uppercase">
+          <Breadcrumb
+            aria-label={tNav("accessibility.breadcrumb")}
+            className="mb-8 flex justify-center uppercase"
+          >
             <BreadcrumbList>
               <BreadcrumbItem>
                 <BreadcrumbLink render={<Link href="/" />}>

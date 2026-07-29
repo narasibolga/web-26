@@ -1,13 +1,14 @@
 {
   "meta": {
     "title": "Galeri",
-    "description": "Rekap foto mingguan dari tim Narasibolga di Sibolga."
+    "description": "Rekap foto mingguan dari tim NaraSibolga di Sibolga."
   },
   "hero": {
     "heading": "Galeri Foto",
     "imageAlt": "Pelabuhan Sibolga"
   },
   "week": "Minggu {n}",
+  "photoAlt": "Sibolga pada minggu ke-{week}, foto {photo}",
   "empty": {
     "title": "Belum ada foto",
     "description": "Nantikan eksplorasi kami di sini—setiap minggu menyimpan cerita dan momen tersendiri."

@@ -11,7 +11,7 @@
   "breadcrumb": "One Day Trip",
   "intro": {
     "heading": "Satu hari, tiga wajah pesisir.",
-    "description": "Hanya memiliki waktu satu hari di Sibolga? Itinerary ini merangkai pantai, pulau, kuliner khas, dan panorama matahari terbenam dalam satu rute yang praktis—agar waktu singkat tetap terasa penuh.",
+    "description": "Hanya punya waktu satu hari di Sibolga? Rencana perjalanan ini merangkai pantai, pulau, kuliner khas, dan panorama matahari terbenam dalam satu rute praktis—agar kunjungan singkatmu tetap terasa lengkap.",
     "note": "Rute dimulai dari Kota Sibolga dan berakhir di Bukit Panomboman."
   },
   "destinations": {
@@ -21,7 +21,7 @@
         "name": "Pantai Pandan",
         "label": "Pesisir",
         "alt": "Suasana pesisir Pantai Pandan",
-        "description": "Destinasi pesisir di perbatasan Sibolga dan Tapanuli Tengah dengan panorama laut, suasana santai, dan pilihan kuliner seafood."
+        "description": "Destinasi pesisir di perbatasan Sibolga dan Tapanuli Tengah dengan panorama laut, suasana santai, dan pilihan hidangan laut."
       },
       {
         "name": "Pulau Mursala",
@@ -73,7 +73,7 @@
     "items": [
       {
         "name": "Paket Pulau Mursala",
-        "detail": "Kapal PP, tiket masuk, life jacket, dan makan siang",
+        "detail": "Kapal pulang-pergi, tiket masuk, jaket pelampung, dan makan siang",
         "price": "Mulai Rp300.000/orang"
       },
       {
@@ -121,7 +121,7 @@
     ]
   },
   "gallery": {
-    "heading": "Yang akan Anda temui sepanjang hari",
+    "heading": "Yang akan kamu temui sepanjang hari",
     "images": {
       "pantaiPandan": "Pantai Pandan dan garis pantainya",
       "mursalaWater": "Pemandangan air jernih di dekat Pulau Mursala",

@@ -150,10 +150,12 @@ function TourismDetailBody({
               ))}
             </CarouselContent>
             <CarouselPrevious
+              label={t("carousel.previous")}
               variant="secondary"
               className="left-1 border-border bg-background text-foreground hover:bg-muted"
             />
             <CarouselNext
+              label={t("carousel.next")}
               variant="secondary"
               className="right-1 border-border bg-background text-foreground hover:bg-muted"
             />

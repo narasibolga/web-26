@@ -1,11 +1,14 @@
 {
   "brand": "NaraSibolga",
   "menu": "Menu",
-  "logoAlt": "Logo Narasibolga",
+  "logoAlt": "Logo NaraSibolga",
   "pathfinder": "Pathfinder",
   "languages": {
     "english": "Inggris",
     "indonesian": "Bahasa Indonesia"
+  },
+  "accessibility": {
+    "breadcrumb": "Jejak navigasi"
   },
   "links": {
     "home": "Beranda",

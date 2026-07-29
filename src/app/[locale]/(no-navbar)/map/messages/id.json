@@ -9,8 +9,12 @@
   "noMatchesDescription": "Hapus filter untuk melihat semua lokasi.",
   "resetFilter": "Atur ulang filter",
   "mapLoading": "Memuat peta...",
-  "mapError": "Peta tidak dapat dimuat. Periksa koneksi internet Anda.",
+  "mapError": "Peta tidak dapat dimuat. Periksa koneksi internetmu.",
   "backToList": "Kembali ke daftar",
+  "carousel": {
+    "previous": "Gambar sebelumnya",
+    "next": "Gambar berikutnya"
+  },
   "viewInGoogleMaps": "Lihat di Google Maps",
   "hazardsLoading": "Memuat data gempa...",
   "hazardsErrorTitle": "Data tidak dapat dimuat",

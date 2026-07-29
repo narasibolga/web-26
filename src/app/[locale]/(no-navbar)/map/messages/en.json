@@ -11,6 +11,10 @@
   "mapLoading": "Loading map...",
   "mapError": "The map could not be loaded. Check your internet connection.",
   "backToList": "Back to list",
+  "carousel": {
+    "previous": "Previous image",
+    "next": "Next image"
+  },
   "viewInGoogleMaps": "View in Google Maps",
   "hazardsLoading": "Loading earthquake data...",
   "hazardsErrorTitle": "Can't load data",

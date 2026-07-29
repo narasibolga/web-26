@@ -40,7 +40,10 @@ export async function HistoryArticle() {
     <article>
       <section className="bg-background text-foreground">
         <Container className="items-center gap-6 pt-8 text-center">
-          <Breadcrumb className="mb-8 flex justify-center uppercase">
+          <Breadcrumb
+            aria-label={tNav("accessibility.breadcrumb")}
+            className="mb-8 flex justify-center uppercase"
+          >
             <BreadcrumbList>
               <BreadcrumbItem>
                 <BreadcrumbLink render={<Link href="/" />}>

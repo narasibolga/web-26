@@ -14,7 +14,7 @@
   "yourPicksDescription": "Berdasarkan jawabanmu, ini tempat-tempat di Sibolga yang paling cocok buatmu.",
   "retake": "Ulangi kuis",
   "traits": {
-    "bahari": "Pecinta laut",
+    "bahari": "Pencinta laut",
     "alam": "Pencinta alam",
     "aktif": "Aktif",
     "santai": "Santai",
@@ -29,11 +29,11 @@
   "archetypes": {
     "MRN": {
       "name": "Sang Pengamat Pasang",
-      "blurb": "Kamu terhanyut ke laut dan diam untuk sunset. Hari yang ringan, pasir lembut, dan kamera selalu siap — pantai adalah tempat kamu bernapas lega."
+      "blurb": "Kamu tertarik pada laut dan bertahan hingga matahari terbenam. Hari yang tenang, pasir lembut, dan kamera yang selalu siap — pantai adalah tempatmu bernapas lega."
     },
     "VYG": {
       "name": "Sang Pelayar",
-      "blurb": "Jarak adalah bagian dari pesona. Kamu naik perahu ke tepi teluk yang paling jauh dan cuma minta air jernih plus pulau dengan namamu tertera."
+      "blurb": "Jarak adalah bagian dari pesona. Kamu naik perahu ke tepi teluk yang paling jauh dan hanya menginginkan air jernih serta sebuah pulau yang terasa milikmu."
     },
     "TRK": {
       "name": "Sang Pendaki",
@@ -49,7 +49,7 @@
     },
     "SOC": {
       "name": "Sang Sosialita",
-      "blurb": "Kamu menemukan kehangatan di tengah hiruk-pikuk — pasar, tepi laut, jalan-jalan bareng keluarga. Teman dan kenyamanan, bukan penaklukan."
+      "blurb": "Kamu menemukan kehangatan di tengah hiruk-pikuk — pasar, tepi laut, dan perjalanan bersama keluarga. Kebersamaan dan kenyamanan, bukan penaklukan."
     },
     "CRO": {
       "name": "Sang Pencatat",
@@ -57,7 +57,7 @@
     },
     "DRF": {
       "name": "Sang Penyusur",
-      "blurb": "Kamu membiarkan arus membawamu ke tempat yang jauh dan tak terburu, tempat terumbu masih hidup dan pulau tak menuntut apa-apa darimu."
+      "blurb": "Kamu membiarkan arus membawamu ke tempat yang jauh dan tenang, tempat terumbu masih hidup dan pulau tidak menuntut apa pun darimu."
     }
   }
 }

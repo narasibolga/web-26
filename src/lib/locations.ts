@@ -109,8 +109,8 @@ export const locations: Location[] = [
       "/images/map/tangga-seratus/2.webp",
     ],
     description: {
-      en: "Siap cardio tipis-tipis? Di sini kamu bakal nemuin 298 anak tangga yang penuh cerita sejarah. Sampai di atas, bonusnya view laut yang cakep plus ada gua peninggalan Jepang dan bangunan tua bekas perusahaan air minum Belanda. Capeknya worth it!",
-      id: "Siap cardio tipis-tipis? Di sini kamu bakal nemuin 298 anak tangga yang penuh cerita sejarah. Sampai di atas, bonusnya view laut yang cakep plus ada gua peninggalan Jepang dan bangunan tua bekas perusahaan air minum Belanda. Capeknya worth it!",
+      en: "Climb 298 steps through a setting rich in local history. At the top, you will find sweeping sea views, a Japanese-era cave, and a former Dutch waterworks building.",
+      id: "Naiki 298 anak tangga sambil menyusuri jejak sejarah setempat. Di puncak, kamu akan menemukan panorama laut, gua peninggalan Jepang, dan bangunan bekas perusahaan air minum Belanda.",
     },
   },
   {
@@ -127,8 +127,8 @@ export const locations: Location[] = [
       "/images/map/pantai-ujung-sibolga/2.webp",
     ],
     description: {
-      en: "Kalau lagi pengen healing tanpa ribet, Pantai Pajus jawabannya. Pasirnya lembut, ombaknya santai, cocok buat main air atau duduk-duduk sambil nunggu sunset yang cantiknya nggak pernah gagal.",
-      id: "Kalau lagi pengen healing tanpa ribet, Pantai Pajus jawabannya. Pasirnya lembut, ombaknya santai, cocok buat main air atau duduk-duduk sambil nunggu sunset yang cantiknya nggak pernah gagal.",
+      en: "Pantai Pajus offers soft sand and gentle waves for an easy seaside escape. Swim, relax by the shore, or stay to watch the sunset.",
+      id: "Pantai Pajus menawarkan pasir lembut dan ombak tenang untuk bersantai di tepi laut. Kamu bisa bermain air, duduk menikmati suasana, atau menunggu matahari terbenam.",
     },
   },
   {
@@ -276,8 +276,8 @@ export const locations: Location[] = [
       "/images/map/pantai-pandaratan-pondok-batu/2.webp",
     ],
     description: {
-      en: "Hidden gem yang masih alami banget. Pasir putih, air laut super jernih, dan kalau lagi beruntung kamu bisa lihat banyak bintang laut di sekitar pantai. Rasanya kayak nemu private beach.",
-      id: "Hidden gem yang masih alami banget. Pasir putih, air laut super jernih, dan kalau lagi beruntung kamu bisa lihat banyak bintang laut di sekitar pantai. Rasanya kayak nemu private beach.",
+      en: "This quiet, unspoiled beach is known for its white sand and exceptionally clear water. At the right time, you may also spot starfish along the shore.",
+      id: "Pantai yang tenang dan masih alami ini dikenal dengan pasir putih serta air laut yang sangat jernih. Pada waktu yang tepat, kamu juga dapat menjumpai bintang laut di sekitar pantai.",
     },
   },
   {
@@ -294,8 +294,8 @@ export const locations: Location[] = [
       "/images/map/benteng-jepang-bukit-ketapang/2.webp",
     ],
     description: {
-      en: "Buat yang suka wisata sejarah, wajib mampir. Ada enam benteng peninggalan Jepang dengan bonus panorama Kota Sibolga dan Teluk Tapian Nauli dari ketinggian. Sunset-nya juga juara!",
-      id: "Buat yang suka wisata sejarah, wajib mampir. Ada enam benteng peninggalan Jepang dengan bonus panorama Kota Sibolga dan Teluk Tapian Nauli dari ketinggian. Sunset-nya juga juara!",
+      en: "Explore six Japanese-era fortifications while taking in elevated views of Sibolga and Tapian Nauli Bay. The hill is especially memorable at sunset.",
+      id: "Jelajahi enam benteng peninggalan Jepang sambil menikmati panorama Kota Sibolga dan Teluk Tapian Nauli dari ketinggian. Bukit ini terasa semakin istimewa saat matahari terbenam.",
     },
   },
   {
@@ -309,8 +309,8 @@ export const locations: Location[] = [
       "/images/map/batu-lubang-sibolga/2.webp",
     ],
     description: {
-      en: "Terowongan peninggalan zaman Belanda yang punya cerita panjang. Di sampingnya ada air terjun kecil yang bikin suasananya makin unik. Agak misterius, tapi justru itu yang bikin penasaran.",
-      id: "Terowongan peninggalan zaman Belanda yang punya cerita panjang. Di sampingnya ada air terjun kecil yang bikin suasananya makin unik. Agak misterius, tapi justru itu yang bikin penasaran.",
+      en: "This Dutch-era tunnel offers a glimpse into the area's past. A small waterfall beside it adds to the site's distinctive, slightly mysterious atmosphere.",
+      id: "Terowongan peninggalan Belanda ini menyimpan jejak sejarah kawasan. Air terjun kecil di sampingnya menambah suasana khas yang sedikit misterius.",
     },
   },
   {
@@ -324,8 +324,8 @@ export const locations: Location[] = [
       "/images/map/air-terjun-sihobuk/2.webp",
     ],
     description: {
-      en: "Air terjun setinggi sekitar 12–17 meter dengan kolam alami yang nyaman buat main air. Cocok buat quality time bareng keluarga karena anak-anak juga bisa berenang di sini.",
-      id: "Air terjun setinggi sekitar 12–17 meter dengan kolam alami yang nyaman buat main air. Cocok buat quality time bareng keluarga karena anak-anak juga bisa berenang di sini.",
+      en: "This 12–17-meter waterfall flows into a natural pool that is inviting for a refreshing swim. Its relaxed setting makes it a popular choice for families.",
+      id: "Air terjun setinggi sekitar 12–17 meter ini mengalir ke kolam alami yang nyaman untuk bermain air. Suasananya yang santai menjadikannya pilihan populer bagi keluarga.",
     },
   },
   {
@@ -339,8 +339,8 @@ export const locations: Location[] = [
       "/images/map/bukit-tor-simarbarimbing/2.webp",
     ],
     description: {
-      en: "Perjalanan ke bukit ini bakal lewat perkampungan suku Nias yang khas. Sampai di puncak, kamu disambut view Sibolga dari ketinggian yang bikin perjalanan terasa worth it.",
-      id: "Perjalanan ke bukit ini bakal lewat perkampungan suku Nias yang khas. Sampai di puncak, kamu disambut view Sibolga dari ketinggian yang bikin perjalanan terasa worth it.",
+      en: "The route to this hill passes through a distinctive Nias community. From the summit, broad views over Sibolga reward the journey.",
+      id: "Perjalanan menuju bukit ini melewati perkampungan masyarakat Nias yang khas. Setibanya di puncak, kamu akan disambut panorama luas Sibolga.",
     },
   },
   {
@@ -354,8 +354,8 @@ export const locations: Location[] = [
       "/images/map/pantai-kalangan-indah/2.webp",
     ],
     description: {
-      en: "Pantai dengan pasir putih dan ombak yang tenang karena berada di kawasan teluk. Aman buat anak-anak main air, tapi tetap seru buat kamu yang cuma pengen rebahan sambil nikmatin angin pantai.",
-      id: "Pantai dengan pasir putih dan ombak yang tenang karena berada di kawasan teluk. Aman buat anak-anak main air, tapi tetap seru buat kamu yang cuma pengen rebahan sambil nikmatin angin pantai.",
+      en: "Set within a bay, this white-sand beach has gentle waves suited to family recreation. It is equally inviting for a quiet rest in the sea breeze.",
+      id: "Berada di kawasan teluk, pantai berpasir putih ini memiliki ombak tenang yang cocok untuk rekreasi keluarga. Tempat ini juga nyaman untuk bersantai sambil menikmati angin laut.",
     },
   },
   {
@@ -369,8 +369,8 @@ export const locations: Location[] = [
       "/images/map/pasir-putih-pandaratan/2.webp",
     ],
     description: {
-      en: "Masih satu kawasan dengan Pondok Batu, tapi punya hamparan pasir putih yang luas dan suasana yang lebih sepi. Cocok buat yang cari tempat healing tanpa keramaian.",
-      id: "Masih satu kawasan dengan Pondok Batu, tapi punya hamparan pasir putih yang luas dan suasana yang lebih sepi. Cocok buat yang cari tempat healing tanpa keramaian.",
+      en: "Part of the same coastal area as Pondok Batu, this beach offers a broad stretch of white sand and a quieter atmosphere away from the crowds.",
+      id: "Masih berada di kawasan pesisir Pondok Batu, pantai ini menawarkan hamparan pasir putih yang luas dan suasana yang lebih tenang, jauh dari keramaian.",
     },
   },
   {
@@ -384,8 +384,8 @@ export const locations: Location[] = [
       "/images/map/pulo-bangke/2.webp",
     ],
     description: {
-      en: "Pulau kecil yang keindahannya masih alami banget. Tips : datang pas air laut surut supaya bisa lebih puas menjelajah. Timing is everything!",
-      id: "Pulau kecil yang keindahannya masih alami banget. Tips : datang pas air laut surut supaya bisa lebih puas menjelajah. Timing is everything!",
+      en: "This small island retains much of its natural beauty. Visit at low tide to explore more of its shoreline.",
+      id: "Pulau kecil ini masih mempertahankan keindahan alaminya. Datanglah saat air laut surut agar kamu dapat menjelajahi garis pantainya dengan lebih leluasa.",
     },
   },
   {
@@ -399,8 +399,8 @@ export const locations: Location[] = [
       "/images/map/air-terjun-labuhan-sonang/2.webp",
     ],
     description: {
-      en: "Meski sebagian aliran airnya dimanfaatkan sebagai sumber air bersih, kawasan ini tetap punya pesona alam yang bikin betah. Perpaduan air terjun, pantai, dan perbukitan dalam satu tempat.",
-      id: "Meski sebagian aliran airnya dimanfaatkan sebagai sumber air bersih, kawasan ini tetap punya pesona alam yang bikin betah. Perpaduan air terjun, pantai, dan perbukitan dalam satu tempat.",
+      en: "Although part of its flow supplies clean water, this area retains a peaceful natural character. A waterfall, beach, and surrounding hills come together in one landscape.",
+      id: "Meski sebagian alirannya dimanfaatkan sebagai sumber air bersih, kawasan ini tetap memiliki suasana alami yang menenangkan. Air terjun, pantai, dan perbukitan berpadu dalam satu bentang alam.",
     },
   },
   {
@@ -414,8 +414,8 @@ export const locations: Location[] = [
       "/images/map/puncak-gm-panggabean/2.webp",
     ],
     description: {
-      en: "Nggak cuma menawarkan panorama Kota Sibolga dari atas, di sini juga ada monumen perjuangan dengan tujuh patung pejuang. Jalan-jalan sambil nambah insight sejarah? Why not.",
-      id: "Nggak cuma menawarkan panorama Kota Sibolga dari atas, di sini juga ada monumen perjuangan dengan tujuh patung pejuang. Jalan-jalan sambil nambah insight sejarah? Why not.",
+      en: "Alongside elevated views of Sibolga, this peak features a memorial with seven statues honoring local fighters. It brings scenery and history together in one visit.",
+      id: "Selain menawarkan panorama Kota Sibolga dari ketinggian, puncak ini memiliki monumen perjuangan dengan tujuh patung pejuang. Pemandangan dan sejarah berpadu dalam satu kunjungan.",
     },
   },
   {
@@ -472,8 +472,8 @@ export const locations: Location[] = [
       "/images/map/air-terjun-mursala/2.webp",
     ],
     description: {
-      en: "Ini salah satu ikon wisata Tapteng. Air terjunnya langsung jatuh ke laut dari tebing pulau—unik banget dan langka di Indonesia. Fun fact : pernah jadi lokasi syuting film King Kong (2005)!",
-      id: "Ini salah satu ikon wisata Tapteng. Air terjunnya langsung jatuh ke laut dari tebing pulau—unik banget dan langka di Indonesia. Fun fact : pernah jadi lokasi syuting film King Kong (2005)!",
+      en: "One of Central Tapanuli's best-known natural landmarks, this rare waterfall drops from an island cliff directly toward the sea. The surrounding area was also used as a filming location for King Kong (2005).",
+      id: "Salah satu ikon alam Tapanuli Tengah ini memiliki air terjun langka yang mengalir dari tebing pulau langsung menuju laut. Kawasan sekitarnya juga pernah menjadi lokasi pengambilan gambar film King Kong (2005).",
     },
   },
   {
@@ -487,8 +487,8 @@ export const locations: Location[] = [
       "/images/map/pulau-badalu/2.webp",
     ],
     description: {
-      en: "Surga buat pecinta snorkeling dan diving. Terumbu karangnya masih cantik, ikan-ikannya warna-warni, Pemandangan bawahnya bikin susah move on.",
-      id: "Surga buat pecinta snorkeling dan diving. Terumbu karangnya masih cantik, ikan-ikanya warna-warni, Pemandangan bawahnya bikin susah move on.",
+      en: "Clear water, colorful fish, and well-preserved coral make this island a rewarding destination for snorkeling and diving.",
+      id: "Air yang jernih, ikan berwarna-warni, dan terumbu karang yang masih terjaga menjadikan pulau ini destinasi menarik untuk snorkeling dan menyelam.",
     },
   },
   {
@@ -502,8 +502,8 @@ export const locations: Location[] = [
       "/images/map/blue-spot-mursala/2.webp",
     ],
     description: {
-      en: "Air lautnya benar-benar biru dan super jernih. Lokasinya cuma sekitar lima menit naik boat dari Air Terjun Mursala. Cocok buat foto-foto, tapi tetap hati-hati karena arusnya lumayan kuat.",
-      id: "Air lautnya benar-benar biru dan super jernih. Lokasinya cuma sekitar lima menit naik boat dari Air Terjun Mursala. Cocok buat foto-foto, tapi tetap hati-hati karena arusnya lumayan kuat.",
+      en: "Known for intensely blue, clear water, this spot is about five minutes by boat from Mursala Waterfall. It is striking in photographs, but visitors should remain cautious of the strong current.",
+      id: "Dikenal dengan air laut yang biru dan sangat jernih, tempat ini berjarak sekitar lima menit dengan perahu dari Air Terjun Mursala. Pemandangannya menarik untuk difoto, tetapi kamu perlu berhati-hati terhadap arus yang cukup kuat.",
     },
   },
   {
@@ -517,8 +517,8 @@ export const locations: Location[] = [
       "/images/map/pantai-pulau-putri/2.webp",
     ],
     description: {
-      en: "Pantai eksotis dengan pasir putih, laut jernih, dan deretan pohon kelapa yang bikin vibes liburannya makin dapet. Mau snorkeling, camping, atau sekadar rebahan menikmati suasana, semuanya bisa.",
-      id: "Pantai eksotis dengan pasir putih, laut jernih, dan deretan pohon kelapa yang bikin vibes liburannya makin dapet. Mau snorkeling, camping, atau sekadar rebahan menikmati suasana, semuanya bisa.",
+      en: "White sand, clear water, and rows of coconut palms shape this tropical beach. Visitors can snorkel, camp, or simply relax by the shore.",
+      id: "Pasir putih, laut jernih, dan deretan pohon kelapa membentuk suasana tropis di pantai ini. Kamu dapat snorkeling, berkemah, atau sekadar bersantai di tepi pantai.",
     },
   },
   {
@@ -574,8 +574,8 @@ export const locations: Location[] = [
       "/images/map/pantai-binasi/2.webp",
     ],
     description: {
-      en: "Pantai berpasir halus di Sorkam Barat dengan pemandangan sunset yang memukau. Deretan pohon pinus di tepinya bikin suasana makin teduh.",
-      id: "Pantai berpasir halus di Sorkam Barat dengan pemandangan sunset yang memukau. Deretan pohon pinus di tepinya bikin suasana makin teduh.",
+      en: "This fine-sand beach in West Sorkam is known for memorable sunset views. A row of pine trees along the shore adds shade and a peaceful atmosphere.",
+      id: "Pantai berpasir halus di Sorkam Barat ini dikenal dengan pemandangan matahari terbenam yang memukau. Deretan pohon pinus di tepinya menambah keteduhan dan suasana tenang.",
     },
   },
   {

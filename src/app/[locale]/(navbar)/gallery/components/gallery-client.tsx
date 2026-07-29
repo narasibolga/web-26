@@ -44,11 +44,14 @@ export function GalleryClient() {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const allWeeks = getAllWeekKeys();
-  const photos: GalleryPhoto[] = getWeekPhotos(activeWeek);
+  const weekNumber = Number(activeWeek.replace("week-", ""));
+  const photos: GalleryPhoto[] = getWeekPhotos(activeWeek).map((photo) => ({
+    ...photo,
+    alt: t("photoAlt", { week: weekNumber, photo: photo.id }),
+  }));
 
   const weekLabel = (key: GalleryWeekKey) => {
-    const n = Number(key.replace("week-", ""));
-    return t("week", { n });
+    return t("week", { n: Number(key.replace("week-", "")) });
   };
 
   return (
@@ -92,7 +95,10 @@ export function GalleryClient() {
 
       <section className="bg-background">
         <Container className="pt-8">
-          <Breadcrumb className="flex justify-center uppercase">
+          <Breadcrumb
+            aria-label={tNav("accessibility.breadcrumb")}
+            className="flex justify-center uppercase"
+          >
             <BreadcrumbList>
               <BreadcrumbItem>
                 <BreadcrumbLink render={<Link href="/" />}>

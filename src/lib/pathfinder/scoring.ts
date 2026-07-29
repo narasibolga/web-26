@@ -19,39 +19,39 @@ export const quizQuestions: QuizQuestion[] = [
   {
     id: "q1-vibes",
     prompt: {
-      en: "What kind of holiday vibe are you after?",
-      id: "Vibes liburan yang kamu cari tuh kayak apa?",
+      en: "What kind of holiday atmosphere are you looking for?",
+      id: "Suasana liburan seperti apa yang kamu cari?",
     },
     answers: [
       {
         id: "sunyi-alami",
         label: {
-          en: "Quiet & natural, far from crowds and healing time",
-          id: "Sunyi & alami, jauh dari crowded dan healing time",
+          en: "Quiet and natural, far from the crowds",
+          id: "Tenang dan alami, jauh dari keramaian",
         },
         scores: { alam: 3, sunyi: 3, bahari: 1, aktif: 1 },
       },
       {
         id: "laut-pantai",
         label: {
-          en: "Sea & beach, waves plus a refreshing breeze",
-          id: "Laut & pantai, ombak ditambah angin yang refreshing",
+          en: "Sea and beach, with waves and a refreshing breeze",
+          id: "Laut dan pantai, ditemani ombak serta angin yang menyegarkan",
         },
         scores: { bahari: 3, santai: 2, foto: 1 },
       },
       {
         id: "sejarah-budaya",
         label: {
-          en: "History & culture, places with a story",
-          id: "Sejarah & budaya, suka sama tempat yang punya story",
+          en: "History and culture, in places with a story",
+          id: "Sejarah dan budaya, tempat yang menyimpan cerita",
         },
         scores: { sejarah: 3, foto: 1, santai: 1 },
       },
       {
         id: "petualangan",
         label: {
-          en: "Adventure & challenge, trekking and exploring",
-          id: "Petualangan & tantangan, trekking terus explore-explore gitu",
+          en: "Adventure and challenge, with trekking and exploration",
+          id: "Petualangan dan tantangan, trekking sambil menjelajah",
         },
         scores: { aktif: 3, alam: 2, jauh: 1 },
       },
@@ -61,38 +61,38 @@ export const quizQuestions: QuizQuestion[] = [
     id: "q2-jarak",
     prompt: {
       en: "How far are you willing to go from central Sibolga?",
-      id: "Kamu willing to go sejauh apa dari pusat kota Sibolga?",
+      id: "Seberapa jauh kamu ingin pergi dari pusat Kota Sibolga?",
     },
     answers: [
       {
         id: "deket",
         label: {
-          en: "Nearby, max 5 km and easy to reach",
-          id: "Deket sini aja, max 5 km dan mudah dijangkau",
+          en: "Nearby, within 5 km and easy to reach",
+          id: "Dekat saja, maksimal 5 km dan mudah dijangkau",
         },
         scores: { dekat: 3 },
       },
       {
         id: "not-that-far",
         label: {
-          en: "Not that far, 10–30 minutes is fine",
-          id: "Not that far, 10-30 menit okay lah",
+          en: "Not too far, a comfortable 10–30-minute journey",
+          id: "Tidak terlalu jauh, 10–30 menit masih nyaman",
         },
         scores: { dekat: 2, sedang: 1 },
       },
       {
         id: "lumayan-jauh",
         label: {
-          en: "Quite far, 30 minutes–1 hour if it's worth it",
-          id: "Lumayan jauh, 30 menit-1 jam gapapa as long as worth it",
+          en: "A little farther, 30 minutes–1 hour for the right destination",
+          id: "Cukup jauh, 30 menit–1 jam jika tujuannya menarik",
         },
         scores: { sedang: 3, jauh: 1 },
       },
       {
         id: "jauh-kapal",
         label: {
-          en: "Far and ready to board a boat! Over an hour by sea",
-          id: "Jauh dan siap naik kapal! Siap sejam lebih plus jalur laut",
+          en: "Farther away, more than an hour by sea",
+          id: "Jauh dan siap naik perahu, lebih dari satu jam melalui laut",
         },
         scores: { jauh: 3, bahari: 1, aktif: 1 },
       },
@@ -102,38 +102,38 @@ export const quizQuestions: QuizQuestion[] = [
     id: "q3-aktivitas",
     prompt: {
       en: "What do you like doing on holiday?",
-      id: "Pas liburan, kamu suka ngapain?",
+      id: "Apa yang paling kamu sukai saat liburan?",
     },
     answers: [
       {
         id: "foto-konten",
         label: {
-          en: "Photos & making content, aesthetic spots",
-          id: "Foto-foto & bikin konten, cari spot yang aesthetic",
+          en: "Photography and content creation in striking locations",
+          id: "Berfoto dan membuat konten di tempat yang menarik",
         },
         scores: { foto: 3, santai: 1, dekat: 1 },
       },
       {
         id: "snorkeling",
         label: {
-          en: "Swimming & snorkeling, explore the underwater world",
-          id: "Berenang & snorkeling, explore underwater world",
+          en: "Swimming and snorkeling while exploring underwater",
+          id: "Berenang dan snorkeling sambil menjelajahi dunia bawah laut",
         },
         scores: { bahari: 3, aktif: 2 },
       },
       {
         id: "trekking",
         label: {
-          en: "Trekking & hiking, a day feels off without a climb",
-          id: "Trekking & hiking, kalau ga mendaki kaya ada yang kurang",
+          en: "Trekking and hiking, because a climb completes the day",
+          id: "Trekking dan mendaki, rasanya kurang lengkap tanpa tanjakan",
         },
         scores: { aktif: 3, alam: 2, jauh: 1 },
       },
       {
         id: "santai-aja",
         label: {
-          en: "Just chilling, sit back and enjoy the moment",
-          id: "Santai aja, duduk-duduk dan enjoy the moment",
+          en: "Relaxing and taking time to enjoy the moment",
+          id: "Bersantai, duduk tenang sambil menikmati suasana",
         },
         scores: { santai: 3, foto: 1 },
       },
@@ -142,39 +142,39 @@ export const quizQuestions: QuizQuestion[] = [
   {
     id: "q4-keramaian",
     prompt: {
-      en: "Which crowd do you prefer?",
+      en: "What kind of atmosphere do you prefer?",
       id: "Tipe wisata favorit kamu yang mana?",
     },
     answers: [
       {
         id: "ramai-meriah",
         label: {
-          en: "Bustling & lively, lots of people and full facilities",
-          id: "Ramai & meriah, banyak orang dan fasilitas complete",
+          en: "Bustling and lively, with plenty of visitors and facilities",
+          id: "Ramai dan meriah, banyak pengunjung serta fasilitas lengkap",
         },
         scores: { ramai: 3, dekat: 1, santai: 1 },
       },
       {
         id: "sepi-hidden-gem",
         label: {
-          en: "Quiet & hidden gem, avoiding the crowds",
-          id: "Sepi & hidden gem, menghindari crowded dan not feel genuine",
+          en: "Quiet and hidden, away from the crowds",
+          id: "Tenang dan tersembunyi, jauh dari keramaian",
         },
         scores: { sunyi: 3, jauh: 2, alam: 1 },
       },
       {
         id: "seru-rame",
         label: {
-          en: "Fun for a group, bring your circle along",
-          id: "Seru buat rame-rame, biar bisa ajak circle",
+          en: "Fun for a group, with friends along for the journey",
+          id: "Seru untuk rombongan, cocok mengajak teman-teman",
         },
         scores: { ramai: 2, santai: 1, bahari: 1 },
       },
       {
         id: "solo-berdua",
         label: {
-          en: "Solo trip or just the two of you, calm and intimate",
-          id: "Solo trip atau berdua aja, calm, personal, and intimate",
+          en: "Solo or with one companion, calm and personal",
+          id: "Sendiri atau berdua, tenang dan terasa lebih dekat",
         },
         scores: { sunyi: 2, foto: 1, santai: 1 },
       },
@@ -184,38 +184,38 @@ export const quizQuestions: QuizQuestion[] = [
     id: "q5-prioritas",
     prompt: {
       en: "When picking a destination, what's your priority?",
-      id: "Kalau pilih destinasi, priority kamu apa?",
+      id: "Apa prioritasmu saat memilih destinasi?",
     },
     answers: [
       {
         id: "gratis-murah",
         label: {
-          en: "Free or cheap, save budget as long as it's fun",
-          id: "Gratis atau murah, hemat budget yang penting dapet serunya",
+          en: "Free or affordable, without missing out on the fun",
+          id: "Gratis atau terjangkau, tetap hemat tanpa kehilangan keseruan",
         },
         scores: { dekat: 2, santai: 1, ramai: 1 },
       },
       {
         id: "air-terjun-sungai",
         label: {
-          en: "A waterfall or river, refreshing vibes",
-          id: "Ada air terjun/sungai, vibesnya refreshing",
+          en: "A waterfall or river with a refreshing atmosphere",
+          id: "Air terjun atau sungai dengan suasana yang menyegarkan",
         },
         scores: { alam: 3, aktif: 2, sunyi: 1 },
       },
       {
         id: "view-laut-pulau",
         label: {
-          en: "Sea & island views, waves plus an aesthetic horizon",
-          id: "View laut & pulau, ombak plus horizon yang aesthetic",
+          en: "Sea and island views, with waves and a beautiful horizon",
+          id: "Panorama laut dan pulau, dengan ombak serta cakrawala yang indah",
         },
         scores: { bahari: 3, foto: 2, santai: 1 },
       },
       {
         id: "nilai-sejarah",
         label: {
-          en: "Historical & unique value, a place with meaning",
-          id: "Nilai sejarah & unique, suka tempat yang ada meaning-nya",
+          en: "History and character, in a place with meaning",
+          id: "Nilai sejarah dan keunikan, tempat yang memiliki makna",
         },
         scores: { sejarah: 3, foto: 2, dekat: 1 },
       },
@@ -224,30 +224,30 @@ export const quizQuestions: QuizQuestion[] = [
   {
     id: "q6-fisik",
     prompt: {
-      en: "How ready is your body this time?",
-      id: "Fisik kamu udah ready sejauh apa buat kali ini?",
+      en: "How active would you like this trip to be?",
+      id: "Seberapa siap fisikmu untuk perjalanan kali ini?",
     },
     answers: [
       {
         id: "santai-gamau-capek",
         label: {
-          en: "Relaxed, don't want to get too tired",
-          id: "Santai aja dan gamau capek-capek banget",
+          en: "Relaxed, without getting too tired",
+          id: "Santai, tidak ingin terlalu lelah",
         },
         scores: { santai: 3, dekat: 2 },
       },
       {
         id: "jalan-kaki-ringan",
         label: {
-          en: "Light walking is still fine",
-          id: "Jalan kaki ringan masih fine kok",
+          en: "Comfortable with some light walking",
+          id: "Jalan kaki ringan masih nyaman",
         },
         scores: { santai: 1, foto: 1, dekat: 1 },
       },
       {
         id: "naik-turun-bukit",
         label: {
-          en: "Ready to hike up and down the hills!",
+          en: "Ready to hike up and down hills",
           id: "Siap naik-turun bukit!",
         },
         scores: { aktif: 3, alam: 2 },
@@ -255,8 +255,8 @@ export const quizQuestions: QuizQuestion[] = [
       {
         id: "basah-basahan",
         label: {
-          en: "Getting wet? Let's gooo!",
-          id: "Basah-basahan? Let's gooo!",
+          en: "Ready to get in the water",
+          id: "Siap bermain air!",
         },
         scores: { bahari: 2, aktif: 2, alam: 1 },
       },
@@ -265,14 +265,14 @@ export const quizQuestions: QuizQuestion[] = [
   {
     id: "q7-timing",
     prompt: {
-      en: "When do you usually holiday?",
-      id: "Biasanya kamu liburan timing-nya kapan?",
+      en: "When do you prefer to travel?",
+      id: "Kapan kamu biasanya berwisata?",
     },
     answers: [
       {
         id: "pagi-siang",
         label: {
-          en: "Morning–daytime, good light for photos",
+          en: "Morning to midday, with good light for photos",
           id: "Pagi-siang, cahayanya bagus buat foto-foto",
         },
         scores: { foto: 2, aktif: 1, alam: 1 },
@@ -280,24 +280,24 @@ export const quizQuestions: QuizQuestion[] = [
       {
         id: "sore-senja",
         label: {
-          en: "Afternoon–dusk, chasing a stunning sunset",
-          id: "Sore-senja, buat chasing sunset yang super cantik",
+          en: "Afternoon to dusk, for a beautiful sunset",
+          id: "Sore hingga senja, mengejar matahari terbenam yang indah",
         },
         scores: { foto: 3, santai: 2, bahari: 1 },
       },
       {
         id: "full-weekend",
         label: {
-          en: "Full weekend, ready all day or overnight",
-          id: "Full weekend, siap seharian atau stay overnight sekalian",
+          en: "A full weekend, with time for a day trip or overnight stay",
+          id: "Akhir pekan penuh, siap seharian atau menginap",
         },
         scores: { jauh: 2, bahari: 2, aktif: 1 },
       },
       {
         id: "fleksibel",
         label: {
-          en: "Flexible, anytime as long as I'm going out",
-          id: "Fleksibel, kapan aja yang penting jalan",
+          en: "Flexible, any time is good for a journey",
+          id: "Fleksibel, kapan saja selama bisa bepergian",
         },
         scores: { santai: 1, dekat: 1 },
       },
@@ -313,32 +313,32 @@ export const quizQuestions: QuizQuestion[] = [
       {
         id: "sendiri",
         label: {
-          en: "Alone, solo trip and me time",
-          id: "Sendirian, solo trip dan suka me time",
+          en: "Alone, enjoying a solo trip and time to myself",
+          id: "Sendiri, menikmati perjalanan dan waktu untuk diri sendiri",
         },
         scores: { sunyi: 3, foto: 2, aktif: 1 },
       },
       {
         id: "berdua",
         label: {
-          en: "A partner or bestie, intimate moments",
-          id: "Berdua sama partner/bestie, momen yang intimate dan berkesan",
+          en: "A partner or close friend, sharing memorable moments",
+          id: "Berdua dengan pasangan atau sahabat, menikmati momen yang berkesan",
         },
         scores: { santai: 2, foto: 2, sunyi: 1 },
       },
       {
         id: "grup-kecil",
         label: {
-          en: "A small group of 3–5, fun but still manageable",
-          id: "Grup kecil 3-5 orang, seru tapi tetep kondusif sih",
+          en: "A small group of 3–5, lively but still comfortable",
+          id: "Kelompok kecil 3–5 orang, seru tetapi tetap nyaman",
         },
         scores: { aktif: 2, bahari: 1, sedang: 1 },
       },
       {
         id: "keluarga",
         label: {
-          en: "Family! Family comes first",
-          id: "Keluarga! Family comes first",
+          en: "Family, because time together comes first",
+          id: "Keluarga, karena kebersamaan adalah yang utama",
         },
         scores: { ramai: 3, dekat: 1, santai: 1 },
       },
@@ -354,16 +354,16 @@ export const quizQuestions: QuizQuestion[] = [
       {
         id: "laut-karang",
         label: {
-          en: "Blue sea & coral reefs, a stunning underwater world",
-          id: "Laut biru & terumbu karang, underwater world yang stunning",
+          en: "Blue sea and coral reefs, with a remarkable underwater world",
+          id: "Laut biru dan terumbu karang, dunia bawah laut yang memukau",
         },
         scores: { bahari: 4, aktif: 2 },
       },
       {
         id: "hutan-rindang",
         label: {
-          en: "Forests & lush trees, cool and fresh air",
-          id: "Hutan & pepohonan rindang, teduh dan udaranya fresh",
+          en: "Forests and lush trees, with cool, fresh air",
+          id: "Hutan dan pepohonan rindang, teduh dengan udara yang segar",
         },
         scores: { alam: 4, sunyi: 2, aktif: 1 },
       },
@@ -371,15 +371,15 @@ export const quizQuestions: QuizQuestion[] = [
         id: "bukit-panorama",
         label: {
           en: "Hills with a panorama from above, city and sea at once",
-          id: "Bukit dengan panorama dari atas, liat kota dan laut sekaligus",
+          id: "Bukit dengan panorama kota dan laut dari ketinggian",
         },
         scores: { alam: 3, foto: 3, aktif: 2 },
       },
       {
         id: "air-terjun-aliran",
         label: {
-          en: "Waterfalls & flowing water, the sound calms you",
-          id: "Air terjun & aliran air, suaranya bikin calm",
+          en: "Waterfalls and flowing water, with their calming sound",
+          id: "Air terjun dan aliran air dengan suara yang menenangkan",
         },
         scores: { alam: 3, aktif: 2, sunyi: 2 },
       },
@@ -388,31 +388,31 @@ export const quizQuestions: QuizQuestion[] = [
   {
     id: "q10-momen",
     prompt: {
-      en: "What's the most memorable moment after a holiday for you?",
-      id: "Momen paling memorable buat kamu abis liburan tuh apa?",
+      en: "What kind of moment stays with you after a trip?",
+      id: "Momen apa yang paling berkesan bagimu setelah liburan?",
     },
     answers: [
       {
         id: "foto-video",
         label: {
-          en: "Aesthetic photos & videos to share",
-          id: "Foto & video aesthetic, biar keren kalau diupload dan dishare",
+          en: "Beautiful photos and videos to share",
+          id: "Foto dan video menarik untuk dibagikan",
         },
         scores: { foto: 4, santai: 1 },
       },
       {
         id: "damai-lepas",
         label: {
-          en: "A sense of peace & release, mind refreshed",
-          id: "Rasa damai & lepas, pikiran jadi fresh lagi karena pusing kerjaan",
+          en: "A sense of peace and relief, with a refreshed mind",
+          id: "Rasa damai dan lega, pikiran kembali segar",
         },
         scores: { sunyi: 3, alam: 2, santai: 2 },
       },
       {
         id: "adrenalin-proud",
         label: {
-          en: "Adrenaline & pride, conquered something",
-          id: "Adrenalin & rasa proud, berhasil conquer something dan ngerasa dapet achievement",
+          en: "Adrenaline and pride after overcoming a challenge",
+          id: "Adrenalin dan rasa bangga setelah menaklukkan tantangan",
         },
         scores: { aktif: 4, jauh: 2 },
       },
@@ -420,7 +420,7 @@ export const quizQuestions: QuizQuestion[] = [
         id: "bareng-orang-tersayang",
         label: {
           en: "Moments with loved ones, unforgettable memories",
-          id: "Momen bareng orang-orang tersayang, kenangan yang ga gampang dilupain",
+          id: "Momen bersama orang-orang tersayang yang sulit dilupakan",
         },
         scores: { ramai: 3, santai: 2, bahari: 1 },
       },
