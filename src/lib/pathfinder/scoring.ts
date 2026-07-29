@@ -440,7 +440,7 @@ export type ArchetypeCode =
 
 export type ArchetypeProfile = Record<Dimension, number>;
 
-export const archetypes: Record<ArchetypeCode, ArchetypeProfile> = {
+const archetypes: Record<ArchetypeCode, ArchetypeProfile> = {
   MRN: {
     bahari: 5,
     alam: 2,
@@ -547,7 +547,7 @@ export const archetypes: Record<ArchetypeCode, ArchetypeProfile> = {
   },
 };
 
-export const archetypeCodes = Object.keys(archetypes) as ArchetypeCode[];
+const archetypeCodes = Object.keys(archetypes) as ArchetypeCode[];
 
 export type DimensionTotals = Record<Dimension, number>;
 

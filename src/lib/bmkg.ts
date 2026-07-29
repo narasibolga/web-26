@@ -1,4 +1,4 @@
-export const SUMUT_BOUNDS = {
+const SUMUT_BOUNDS = {
   latMin: 0.8,
   latMax: 4.6,
   lngMin: 97.2,

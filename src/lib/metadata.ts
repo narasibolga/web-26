@@ -2,6 +2,13 @@ import type { Metadata } from "next";
 import { type Locale, routing } from "@/i18n/routing";
 import { OG_LOCALE_MAP, SITE_URL } from "./site";
 
+export const SOCIAL_IMAGE = {
+  url: `${SITE_URL}/opengraph-image.png`,
+  width: 1200,
+  height: 630,
+  alt: "NaraSibolga — KKN Sibolga North Sumatra",
+} as const;
+
 export function localeStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
@@ -37,8 +44,14 @@ export function buildLocalePageMetadata({
       title,
       description,
       locale: OG_LOCALE_MAP[locale] ?? locale,
+      images: [SOCIAL_IMAGE],
     },
-    twitter: { card: "summary_large_image" },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [SOCIAL_IMAGE],
+    },
   };
 }
 

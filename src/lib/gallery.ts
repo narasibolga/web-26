@@ -1,4 +1,4 @@
-export const TOTAL_WEEKS = 7;
+const TOTAL_WEEKS = 7;
 
 export type GalleryPhoto = {
   id: number;
@@ -10,12 +10,12 @@ export type GalleryWeekKey = `week-${number}`;
 
 export type GalleryWeeks = Record<GalleryWeekKey, GalleryPhoto[]>;
 
-export const weekKey = (n: number): GalleryWeekKey => `week-${n}`;
+const weekKey = (n: number): GalleryWeekKey => `week-${n}`;
 
 export const galleryImagePath = (weekKey: string, photoId: number): string =>
   `/images/gallery/${weekKey}/${photoId}.webp`;
 
-export const weeks: GalleryWeeks = {
+const weeks: GalleryWeeks = {
   "week-1": [
     { id: 1, alt: "Sibolga week 1", aspect: 1.78 },
     { id: 2, alt: "Sibolga week 1", aspect: 1.78 },

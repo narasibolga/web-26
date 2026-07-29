@@ -33,7 +33,7 @@ function isDraftEnabled(): boolean {
   return process.env.NODE_ENV === "development";
 }
 
-export function getProgramSlugs(): string[] {
+function getProgramSlugs(): string[] {
   const dir = programsDir();
   if (!existsSync(dir)) return [];
   return readdirSync(dir).flatMap((name) =>

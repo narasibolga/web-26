@@ -14,6 +14,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
+import { SOCIAL_IMAGE } from "@/lib/metadata";
 import {
   getAllPrograms,
   getProgram,
@@ -57,6 +58,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: program.summary,
       url,
       publishedTime: program.date,
+      images: [SOCIAL_IMAGE],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: program.title,
+      description: program.summary,
+      images: [SOCIAL_IMAGE],
     },
   };
 }
