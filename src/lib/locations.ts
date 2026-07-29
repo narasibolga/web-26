@@ -71,7 +71,10 @@ export const locations: Location[] = [
     category: "landmark",
     lat: 1.7445,
     lng: 98.7778,
-    images: ["/images/map/tangga-seratus/1.webp"],
+    images: [
+      "/images/map/tangga-seratus/1.webp",
+      "/images/map/tangga-seratus/2.webp",
+    ],
     description: {
       en: "Siap cardio tipis-tipis? Di sini kamu bakal nemuin 298 anak tangga yang penuh cerita sejarah. Sampai di atas, bonusnya view laut yang cakep plus ada gua peninggalan Jepang dan bangunan tua bekas perusahaan air minum Belanda. Capeknya worth it!",
       id: "Siap cardio tipis-tipis? Di sini kamu bakal nemuin 298 anak tangga yang penuh cerita sejarah. Sampai di atas, bonusnya view laut yang cakep plus ada gua peninggalan Jepang dan bangunan tua bekas perusahaan air minum Belanda. Capeknya worth it!",
@@ -86,7 +89,10 @@ export const locations: Location[] = [
     category: "pantai",
     lat: 1.7431585,
     lng: 98.7734728,
-    images: ["/images/map/pantai-ujung-sibolga/1.webp"],
+    images: [
+      "/images/map/pantai-ujung-sibolga/1.webp",
+      "/images/map/pantai-ujung-sibolga/2.webp",
+    ],
     description: {
       en: "Kalau lagi pengen healing tanpa ribet, Pantai Pajus jawabannya. Pasirnya lembut, ombaknya santai, cocok buat main air atau duduk-duduk sambil nunggu sunset yang cantiknya nggak pernah gagal.",
       id: "Kalau lagi pengen healing tanpa ribet, Pantai Pajus jawabannya. Pasirnya lembut, ombaknya santai, cocok buat main air atau duduk-duduk sambil nunggu sunset yang cantiknya nggak pernah gagal.",
@@ -98,7 +104,10 @@ export const locations: Location[] = [
     category: "pantai",
     lat: 1.7407041,
     lng: 98.7741551,
-    images: ["/images/map/pantai-pelabuhan-lama/1.webp"],
+    images: [
+      "/images/map/pantai-pelabuhan-lama/1.webp",
+      "/images/map/pantai-pelabuhan-lama/2.webp",
+    ],
     description: {
       en: "Dulu pelabuhan, sekarang jadi spot wisata yang estetik. Pantainya bersih, airnya jernih, plus masih ada bangunan kolonial bersejarah seperti Bioskop Haven Theatre dan Gudang Marison. Cocok buat yang suka jalan-jalan sambil hunting foto.",
       id: "Dulu pelabuhan, sekarang jadi spot wisata yang estetik. Pantainya bersih, airnya jernih, plus masih ada bangunan kolonial bersejarah seperti Bioskop Haven Theatre dan Gudang Marison. Cocok buat yang suka jalan-jalan sambil hunting foto.",
@@ -110,7 +119,10 @@ export const locations: Location[] = [
     category: "pulau",
     lat: 1.710590627,
     lng: 98.764286518,
-    images: ["/images/map/pulau-poncan/1.webp"],
+    images: [
+      "/images/map/pulau-poncan/1.webp",
+      "/images/map/pulau-poncan/2.webp",
+    ],
     description: {
       en: "Air laut sebening kaca, jembatan di atas laut, dan spot snorkeling yang kece. Nggak cuma cantik, pulau ini juga punya gua peninggalan tentara Jepang yang bikin vibes petualangannya makin dapet.",
       id: "Air laut sebening kaca, jembatan di atas laut, dan spot snorkeling yang kece. Nggak cuma cantik, pulau ini juga punya gua peninggalan tentara Jepang yang bikin vibes petualangannya makin dapet.",
@@ -122,7 +134,10 @@ export const locations: Location[] = [
     category: "bukit",
     lat: 1.7571859,
     lng: 98.7717777,
-    images: ["/images/map/bukit-panomboman/1.webp"],
+    images: [
+      "/images/map/bukit-panomboman/1.webp",
+      "/images/map/bukit-panomboman/2.webp",
+    ],
     description: {
       en: "Kalau warga lokal ditanya spot sunset favorit, banyak yang bakal jawab di sini. Dari atas bukit kamu bisa lihat laut dan pegunungan sekaligus. Makin lengkap kalau ditemenin secangkir kopi di kafe sekitar.",
       id: "Kalau warga lokal ditanya spot sunset favorit, banyak yang bakal jawab di sini. Dari atas bukit kamu bisa lihat laut dan pegunungan sekaligus. Makin lengkap kalau ditemenin secangkir kopi di kafe sekitar.",
@@ -137,7 +152,10 @@ export const locations: Location[] = [
     category: "pantai",
     lat: 1.7197222,
     lng: 98.7836111,
-    images: ["/images/map/pantai-pandaratan-pondok-batu/1.webp"],
+    images: [
+      "/images/map/pantai-pandaratan-pondok-batu/1.webp",
+      "/images/map/pantai-pandaratan-pondok-batu/2.webp",
+    ],
     description: {
       en: "Hidden gem yang masih alami banget. Pasir putih, air laut super jernih, dan kalau lagi beruntung kamu bisa lihat banyak bintang laut di sekitar pantai. Rasanya kayak nemu private beach.",
       id: "Hidden gem yang masih alami banget. Pasir putih, air laut super jernih, dan kalau lagi beruntung kamu bisa lihat banyak bintang laut di sekitar pantai. Rasanya kayak nemu private beach.",
@@ -152,7 +170,10 @@ export const locations: Location[] = [
     category: "landmark",
     lat: 1.748,
     lng: 98.772,
-    images: ["/images/map/benteng-jepang-bukit-ketapang/1.webp"],
+    images: [
+      "/images/map/benteng-jepang-bukit-ketapang/1.webp",
+      "/images/map/benteng-jepang-bukit-ketapang/2.webp",
+    ],
     description: {
       en: "Buat yang suka wisata sejarah, wajib mampir. Ada enam benteng peninggalan Jepang dengan bonus panorama Kota Sibolga dan Teluk Tapian Nauli dari ketinggian. Sunset-nya juga juara!",
       id: "Buat yang suka wisata sejarah, wajib mampir. Ada enam benteng peninggalan Jepang dengan bonus panorama Kota Sibolga dan Teluk Tapian Nauli dari ketinggian. Sunset-nya juga juara!",
@@ -164,7 +185,10 @@ export const locations: Location[] = [
     category: "landmark",
     lat: 1.7655116,
     lng: 98.7971256,
-    images: ["/images/map/batu-lubang-sibolga/1.webp"],
+    images: [
+      "/images/map/batu-lubang-sibolga/1.webp",
+      "/images/map/batu-lubang-sibolga/2.webp",
+    ],
     description: {
       en: "Terowongan peninggalan zaman Belanda yang punya cerita panjang. Di sampingnya ada air terjun kecil yang bikin suasananya makin unik. Agak misterius, tapi justru itu yang bikin penasaran.",
       id: "Terowongan peninggalan zaman Belanda yang punya cerita panjang. Di sampingnya ada air terjun kecil yang bikin suasananya makin unik. Agak misterius, tapi justru itu yang bikin penasaran.",
@@ -176,7 +200,10 @@ export const locations: Location[] = [
     category: "air-terjun",
     lat: 1.7301132,
     lng: 98.8262,
-    images: ["/images/map/air-terjun-sihobuk/1.webp"],
+    images: [
+      "/images/map/air-terjun-sihobuk/1.webp",
+      "/images/map/air-terjun-sihobuk/2.webp",
+    ],
     description: {
       en: "Air terjun setinggi sekitar 12–17 meter dengan kolam alami yang nyaman buat main air. Cocok buat quality time bareng keluarga karena anak-anak juga bisa berenang di sini.",
       id: "Air terjun setinggi sekitar 12–17 meter dengan kolam alami yang nyaman buat main air. Cocok buat quality time bareng keluarga karena anak-anak juga bisa berenang di sini.",
@@ -188,7 +215,10 @@ export const locations: Location[] = [
     category: "bukit",
     lat: 1.752,
     lng: 98.785,
-    images: ["/images/map/bukit-tor-simarbarimbing/1.webp"],
+    images: [
+      "/images/map/bukit-tor-simarbarimbing/1.webp",
+      "/images/map/bukit-tor-simarbarimbing/2.webp",
+    ],
     description: {
       en: "Perjalanan ke bukit ini bakal lewat perkampungan suku Nias yang khas. Sampai di puncak, kamu disambut view Sibolga dari ketinggian yang bikin perjalanan terasa worth it.",
       id: "Perjalanan ke bukit ini bakal lewat perkampungan suku Nias yang khas. Sampai di puncak, kamu disambut view Sibolga dari ketinggian yang bikin perjalanan terasa worth it.",
@@ -200,7 +230,10 @@ export const locations: Location[] = [
     category: "pantai",
     lat: 1.6672222,
     lng: 98.8280556,
-    images: ["/images/map/pantai-kalangan-indah/1.webp"],
+    images: [
+      "/images/map/pantai-kalangan-indah/1.webp",
+      "/images/map/pantai-kalangan-indah/2.webp",
+    ],
     description: {
       en: "Pantai dengan pasir putih dan ombak yang tenang karena berada di kawasan teluk. Aman buat anak-anak main air, tapi tetap seru buat kamu yang cuma pengen rebahan sambil nikmatin angin pantai.",
       id: "Pantai dengan pasir putih dan ombak yang tenang karena berada di kawasan teluk. Aman buat anak-anak main air, tapi tetap seru buat kamu yang cuma pengen rebahan sambil nikmatin angin pantai.",
@@ -212,7 +245,10 @@ export const locations: Location[] = [
     category: "pantai",
     lat: 1.7197222,
     lng: 98.7836111,
-    images: ["/images/map/pasir-putih-pandaratan/1.webp"],
+    images: [
+      "/images/map/pasir-putih-pandaratan/1.webp",
+      "/images/map/pasir-putih-pandaratan/2.webp",
+    ],
     description: {
       en: "Masih satu kawasan dengan Pondok Batu, tapi punya hamparan pasir putih yang luas dan suasana yang lebih sepi. Cocok buat yang cari tempat healing tanpa keramaian.",
       id: "Masih satu kawasan dengan Pondok Batu, tapi punya hamparan pasir putih yang luas dan suasana yang lebih sepi. Cocok buat yang cari tempat healing tanpa keramaian.",
@@ -224,7 +260,10 @@ export const locations: Location[] = [
     category: "pulau",
     lat: 1.73,
     lng: 98.76,
-    images: ["/images/map/pulo-bangke/1.webp"],
+    images: [
+      "/images/map/pulo-bangke/1.webp",
+      "/images/map/pulo-bangke/2.webp",
+    ],
     description: {
       en: "Pulau kecil yang keindahannya masih alami banget. Tips : datang pas air laut surut supaya bisa lebih puas menjelajah. Timing is everything!",
       id: "Pulau kecil yang keindahannya masih alami banget. Tips : datang pas air laut surut supaya bisa lebih puas menjelajah. Timing is everything!",
@@ -236,7 +275,10 @@ export const locations: Location[] = [
     category: "air-terjun",
     lat: 1.7,
     lng: 98.76,
-    images: ["/images/map/air-terjun-labuhan-sonang/1.webp"],
+    images: [
+      "/images/map/air-terjun-labuhan-sonang/1.webp",
+      "/images/map/air-terjun-labuhan-sonang/2.webp",
+    ],
     description: {
       en: "Meski sebagian aliran airnya dimanfaatkan sebagai sumber air bersih, kawasan ini tetap punya pesona alam yang bikin betah. Perpaduan air terjun, pantai, dan perbukitan dalam satu tempat.",
       id: "Meski sebagian aliran airnya dimanfaatkan sebagai sumber air bersih, kawasan ini tetap punya pesona alam yang bikin betah. Perpaduan air terjun, pantai, dan perbukitan dalam satu tempat.",
@@ -248,7 +290,10 @@ export const locations: Location[] = [
     category: "landmark",
     lat: 1.745,
     lng: 98.79,
-    images: ["/images/map/puncak-gm-panggabean/1.webp"],
+    images: [
+      "/images/map/puncak-gm-panggabean/1.webp",
+      "/images/map/puncak-gm-panggabean/2.webp",
+    ],
     description: {
       en: "Nggak cuma menawarkan panorama Kota Sibolga dari atas, di sini juga ada monumen perjuangan dengan tujuh patung pejuang. Jalan-jalan sambil nambah insight sejarah? Why not.",
       id: "Nggak cuma menawarkan panorama Kota Sibolga dari atas, di sini juga ada monumen perjuangan dengan tujuh patung pejuang. Jalan-jalan sambil nambah insight sejarah? Why not.",
@@ -263,7 +308,10 @@ export const locations: Location[] = [
     category: "pulau",
     lat: 1.5615309,
     lng: 98.5764404,
-    images: ["/images/map/pulau-kalimantung-na-menek/1.webp"],
+    images: [
+      "/images/map/pulau-kalimantung-na-menek/1.webp",
+      "/images/map/pulau-kalimantung-na-menek/2.webp",
+    ],
     description: {
       en: "Pulau mungil dengan pasir putih dan laut sebening kristal. Biasanya jadi satu paket wisata bareng Pulau Mursala dan Badalu. Sekali jalan, langsung dapat beberapa destinasi.",
       id: "Pulau mungil dengan pasir putih dan laut sebening kristal. Biasanya jadi satu paket wisata bareng Pulau Mursala dan Badalu. Sekali jalan, langsung dapat beberapa destinasi.",
@@ -275,7 +323,10 @@ export const locations: Location[] = [
     category: "air-terjun",
     lat: 1.6366,
     lng: 98.5107,
-    images: ["/images/map/air-terjun-mursala/1.webp"],
+    images: [
+      "/images/map/air-terjun-mursala/1.webp",
+      "/images/map/air-terjun-mursala/2.webp",
+    ],
     description: {
       en: "Ini salah satu ikon wisata Tapteng. Air terjunnya langsung jatuh ke laut dari tebing pulau—unik banget dan langka di Indonesia. Fun fact : pernah jadi lokasi syuting film King Kong (2005)!",
       id: "Ini salah satu ikon wisata Tapteng. Air terjunnya langsung jatuh ke laut dari tebing pulau—unik banget dan langka di Indonesia. Fun fact : pernah jadi lokasi syuting film King Kong (2005)!",
@@ -287,7 +338,10 @@ export const locations: Location[] = [
     category: "pulau",
     lat: 1.62,
     lng: 98.52,
-    images: ["/images/map/pulau-badalu/1.webp"],
+    images: [
+      "/images/map/pulau-badalu/1.webp",
+      "/images/map/pulau-badalu/2.webp",
+    ],
     description: {
       en: "Surga buat pecinta snorkeling dan diving. Terumbu karangnya masih cantik, ikan-ikannya warna-warni, Pemandangan bawahnya bikin susah move on.",
       id: "Surga buat pecinta snorkeling dan diving. Terumbu karangnya masih cantik, ikan-ikanya warna-warni, Pemandangan bawahnya bikin susah move on.",
@@ -299,7 +353,10 @@ export const locations: Location[] = [
     category: "pulau",
     lat: 1.638,
     lng: 98.506,
-    images: ["/images/map/blue-spot-mursala/1.webp"],
+    images: [
+      "/images/map/blue-spot-mursala/1.webp",
+      "/images/map/blue-spot-mursala/2.webp",
+    ],
     description: {
       en: "Air lautnya benar-benar biru dan super jernih. Lokasinya cuma sekitar lima menit naik boat dari Air Terjun Mursala. Cocok buat foto-foto, tapi tetap hati-hati karena arusnya lumayan kuat.",
       id: "Air lautnya benar-benar biru dan super jernih. Lokasinya cuma sekitar lima menit naik boat dari Air Terjun Mursala. Cocok buat foto-foto, tapi tetap hati-hati karena arusnya lumayan kuat.",
@@ -311,7 +368,10 @@ export const locations: Location[] = [
     category: "pantai",
     lat: 1.645,
     lng: 98.5975,
-    images: ["/images/map/pantai-pulau-putri/1.webp"],
+    images: [
+      "/images/map/pantai-pulau-putri/1.webp",
+      "/images/map/pantai-pulau-putri/2.webp",
+    ],
     description: {
       en: "Pantai eksotis dengan pasir putih, laut jernih, dan deretan pohon kelapa yang bikin vibes liburannya makin dapet. Mau snorkeling, camping, atau sekadar rebahan menikmati suasana, semuanya bisa.",
       id: "Pantai eksotis dengan pasir putih, laut jernih, dan deretan pohon kelapa yang bikin vibes liburannya makin dapet. Mau snorkeling, camping, atau sekadar rebahan menikmati suasana, semuanya bisa.",
@@ -339,7 +399,10 @@ export const locations: Location[] = [
     category: "pantai",
     lat: 1.898105422,
     lng: 98.549738043,
-    images: ["/images/map/pantai-binasi/1.webp"],
+    images: [
+      "/images/map/pantai-binasi/1.webp",
+      "/images/map/pantai-binasi/2.webp",
+    ],
     description: {
       en: "Pantai berpasir halus di Sorkam Barat dengan pemandangan sunset yang memukau. Deretan pohon pinus di tepinya bikin suasana makin teduh.",
       id: "Pantai berpasir halus di Sorkam Barat dengan pemandangan sunset yang memukau. Deretan pohon pinus di tepinya bikin suasana makin teduh.",
