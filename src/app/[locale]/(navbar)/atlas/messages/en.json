@@ -1,0 +1,44 @@
+{
+  "meta": {
+    "title": "Atlas of Angin Nauli",
+    "description": "Explore thematic maps of Angin Nauli covering slope, land use, and flora distribution, created by our team."
+  },
+  "hero": {
+    "heading": "Atlas",
+    "imageAlt": "Community savings and loan sign in Angin Nauli"
+  },
+  "intro": {
+    "heading": "Mapping Angin Nauli",
+    "subheading": "A cartographic collection by our team",
+    "paragraphs": [
+      "This atlas brings together three thematic maps built from field surveys, satellite imagery, and geospatial analysis. Together, they offer a layered view of Angin Nauli's terrain, land cover, and living landscape.",
+      "Browse the optimized previews for a quick overview, then open the original PDF when you need to inspect the full legend, coordinate grid, scale, or fine map details."
+    ]
+  },
+  "actions": {
+    "viewPdf": "View full map (PDF)"
+  },
+  "maps": [
+    {
+      "eyebrow": "Map 01",
+      "title": "Slope Analysis",
+      "description": "A terrain classification showing slope gradients from 0-8% through areas steeper than 45%. The map makes the sharp transition from the lower settled edge to Angin Nauli's steep interior immediately visible.",
+      "imageAlt": "Thematic slope-gradient map of Angin Nauli with five slope classes",
+      "attribution": "Our team · 2026"
+    },
+    {
+      "eyebrow": "Map 02",
+      "title": "Land Use",
+      "description": "A land-use interpretation of Angin Nauli grouped into settlement, vegetation, and open soil. It highlights the dense vegetated interior and the pattern of developed areas along the southern and western edges.",
+      "imageAlt": "Land-use map of Angin Nauli showing settlement, vegetation, and open soil",
+      "attribution": "Our team · 2026"
+    },
+    {
+      "eyebrow": "Map 03",
+      "title": "Flora Distribution",
+      "description": "A field inventory plotting the observed distribution of eleven flora types, including pine, ketapang, coconut, cacao, breadfruit, waru, areca palm, rubber, mahogany, acacia, and teak across Angin Nauli.",
+      "imageAlt": "Flora distribution map of Angin Nauli with field observations and species photographs",
+      "attribution": "Our team · 2026"
+    }
+  ]
+}

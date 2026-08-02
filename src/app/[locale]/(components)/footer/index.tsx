@@ -12,6 +12,7 @@ type Props = { locale: Locale };
 const pageLinks = [
   { key: "home", href: "/" },
   { key: "map", href: "/map" },
+  { key: "atlas", href: "/atlas" },
   { key: "history", href: "/history" },
   { key: "programs", href: "/programs" },
   { key: "tourism", href: "/tourism" },

@@ -12,6 +12,7 @@ import { routing } from "@/i18n/routing";
 const menuLinks = [
   { key: "home", href: "/" },
   { key: "map", href: "/map" },
+  { key: "atlas", href: "/atlas" },
   { key: "history", href: "/history" },
   { key: "programs", href: "/programs" },
   { key: "gallery", href: "/gallery" },

@@ -1,0 +1,44 @@
+{
+  "meta": {
+    "title": "Atlas Angin Nauli",
+    "description": "Jelajahi peta tematik Angin Nauli tentang kemiringan lereng, tata guna lahan, dan sebaran flora karya tim kami."
+  },
+  "hero": {
+    "heading": "Atlas",
+    "imageAlt": "Papan nama usaha ekonomi warga di Angin Nauli"
+  },
+  "intro": {
+    "heading": "Memetakan Angin Nauli",
+    "subheading": "Koleksi kartografi karya tim kami",
+    "paragraphs": [
+      "Atlas ini menghimpun tiga peta tematik yang disusun melalui survei lapangan, citra satelit, dan analisis geospasial. Ketiganya menyajikan gambaran berlapis mengenai topografi, tutupan lahan, dan bentang hayati Angin Nauli.",
+      "Gunakan pratinjau yang telah dioptimalkan untuk melihat gambaran umum, lalu buka PDF asli untuk memeriksa legenda, grid koordinat, skala, dan detail peta secara lengkap."
+    ]
+  },
+  "actions": {
+    "viewPdf": "Lihat peta lengkap (PDF)"
+  },
+  "maps": [
+    {
+      "eyebrow": "Peta 01",
+      "title": "Kemiringan Lereng",
+      "description": "Klasifikasi medan yang menampilkan tingkat kemiringan dari 0-8% hingga lebih dari 45%. Peta ini memperlihatkan dengan jelas peralihan tajam dari kawasan terbangun yang lebih rendah menuju bagian dalam Angin Nauli yang curam.",
+      "imageAlt": "Peta tematik kemiringan lereng Angin Nauli dengan lima kelas kemiringan",
+      "attribution": "Tim kami · 2026"
+    },
+    {
+      "eyebrow": "Peta 02",
+      "title": "Tata Guna Lahan",
+      "description": "Interpretasi tata guna lahan Angin Nauli yang dikelompokkan menjadi permukiman, vegetasi, dan tanah terbuka. Peta ini menonjolkan vegetasi yang mendominasi bagian dalam serta pola kawasan terbangun di sisi selatan dan barat.",
+      "imageAlt": "Peta tata guna lahan Angin Nauli yang menunjukkan permukiman, vegetasi, dan tanah terbuka",
+      "attribution": "Tim kami · 2026"
+    },
+    {
+      "eyebrow": "Peta 03",
+      "title": "Sebaran Jenis Flora",
+      "description": "Inventarisasi lapangan yang memetakan sebaran jenis flora, termasuk pinus, ketapang, kelapa, cokelat, sukun, waru, pinang, karet, mahoni, akasia, dan jati di wilayah Angin Nauli.",
+      "imageAlt": "Peta sebaran flora Angin Nauli dengan titik pengamatan lapangan dan foto jenis tanaman",
+      "attribution": "Tim kami · 2026"
+    }
+  ]
+}

@@ -8,6 +8,7 @@ const ROUTES = [
   "pathfinder",
   "history",
   "map",
+  "atlas",
   "gallery",
   "tourism",
 ];
