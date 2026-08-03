@@ -48,6 +48,7 @@
     "sejarah-rekreasi": "Sejarah & Rekreasi",
     "akomodasi": "Akomodasi",
     "kuliner": "Kuliner",
+    "kafe": "Kafe & Kopi",
     "oleh-oleh": "Oleh-Oleh"
   },
   "detail": {
@@ -60,6 +61,7 @@
     "checkIn": "Check-in",
     "checkOut": "Check-out",
     "contact": "Kontak",
+    "priceRange": "Kisaran harga",
     "suitableFor": "Cocok untuk",
     "menu": "Menu",
     "flavor": "Cita rasa",

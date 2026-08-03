@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "One Day Trip Sibolga",
-    "description": "A one-day itinerary for Pantai Pandan, Mursala Island, local food, and a Sibolga sunset."
+    "description": "A Sibolga travel guide with a one-day itinerary, tour packages, cafés, local transport, and useful contacts."
   },
   "hero": {
     "heading": "One Day Trip Sibolga",
@@ -30,7 +30,7 @@
         "description": "An island escape with an iconic waterfall that drops straight into the sea, pristine scenery, and the day’s signature marine experience."
       },
       {
-        "name": "Kedai Sunset Sibolga",
+        "name": "Bukit Panomboman",
         "label": "Sunset",
         "alt": "The evening view from Bukit Panomboman",
         "description": "A relaxed hilltop stop at Bukit Panomboman overlooking Sibolga City and the surrounding sea."
@@ -72,9 +72,9 @@
   "cost": {
     "items": [
       {
-        "name": "Mursala Island package",
-        "detail": "Return boat, entrance, life jacket, and lunch",
-        "price": "From IDR 300,000/person"
+        "name": "Estimated Mursala Island trip",
+        "detail": "Boat trip, admission, life jacket, and lunch; confirm inclusions with the operator",
+        "price": "From IDR 300,000/person*"
       },
       {
         "name": "Vehicle parking",
@@ -82,7 +82,7 @@
         "price": "Motorbike IDR 5,000 · Car IDR 10,000"
       }
     ],
-    "summary": "This comes to about IDR 320,000 per person, excluding transport to Sibolga and personal spending on additional food or souvenirs."
+    "summary": "This comes to about IDR 320,000 per person, excluding transport to Sibolga and personal spending on additional food or souvenirs. Prices are estimates and may change."
   },
   "maps": {
     "heading": "Save every stop",
@@ -97,8 +97,8 @@
         "href": "https://www.google.com/maps/search/?api=1&query=Pulau%20Mursala%2C%20Tapian%20Nauli%2C%20Tapanuli%20Tengah"
       },
       {
-        "name": "Kedai Sunset Sibolga",
-        "href": "https://www.google.com/maps/search/?api=1&query=Kedai%20Sunset%20Sibolga%2C%20Sumatera%20Utara"
+        "name": "Bukit Panomboman",
+        "href": "https://www.google.com/maps/search/?api=1&query=Bukit%20Panomboman%2C%20Sibolga%2C%20Sumatera%20Utara"
       },
       {
         "name": "Seafood Malaya",
@@ -107,6 +107,213 @@
       {
         "name": "Sibolga Chilli Crackers",
         "href": "https://www.google.com/maps/search/?api=1&query=Toko%20Kerupuk%20Sambal%20Special%2C%20Jalan%20Patuan%20Anggi%2C%20Sibolga"
+      }
+    ]
+  },
+  "packages": {
+    "heading": "Compare packages before choosing a boat",
+    "description": "These five options show the range of trips to Mursala and Kalimantung, from a single day to three days and two nights.",
+    "open": "View package",
+    "disclaimer": "Prices, schedules, meeting points, minimum group sizes, and inclusions may change. The price marked * comes from the provider's social-media post. Contact the provider directly before paying or departing.",
+    "items": [
+      {
+        "name": "Mursala Island Sibolga",
+        "duration": "1 day",
+        "price": "IDR 350,000–375,000/person",
+        "provider": "Amartha Wisata",
+        "href": "https://amarthawisata.com/tour/paket-wisata-pulau-mursala-sibolga-1-hari/"
+      },
+      {
+        "name": "Kalimantung–Mursala",
+        "duration": "1 day",
+        "price": "IDR 250,000/person*",
+        "provider": "Kalimantung Traveling",
+        "href": "https://www.instagram.com/kalimantungtraveling/reel/DXLsQlREj3z/?hl=en"
+      },
+      {
+        "name": "Sibolga–Kalimantung Open Trip",
+        "duration": "3 days, 2 nights",
+        "price": "IDR 850,000/person",
+        "provider": "Triptrap Liburan Murah",
+        "href": "https://triptrapliburanmurah.id/open-trip-sibolga-kalimantung-3h2m-every-weekend/"
+      },
+      {
+        "name": "Sibolga–Kalimantung Open Trip",
+        "duration": "3 days, 2 nights",
+        "price": "IDR 750,000/person",
+        "provider": "Ladita Tour",
+        "href": "https://www.laditatour.com/open-trip-sibolga-kalimantung/"
+      },
+      {
+        "name": "Mursala Island Tour Package",
+        "duration": "3 days, 2 nights",
+        "price": "IDR 2,280,000/person",
+        "provider": "Campa Tour",
+        "href": "https://campatour.com/tours/paket-tour-pulau-mursala-3-hari-2-malam-3h2m/"
+      }
+    ]
+  },
+  "cafes": {
+    "heading": "Nine places to slow down",
+    "description": "From an early coffee to a late-night gathering, this directory helps you choose a setting around Sibolga City.",
+    "hours": "Hours",
+    "price": "Price range",
+    "suitableFor": "Good for",
+    "disclaimer": "Hours, prices, menus, and contacts come from the field guide and public listings and may change. Confirm with the venue before visiting.",
+    "items": [
+      {
+        "name": "Aido Cafe",
+        "address": "Jl. Diponegoro No.1, Pancuran Gerobak; another branch on Jl. Ahmad Yani, Pasar Baru",
+        "hours": "10:30 AM–10:30 PM",
+        "price": "IDR 20,000–50,000",
+        "suitableFor": "Hanging out, working, studying, and families",
+        "contact": "0821 6387 8788",
+        "social": {
+          "label": "@aidocafe",
+          "href": "https://www.instagram.com/aidocafe/"
+        }
+      },
+      {
+        "name": "Coffee Haus",
+        "address": "Jl. Sutomo, Simare-mare, North Sibolga",
+        "hours": "10 AM–11 PM",
+        "price": "IDR 20,000–50,000",
+        "suitableFor": "Hanging out, working, studying, and families",
+        "social": {
+          "label": "@coffeehaus.sibolga",
+          "href": "https://www.instagram.com/coffeehaus.sibolga/"
+        }
+      },
+      {
+        "name": "Helai Teduh",
+        "address": "Jl. R. Suprapto No.58, Pasar Belakang",
+        "hours": "8 AM–11 PM",
+        "price": "IDR 20,000–50,000",
+        "suitableFor": "Hanging out, working, studying, and families",
+        "social": {
+          "label": "@helaiteduh",
+          "href": "https://www.instagram.com/helaiteduh/"
+        }
+      },
+      {
+        "name": "Lumiere Cafe",
+        "address": "Jl. Mesjid No.39, Pasar Baru",
+        "hours": "7 AM–11 PM",
+        "price": "IDR 20,000–50,000",
+        "suitableFor": "Hanging out, working, studying, and families",
+        "social": {
+          "label": "@lumiereecafe.id",
+          "href": "https://www.instagram.com/lumiereecafe.id/"
+        }
+      },
+      {
+        "name": "Peace Coffee",
+        "address": "Jl. Buchari Koto No.36, Kota Beringin",
+        "hours": "11 AM–midnight",
+        "price": "IDR 20,000–50,000",
+        "suitableFor": "Hanging out, working, studying, and families",
+        "contact": "0852 7011 2011"
+      },
+      {
+        "name": "Matahari Coffee and Resto",
+        "address": "Jl. Ahmad Yani No.129, Aek Manis",
+        "hours": "11:30 AM–midnight",
+        "price": "IDR 20,000–50,000",
+        "suitableFor": "Hanging out, working, studying, and families",
+        "contact": "0811 626 1106"
+      },
+      {
+        "name": "Kopi Sahuta",
+        "address": "Jl. Albertus No.21, Pasar Baru",
+        "hours": "8 AM–11 PM",
+        "price": "IDR 20,000–50,000",
+        "suitableFor": "Hanging out",
+        "contact": "0813 1992 9112"
+      },
+      {
+        "name": "Brotherscoffee.Co",
+        "address": "Jl. Imam Bonjol No.55, Pasar Baru",
+        "hours": "2 PM–midnight",
+        "price": "IDR 20,000–50,000",
+        "suitableFor": "Hanging out",
+        "contact": "0812 6545 5100"
+      },
+      {
+        "name": "Kedai Kopi Bahagia",
+        "address": "Jl. Imam Bonjol No.70, Pasar Baru",
+        "hours": "6 AM–midnight",
+        "price": "IDR 20,000–50,000",
+        "suitableFor": "Hanging out and families",
+        "contact": "0811 6250 458"
+      }
+    ]
+  },
+  "transport": {
+    "heading": "Getting around Sibolga without the guesswork",
+    "description": "Local options for short trips across the city. Availability and fares may vary by route and time of day.",
+    "coverage": "Coverage",
+    "payment": "Payment",
+    "items": [
+      {
+        "name": "Betor",
+        "coverage": "Across the city",
+        "payment": "Cash",
+        "note": "Agree on the fare with the driver before leaving."
+      },
+      {
+        "name": "Angkot",
+        "coverage": "City and surrounding areas",
+        "payment": "Cash",
+        "note": "Ask about the route and drop-off point before boarding."
+      },
+      {
+        "name": "Grab",
+        "coverage": "GrabBike and GrabCar",
+        "payment": "Cash or cashless",
+        "note": "Availability depends on nearby drivers."
+      },
+      {
+        "name": "Maxim",
+        "coverage": "Bike or Car",
+        "payment": "Cash or cashless",
+        "note": "Service types depend on availability."
+      }
+    ]
+  },
+  "contacts": {
+    "heading": "Save these before setting out",
+    "description": "Useful numbers checked against government or police sources. Use emergency services only when needed.",
+    "call": "Call",
+    "message": "Open WhatsApp",
+    "disclaimer": "Numbers may change. If a call does not connect, ask your accommodation or a local official for the latest contact.",
+    "items": [
+      {
+        "name": "Police emergency service",
+        "number": "110",
+        "href": "tel:110",
+        "action": "call",
+        "kind": "police"
+      },
+      {
+        "name": "Sibolga Police — WhatsApp",
+        "number": "0811 6520 041",
+        "href": "https://wa.me/628116520041",
+        "action": "message",
+        "kind": "police"
+      },
+      {
+        "name": "Dr. Ferdinand Lumban Tobing Regional Hospital",
+        "number": "0631 21020 / 21444 / 26118",
+        "href": "tel:+6263121020",
+        "action": "call",
+        "kind": "hospital"
+      },
+      {
+        "name": "Sibolga City Tourism Office",
+        "number": "0631 23132",
+        "href": "tel:+6263123132",
+        "action": "call",
+        "kind": "tourism"
       }
     ]
   },
@@ -127,7 +334,7 @@
       "mursalaWater": "Clear water view near Mursala Island",
       "travelBoat": "Travel boat",
       "mursalaIsland": "A view of Mursala Island",
-      "kedaiSunset": "The atmosphere at Kedai Sunset Sibolga",
+      "kedaiSunset": "The sunset view from Bukit Panomboman",
       "seafoodMalaya": "Seafood served at Seafood Malaya",
       "chilliCrackers": "Sibolga chilli crackers sold as souvenirs"
     }

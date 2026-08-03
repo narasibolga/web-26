@@ -231,6 +231,11 @@ function TourismDetailBody({
               <Row label={t("detail.contact")} value={item.visitInfo.contact} />
             )}
             <LocalizedRow
+              label={t("detail.priceRange")}
+              value={item.visitInfo.priceRange}
+              locale={locale}
+            />
+            <LocalizedRow
               label={t("detail.suitableFor")}
               value={item.visitInfo.suitableFor}
               locale={locale}

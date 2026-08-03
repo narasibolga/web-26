@@ -1,5 +1,6 @@
 import {
   BeachIcon,
+  CafeIcon,
   GiftIcon,
   Hotel01Icon,
   LandmarkIcon,
@@ -31,6 +32,7 @@ export type LocationCategory =
   | "sejarah-rekreasi"
   | "akomodasi"
   | "kuliner"
+  | "kafe"
   | "oleh-oleh";
 
 export const categoryColor: Record<LocationCategory, string> = {
@@ -40,6 +42,7 @@ export const categoryColor: Record<LocationCategory, string> = {
   "sejarah-rekreasi": "oklch(0.58 0.09 60)",
   akomodasi: "oklch(0.55 0.13 285)",
   kuliner: "oklch(0.62 0.16 35)",
+  kafe: "oklch(0.57 0.11 72)",
   "oleh-oleh": "oklch(0.66 0.12 85)",
 };
 
@@ -50,6 +53,7 @@ export const categoryIcon: Record<LocationCategory, IconSvgElement> = {
   "sejarah-rekreasi": LandmarkIcon,
   akomodasi: Hotel01Icon,
   kuliner: RestaurantIcon,
+  kafe: CafeIcon,
   "oleh-oleh": GiftIcon,
 };
 
@@ -60,6 +64,7 @@ export const categoryOrder: LocationCategory[] = [
   "sejarah-rekreasi",
   "akomodasi",
   "kuliner",
+  "kafe",
   "oleh-oleh",
 ];
 
@@ -73,6 +78,7 @@ export type VisitInformation = {
   checkIn?: LocalizedText;
   checkOut?: LocalizedText;
   contact?: string;
+  priceRange?: LocalizedText;
   suitableFor?: LocalizedText;
   menu?: LocalizedText;
   flavor?: LocalizedText;
@@ -1072,6 +1078,62 @@ export const locations: Location[] = [
         en: "Fresh products, varied choices, and attractive packaging",
         id: "Produk segar, pilihan beragam, dan kemasan menarik",
       },
+    },
+  },
+  // These pins use the coordinates exposed by their public Waze place pages.
+  {
+    id: "matahari-coffee-and-resto",
+    name: {
+      en: "Matahari Coffee and Resto",
+      id: "Matahari Coffee and Resto",
+    },
+    category: "kafe",
+    lat: 1.7368282,
+    lng: 98.7796908,
+    images: [],
+    address:
+      "Jl. Ahmad Yani No.129, Aek Manis, Sibolga Selatan, Kota Sibolga, Sumatra Utara",
+    description: {
+      en: "A casual coffee and dining stop in central Sibolga, suitable for an evening meal or a relaxed meet-up.",
+      id: "Tempat ngopi dan bersantap santai di pusat Sibolga, cocok untuk makan malam atau berkumpul bersama.",
+    },
+    visitInfo: {
+      openingHours: { en: "11:30 AM–midnight*", id: "11.30–00.00 WIB*" },
+      priceRange: {
+        en: "Around IDR 20,000–50,000 per person*",
+        id: "Sekitar Rp20.000–50.000 per orang*",
+      },
+      suitableFor: {
+        en: "Hanging out, working, studying, and families",
+        id: "Bersantai, bekerja, belajar, dan keluarga",
+      },
+      contact: "0811 626 1106",
+    },
+  },
+  {
+    id: "kedai-kopi-bahagia",
+    name: { en: "Kedai Kopi Bahagia", id: "Kedai Kopi Bahagia" },
+    category: "kafe",
+    lat: 1.7394966,
+    lng: 98.7785804,
+    images: [],
+    address:
+      "Jl. Imam Bonjol No.70, Pasar Baru, Sibolga Kota, Kota Sibolga, Sumatra Utara",
+    description: {
+      en: "A long-hours neighborhood coffee shop for an early cup, an unhurried conversation, or a late-night stop.",
+      id: "Kedai kopi dengan jam buka panjang untuk menikmati kopi pagi, mengobrol santai, atau singgah hingga malam.",
+    },
+    visitInfo: {
+      openingHours: { en: "6 AM–midnight*", id: "06.00–00.00 WIB*" },
+      priceRange: {
+        en: "Around IDR 20,000–50,000 per person*",
+        id: "Sekitar Rp20.000–50.000 per orang*",
+      },
+      suitableFor: {
+        en: "Hanging out and families",
+        id: "Bersantai dan keluarga",
+      },
+      contact: "0811 6250 458",
     },
   },
 ];
