@@ -3,7 +3,6 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Suspense } from "react";
 import { Container } from "@/components/layout/container";
 import {
   Breadcrumb,
@@ -13,11 +12,16 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { Skeleton } from "@/components/ui/skeleton";
+import {
+  Empty,
+  EmptyDescription,
+  EmptyHeader,
+  EmptyMedia,
+  EmptyTitle,
+} from "@/components/ui/empty";
 import { Link } from "@/i18n/navigation";
 import { buildLocalePageMetadata, localeStaticParams } from "@/lib/metadata";
-import { getAllPrograms } from "@/lib/programs";
-import { ProgramList, ProgramTagFilter } from "./(components)/program-list";
+import { ProgramsComingSoonIllustration } from "./(components)/programs-coming-soon-illustration";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -39,7 +43,6 @@ export default async function ProgramsPage({ params }: Props) {
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "programs" });
   const tNav = await getTranslations({ locale, namespace: "navbar" });
-  const programs = getAllPrograms();
 
   return (
     <main>
@@ -63,19 +66,6 @@ export default async function ProgramsPage({ params }: Props) {
           <h1 className="z-10 mt-auto mb-4 text-center font-serif text-5xl text-shadow-2xs text-white tracking-tighter">
             {t("hero.heading")}
           </h1>
-
-          <Suspense
-            fallback={
-              <div className="z-10 flex flex-wrap items-center justify-center gap-4">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  // biome-ignore lint/suspicious/noArrayIndexKey: static placeholder list
-                  <Skeleton key={i} className="h-6 w-16 rounded-full" />
-                ))}
-              </div>
-            }
-          >
-            <ProgramTagFilter />
-          </Suspense>
         </Container>
       </section>
 
@@ -99,24 +89,19 @@ export default async function ProgramsPage({ params }: Props) {
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
-          <Suspense
-            fallback={
-              <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                {Array.from({ length: 8 }).map((_, i) => (
-                  // biome-ignore lint/suspicious/noArrayIndexKey: static placeholder list
-                  <li key={i} className="border border-border">
-                    <Skeleton className="aspect-4/3 w-full rounded-none" />
-                    <div className="space-y-2 p-3">
-                      <Skeleton className="h-3 w-24" />
-                      <Skeleton className="h-6 w-full" />
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            }
-          >
-            <ProgramList programs={programs} />
-          </Suspense>
+          <div className="mx-auto min-h-[40vh] max-w-md rounded-xs">
+            <Empty>
+              <EmptyHeader>
+                <EmptyMedia>
+                  <ProgramsComingSoonIllustration />
+                </EmptyMedia>
+                <EmptyTitle>{t("comingSoon.title")}</EmptyTitle>
+                <EmptyDescription>
+                  {t("comingSoon.description")}
+                </EmptyDescription>
+              </EmptyHeader>
+            </Empty>
+          </div>
         </Container>
       </section>
     </main>
