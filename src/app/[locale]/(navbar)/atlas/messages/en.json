@@ -11,7 +11,7 @@
     "heading": "Mapping Angin Nauli",
     "subheading": "A cartographic collection by our team",
     "paragraphs": [
-      "This atlas brings together three thematic maps built from field surveys, satellite imagery, and geospatial analysis. Together, they offer a layered view of Angin Nauli's terrain, land cover, and living landscape.",
+      "This atlas brings together four thematic maps built from field surveys, satellite imagery, and geospatial analysis. Together, they offer a layered view of Angin Nauli's terrain, land cover, living landscape, and landslide risk.",
       "Browse the optimized previews for a quick overview, then open the original PDF when you need to inspect the full legend, coordinate grid, scale, or fine map details."
     ]
   },
@@ -38,6 +38,13 @@
       "title": "Flora Distribution",
       "description": "A field inventory plotting the observed distribution of eleven flora types, including pine, ketapang, coconut, cacao, breadfruit, waru, areca palm, rubber, mahogany, acacia, and teak across Angin Nauli.",
       "imageAlt": "Flora distribution map of Angin Nauli with field observations and species photographs",
+      "attribution": "KKN PPM UGM NaraSibolga 2026"
+    },
+    {
+      "eyebrow": "Map 04",
+      "title": "Landslide Points",
+      "description": "A field-survey map showing four documented landslide points across Angin Nauli, with photographs and locations over satellite imagery. It connects the mapped terrain to places where slope movement has been recorded.",
+      "imageAlt": "Landslide point distribution map of Angin Nauli with four field photographs",
       "attribution": "KKN PPM UGM NaraSibolga 2026"
     }
   ]

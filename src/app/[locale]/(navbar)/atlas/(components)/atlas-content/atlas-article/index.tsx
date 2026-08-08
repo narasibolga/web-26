@@ -37,6 +37,13 @@ const maps = [
     className: "bg-background text-foreground",
     buttonVariant: "outline-foreground" as const,
   },
+  {
+    index: 3,
+    image: "/images/atlas/landslide.webp",
+    pdf: "/maps/atlas/landslide-map.pdf",
+    className: "bg-secondary text-secondary-foreground",
+    buttonVariant: "tertiary" as const,
+  },
 ] as const;
 
 export async function AtlasArticle() {

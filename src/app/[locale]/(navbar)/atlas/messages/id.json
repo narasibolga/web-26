@@ -11,7 +11,7 @@
     "heading": "Memetakan Angin Nauli",
     "subheading": "Koleksi kartografi karya tim kami",
     "paragraphs": [
-      "Atlas ini menghimpun tiga peta tematik yang disusun melalui survei lapangan, citra satelit, dan analisis geospasial. Ketiganya menyajikan gambaran berlapis mengenai topografi, tutupan lahan, dan bentang hayati Angin Nauli.",
+      "Atlas ini menghimpun empat peta tematik yang disusun melalui survei lapangan, citra satelit, dan analisis geospasial. Keempatnya menyajikan gambaran berlapis mengenai topografi, tutupan lahan, bentang hayati, dan risiko longsor di Angin Nauli.",
       "Gunakan pratinjau yang telah dioptimalkan untuk melihat gambaran umum, lalu buka PDF asli untuk memeriksa legenda, grid koordinat, skala, dan detail peta secara lengkap."
     ]
   },
@@ -38,6 +38,13 @@
       "title": "Sebaran Jenis Flora",
       "description": "Inventarisasi lapangan yang memetakan sebaran jenis flora, termasuk pinus, ketapang, kelapa, cokelat, sukun, waru, pinang, karet, mahoni, akasia, dan jati di wilayah Angin Nauli.",
       "imageAlt": "Peta sebaran flora Angin Nauli dengan titik pengamatan lapangan dan foto jenis tanaman",
+      "attribution": "Tim kami · 2026"
+    },
+    {
+      "eyebrow": "Peta 04",
+      "title": "Sebaran Titik Longsor",
+      "description": "Peta hasil survei lapangan yang menunjukkan empat titik longsor terdokumentasi di Angin Nauli, lengkap dengan foto dan lokasinya di atas citra satelit. Peta ini menghubungkan topografi dengan lokasi terjadinya pergerakan lereng.",
+      "imageAlt": "Peta sebaran titik longsor Angin Nauli dengan empat foto lapangan",
       "attribution": "Tim kami · 2026"
     }
   ]
